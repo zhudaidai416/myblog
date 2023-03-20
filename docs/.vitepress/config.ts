@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress';
 export default defineConfig({
   base: '/myblog/',
   // 打包输出目录
-  outDir: '../dist',
+  // outDir: './dist',
 
   // 站点语言标题等
   lang: 'zh-CN',
