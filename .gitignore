@@ -1,6 +1,6 @@
 .DS_Store
 node_modules/
-/docs/.vitepress/dist/
+/dist/
 /docs/.vitepress/cache/
 /docs/.vitepress/.temp/
 

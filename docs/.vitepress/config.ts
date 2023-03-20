@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress';
 
 export default defineConfig({
+  base: '/myblog/',
   // 打包输出目录
   outDir: '../dist',
 

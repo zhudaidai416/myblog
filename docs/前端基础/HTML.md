@@ -398,10 +398,10 @@ ol（父级标签）>  li（子标签）
 
 ### 2）、视频
 
-<video src="./videos/时光代理人主题曲.mp4" autoplay="autoplay" width="300"></video>
+<video src="/videos/时光代理人主题曲.mp4" autoplay="autoplay" width="300"></video>
 
 ```html
-<video src="./videos/时光代理人主题曲.mp4" autoplay="autoplay" width="400"></video>
+<video src="/videos/时光代理人主题曲.mp4" autoplay="autoplay" width="400"></video>
 ```
 
 | 属性     | 值       | 描述                                                         |

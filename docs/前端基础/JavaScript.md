@@ -2503,7 +2503,7 @@ bus.emit('wanke', '加推两栋，只要999999')
 
 ### 1）、hash 模式
 
-http://localhost:3000/home#login
+`http://localhost:3000/home#login`
 
 该地址中的 # 之后的内容发生改变，是不会刷新页面的（hash值改变，不会向服务器发起请求）。
 
