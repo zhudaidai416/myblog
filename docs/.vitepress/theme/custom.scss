@@ -1,0 +1,42 @@
+:root {
+
+  // 主色调
+  --vp-c-brand: #66a9c9;
+
+  // hero-name 样式
+  --vp-home-hero-name-color: transparent;
+  // --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #97A672, #C7DB79);
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #a6c1ee, #fbc2eb);
+
+  // 按钮样式
+  --vp-button-brand-border: #93a5cf;
+  --vp-button-brand-text: var(--vp-c-white);
+  --vp-button-brand-bg: #a6c1ee;
+
+  --vp-button-brand-hover-border: #93a5cf;
+  --vp-button-brand-hover-text: #a6c1ee;
+  --vp-button-brand-hover-bg: var(--vp-c-white);
+
+  --vp-button-brand-active-border: #93a5cf;
+  --vp-button-brand-active-text: var(--vp-c-white);
+  --vp-button-brand-active-bg: #a6c1ee;
+
+}
+
+.message,
+.copyright {
+  color: #93a5cf !important;
+}
+
+// .VPImage:hover {
+//   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+//   // background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+//   transform: scale(105%);
+//   transition: all 0.7s;
+// }
+
+.VPFeature:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transform: scale(105%);
+  transition: all 0.7s;
+}

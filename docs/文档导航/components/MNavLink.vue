@@ -38,20 +38,23 @@ const svg = computed(() => {
 <style lang="scss" scoped>
 .m-nav-link {
   display: block;
-  border: 1px solid var(--vp-c-bg-soft);
+  border: 2px solid var(--vp-c-bg-soft);
   border-radius: 8px;
   height: 100%;
   cursor: pointer;
   transition: all 0.3s;
   &:hover {
-    background-color: var(--vp-c-bg-soft);
+    transform: scale(105%);
+    transition: all 0.5s;
+    border: 2px solid var(--vp-c-brand);
+    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.05), 0 3px 15px 0 rgba(0, 0, 0, 0.05);
   }
   .box {
     display: flex;
     flex-direction: column;
     padding: 16px;
     height: 100%;
-    color: var(--vp-c-text-1);
+    // color: var(--vp-c-text-1);
     &-header {
       display: flex;
       align-items: center;
