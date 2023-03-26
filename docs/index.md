@@ -52,6 +52,7 @@ features:
     title: 杂七杂八
     details: 面试题、实际踩坑...
     linkText: 前往查看
+    link: /杂七杂八/前端面试题.md
 
 ---
 

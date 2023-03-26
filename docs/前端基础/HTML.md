@@ -381,7 +381,7 @@ ol（父级标签）>  li（子标签）
 
 ### 1）、音频
 
- <audio src="./videos/宫野栞-入海（时光代理人版本）.mp3" controls autoplay muted></audio>
+ <audio src="/videos/宫野栞-入海（时光代理人版本）.mp3" controls></audio>
 
 ```html
 <audio src="./videos/宫野栞-入海（时光代理人版本）.mp3" controls autoplay muted></audio>
@@ -398,10 +398,10 @@ ol（父级标签）>  li（子标签）
 
 ### 2）、视频
 
-<video src="/videos/时光代理人主题曲.mp4" autoplay="autoplay" width="300"></video>
+<video src="/videos/时光代理人主题曲.mp4" width="300"></video>
 
 ```html
-<video src="/videos/时光代理人主题曲.mp4" autoplay="autoplay" width="400"></video>
+<video src="./videos/时光代理人主题曲.mp4" autoplay="autoplay" width="400"></video>
 ```
 
 | 属性     | 值       | 描述                                                         |
