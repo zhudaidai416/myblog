@@ -1,0 +1,1 @@
+import{_ as s,o as a,c as n,Q as l}from"./chunks/framework.d6bf9272.js";const F=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"小程序/uniapp.md","lastUpdated":1679930368000}'),e={name:"小程序/uniapp.md"},p=l("",6),o=[p];function t(r,c,i,d,y,u){return a(),n("div",null,o)}const A=s(e,[["render",t]]);export{F as __pageData,A as default};

@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.d6bf9272.js";const C=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"前端基础/闭包练习题.md","lastUpdated":1679930368000}'),p={name:"前端基础/闭包练习题.md"},o=l("",15),e=[o];function c(r,t,y,i,F,D){return n(),a("div",null,e)}const b=s(p,[["render",c]]);export{C as __pageData,b as default};
