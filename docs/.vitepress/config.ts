@@ -213,7 +213,7 @@ export default defineConfig({
     },
     algolia: {
       appId: 'DSSH4WPDOD',
-      apiKey: '31e6563f7dcc05fa3e3880a4323f7d94',
+      apiKey: '82b7ecc3f33330d9f0cf7a3cac41c266',
       indexName: 'zhudaidai416',
       placeholder: '请输入关键词',
       translations: {

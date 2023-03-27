@@ -165,7 +165,7 @@ console.log(add(10))
 </script>
 ```
 
-运行结果：![惰性载入1](/images/%25E6%2583%25B0%25E6%2580%25A7%25E8%25BD%25BD%25E5%2585%25A51.png)
+运行结果：![惰性载入1](/images/%E6%83%B0%E6%80%A7%E8%BD%BD%E5%85%A51.png)
 
 ```js
 // 问题：需要判断3次浏览器类型吗？
@@ -206,7 +206,7 @@ event.on(btn3, 'click', function() {
 });
 ```
 
-运行结果：![惰性载入2](/images/%25E6%2583%25B0%25E6%2580%25A7%25E8%25BD%25BD%25E5%2585%25A52.png)
+运行结果：![惰性载入2](/images/%E6%83%B0%E6%80%A7%E8%BD%BD%E5%85%A52.png)
 
 ## 编译原理（了解）
 
@@ -377,7 +377,7 @@ console.log(lives);
 // lives 是全局变量，那么就可以在任意地方、任意时间进行访问以及修改
 ```
 
-![闭包1](/images/%25E9%2597%25AD%25E5%258C%25851.png)
+![闭包1](/images/%E9%97%AD%E5%8C%851.png)
 
 ```js
 // 怎么解决，不允许外部去访问或者修改该数据
@@ -398,7 +398,7 @@ console.log(lives);
 console.log(getLives());  // 通过闭包提供的方法来访问变量
 ```
 
-![闭包2](/images/%25E9%2597%25AD%25E5%258C%25852.png)
+![闭包2](/images/%E9%97%AD%E5%8C%852.png)
 
 ```js
 // 方式二：将函数执行结果返回
@@ -478,7 +478,7 @@ JS 中最常用的垃圾回收机制就是`标记清除`。
   </script>
   ```
 
-  ![闭包3](/images/%25E9%2597%25AD%25E5%258C%25853.png)
+  ![闭包3](/images/%E9%97%AD%E5%8C%853.png)
 
 - 被遗忘的定时器
 
@@ -613,7 +613,7 @@ myQueue(task2).then((res) => console.log(res))
 myQueue(task3).then((res) => console.log(res))
 ```
 
-### 8、[闭包练习题](.\闭包练习题.md)
+### 8、闭包练习题
 
 ## 对象
 
@@ -777,7 +777,7 @@ console.log(obj1,obj2)  // 输出：{name: '呆呆', age: 12} {name: '呆呆', a
   console.log(obj1, obj2);  // 输出：{name: '朱朱', children: Array(2), age: 3} {name: '朱朱', children: Array(2)}
   ```
 
-  ![浅拷贝](/images/%25E6%25B5%2585%25E6%258B%25B7%25E8%25B4%259D.png)
+  ![浅拷贝](/images/%E6%B5%85%E6%8B%B7%E8%B4%9D.png)
 
 - 深拷贝：手写代码，递归遍历对象实现一个个属性的拷贝；技巧：JSON
 
@@ -807,7 +807,7 @@ console.log(obj1, obj2);
 // 输出：{name: '朱朱', city: undefined, address: null, children: Array(2), sayHi: ƒ, …} {name: '朱朱', address: null, children: Array(1)}
 ```
 
-![深拷贝](/images/%25E6%25B7%25B1%25E6%258B%25B7%25E8%25B4%259D.png)
+![深拷贝](/images/%E6%B7%B1%E6%8B%B7%E8%B4%9D.png)
 
 ## 原型（非常重要）
 
@@ -1007,7 +1007,7 @@ console.log('s1.sayHi === s2.sayHi:', s1.sayHi === s2.sayHi);  // true
 
 属性查找顺序︰`对象本身 -> 构造原型 -> 构造原型的原型 -> ... -> null`
 
-![原型链](/images/%25E5%258E%259F%25E5%259E%258B%25E9%2593%25BE.png)
+![原型链](/images/%E5%8E%9F%E5%9E%8B%E9%93%BE.png)
 
 ```js
 console.log(s1);
@@ -2190,7 +2190,7 @@ Object.defineProperty(vm, 'msg', {
 })
 ```
 
-运行结果：![单个属性劫持](/images/%25E5%258D%2595%25E4%25B8%25AA%25E5%25B1%259E%25E6%2580%25A7%25E5%258A%25AB%25E6%258C%2581.png)
+运行结果：![单个属性劫持](/images/%E5%8D%95%E4%B8%AA%E5%B1%9E%E6%80%A7%E5%8A%AB%E6%8C%81.png)
 
 ```js
 // 多个属性劫持
@@ -2226,7 +2226,7 @@ function defineReact() {
 defineReact();
 ```
 
-运行结果：![多个属性劫持](/images/%25E5%25A4%259A%25E4%25B8%25AA%25E5%25B1%259E%25E6%2580%25A7%25E5%258A%25AB%25E6%258C%2581.png)
+运行结果：![多个属性劫持](/images/%E5%A4%9A%E4%B8%AA%E5%B1%9E%E6%80%A7%E5%8A%AB%E6%8C%81.png)
 
 
 
