@@ -1,6 +1,6 @@
-# [Less 官方文档](https://less.bootcss.com/)
+## [Less 官方文档](https://less.bootcss.com/)
 
-# 安装
+## 安装
 
 ```bash
 # 通过 npm 安装

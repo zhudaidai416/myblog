@@ -1,6 +1,6 @@
-# [React 官方文档](https://react.docschina.org/)
+## [React 官方文档](https://react.docschina.org/)
 
-# 认识
+## 认识
 
 一个轻量级的库，只关注 MVC 中的 V（视图）。
 
@@ -17,7 +17,7 @@
   - gatsby —— 静态内容
   - reactxp —— PC客户端程序开发
 
-# 环境搭建
+## 环境搭建
 
 ```bash
 >> create react app（官方脚手架）
@@ -30,19 +30,19 @@
   npm create vite@latest 项目名 -- --template react
 ```
 
-# JSX 语法
+## JSX 语法
 
-## 1、概念
+### 1、概念
 
 React 允许我们在JS 中插入 HTML 代码，它被称为 JSX ，是属于一个 JS 语法的扩展。
 
-## 2、案例
+### 2、案例
 
 ```jsx
 const t = <h1>hello</h1>;
 ```
 
-## 3、JSX 语法规范
+3、JSX 语法规范
 
 - 可以直接将标签赋值给变量
 - 如果要在标签之间插入 JS 变量或者 JS 表达式，必须使用 `{}`
@@ -55,7 +55,7 @@ const t = <h1>hello</h1>;
 - 如果是 Object 则不能直接渲染
 - 如果是数组，那么会直接展开数组
 
-## 4、插入变量
+### 4、插入变量
 
 ```jsx
 const title = '您好';
@@ -64,7 +64,7 @@ const head = <header>{title}</header>;
 {head}
 ```
 
-## 5、调用函数
+### 5、调用函数
 
 ```jsx
 const sum = () => 3;
@@ -72,7 +72,7 @@ const sum = () => 3;
 {sum()}
 ```
 
-## 6、属性绑定
+### 6、属性绑定
 
 ```jsx
 const title = 'hello';
@@ -80,7 +80,7 @@ const title = 'hello';
 <h1 title={title}></h1>;
 ```
 
-## 7、style 绑定
+### 7、style 绑定
 
 ```jsx
 const style = {
@@ -91,14 +91,14 @@ const style = {
 <h1 style={style}></h1>;
 ```
 
-## 8、class 绑定
+### 8、class 绑定
 
 ```jsx
 <p className={n ? 'on' : ''}></p>
 <p className={['class1', 'class2', (n ? 'on' : '')].join(' ')}></p>
 ```
 
-## 9、条件渲染
+### 9、条件渲染
 
 ```jsx
 // if
@@ -119,7 +119,7 @@ flag ? <p>flag 为 true</p> : <p>flag 为 false</p>
 flag && <p>flag 为 true</p>
 ```
 
-## 10、列表渲染
+### 10、列表渲染
 
 ```jsx
 const data = ['aa', 'bb', 'cc', 'dd']
@@ -128,7 +128,7 @@ const newData = data.map((item, index) => <li key={index}>{item}</li>)
 {newData}
 ```
 
-# 组件化
+## 组件化
 
 组件允许将 UI 部分拆分为可独立使用的代码片段。
 
@@ -137,11 +137,11 @@ const newData = data.map((item, index) => <li key={index}>{item}</li>)
 - class 组件：使用 class 去创建组件，可以包含逻辑和状态。
 - 函数组件：以函数为组件，目前可以为函数组件添加状态，目前主流。
 
-# class 组件
+## class 组件
 
 每一个组件一个文件，该文件后缀可以是 `js` 也可以是 `jsx` 。
 
-## 1、组件定义
+### 1、组件定义
 
 ```jsx
 // 写法1：在 constructor 中添加的状态
@@ -172,7 +172,7 @@ class App extends React.Component {
 export default App;
 ```
 
-## 2、组件使用
+### 2、组件使用
 
 ```jsx
 import App from './App.js';
@@ -182,13 +182,13 @@ import App from './App.js';
 <App></App>
 ```
 
-## 3、class 组件的状态
+### 3、class 组件的状态
 
-### 1）、概念
+#### 1）、概念
 
 组件内部的响应式数据，只能在当前组件内部使用，可以被修改。
 
-### 2）、定义
+#### 2）、定义
 
 ```jsx
 class App extends React.Component {
@@ -206,15 +206,15 @@ class App extends React.Component {
 }
 ```
 
-### 3）、使用
+#### 3）、使用
 
 在组件中通过 `this.state` 的方式访问。
 
-## 4、修改 state
+### 4、修改 state
 
 只能调用 `setState` 方法去修改 state 。
 
-### 1）、语法
+#### 1）、语法
 
 ```jsx
 setState(updater[ , callback])
@@ -243,7 +243,7 @@ this.setState(() => {
 })
 ```
 
-### 2）、局部数据修改
+#### 2）、局部数据修改
 
 ```jsx
 // 写法1
@@ -259,7 +259,7 @@ this.setState({
 })
 ```
 
-### 3）、数组数据修改
+#### 3）、数组数据修改
 
 React 执行 diff 时是比较引用，直接修改源对象的值，引用值是不发生改变，React 无法检测到，就不会重新渲染，所以需要使用不可变对象（不直接改源对象，而是返回新对象）。
 
@@ -271,7 +271,7 @@ this.setState({
 })
 ```
 
-### 4）、 state 的更新是异步还是同步？
+#### 4）、 state 的更新是异步还是同步？
 
 ```jsx
 changeC = () => {
@@ -297,13 +297,13 @@ changeC = () => {
 }
 ```
 
-## 5、class 组件事件处理
+### 5、class 组件事件处理
 
 React 中所有的事件都是合成事件。
 
 与原生事件注册的方式不一样，以 `on` 开头，后面跟上事件名，事件名使用大驼峰写法，即 `onClick` 。
 
-### 1）、事件绑定
+#### 1）、事件绑定
 
 ```jsx
 // 写法1：需要在构造函数中绑定 this
@@ -346,7 +346,7 @@ class Counter extends React.Component {
 }
 ```
 
-### 2）、参数传递
+#### 2）、参数传递
 
 ```jsx
 // 方式1：在 render 中绑定 this
@@ -374,11 +374,11 @@ changeCount = (e) => {
 }
 ```
 
-## 6、props
+### 6、props
 
 父组件传递给子组件的数据，子组件不能修改该数据，在 class 组件中通过 this.props 的方式获取。
 
-### 1）、使用
+#### 1）、使用
 
 ```jsx
 // 子组件
@@ -394,7 +394,7 @@ export default class Welcome extends Component {
 <Welcome msg="Hi Props" />
 ```
 
-### 2）、[props 约束](https://zh-hans.reactjs.org/docs/typechecking-with-proptypes.html#default-prop-values)
+#### 2）、[props 约束](https://zh-hans.reactjs.org/docs/typechecking-with-proptypes.html#default-prop-values)
 
 ```jsx
 // 因为从 React 15.x 开始移除了 props 约束，所以需要安装第三方模块实现
@@ -417,7 +417,7 @@ Welcome.propTypes = {
 }
 ```
 
-## 7、class 组件生命周期
+### 7、class 组件生命周期
 
 * constructor：加载的时候调用一次，初始化 state
 
@@ -431,7 +431,7 @@ Welcome.propTypes = {
 
 * componentWillUnmount：组件卸载，需要清除计时器、事件绑定等
 
-# css 处理
+## css 处理
 
 ```jsx
 >> 切换 class
@@ -466,9 +466,9 @@ Welcome.propTypes = {
   npm i sass
 ```
 
-# 插槽
+## 插槽
 
-## 1、匿名插槽
+### 1、匿名插槽
 
 写在每个组件之间的内容都可以被 props.children 获取。
 
@@ -491,7 +491,7 @@ return (
 )
 ```
 
-## 2、具名插槽
+### 2、具名插槽
 
 ```jsx
 // 语法
@@ -507,7 +507,7 @@ props.title
 <div>{this.props.right}</div>
 ```
 
-## 3、作用域插槽
+### 3、作用域插槽
 
 允许给子组件传递自定义内容，同时父组件也能拿到子组件的数据。
 
@@ -535,9 +535,9 @@ const lis = data.map(item => {
 })
 ```
 
-# 表单数据绑定
+## 表单数据绑定
 
-## 1、受控组件
+### 1、受控组件
 
 表单组件中的数据是由 React 维护的。
 
@@ -555,15 +555,15 @@ onTodoTextChange = (e) => {
 <input value={ text } onChange={ this.onTodoTextChange } />
 ```
 
-## 2、非受控组件（不推荐）
+### 2、非受控组件（不推荐）
 
-# 组件通信
+## 组件通信
 
-## 1、props
+### 1、props
 
 父组件给子组件传递数据。
 
-## 2、子组件给父组件传递数据
+### 2、子组件给父组件传递数据
 
 ```jsx
 // 父组件 
@@ -574,7 +574,7 @@ callback = (id) => {}
 this.props.callback('传递给父组件数据')
 ```
 
-# ref
+## ref
 
 获取节点。
 
@@ -599,11 +599,11 @@ class ... {
 }
 ```
 
-# 函数组件
+## 函数组件
 
 最开始的函数组件是无状态组件（UI展示），React 16.7 版本后，新增加了一个叫 hooks 的函数，使得函数组件有了状态，有了生命周期。
 
-## 1、函数组件结构
+### 1、函数组件结构
 
 函数组件接受一个参数，该参数是父组件传递的 props ，组件内部必须返回 React 元素。
 
@@ -614,7 +614,7 @@ function 组件名(props) {
 }
 ```
 
-## 2、函数组件事件处理
+### 2、函数组件事件处理
 
 ```jsx
 function App(props) {
@@ -632,11 +632,11 @@ function App(props) {
 export default App;
 ```
 
-# hooks
+## hooks
 
 可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。
 
-## 1、useState
+### 1、useState
 
 该方法用于定义函数组件的 state 的。
 
@@ -698,7 +698,7 @@ const onChangeAge = () => {
 }
 ```
 
-## 2、useEffect
+### 2、useEffect
 
 该函数可以看作是函数组件的生命周期，包含 componentDidMount，componentDidUpdate 以及 componentWillUnmount，在 render 之后执行。
 
@@ -750,7 +750,7 @@ function App() {
   });
 ```
 
-## 3、useRef
+### 3、useRef
 
 与 createRef 类似，用于获取 dom 元素或者组件实例。
 
@@ -770,7 +770,7 @@ function App() {
 }
 ```
 
-# fragment
+## fragment
 
 默认情况下 react 的 render 只支持单标签渲染，如果想要渲染多标签，那么可以使用该组件，可以在不多增加标签嵌套的情况下，渲染节点。
 
@@ -789,7 +789,7 @@ function App() {
 </>
 ```
 
-# portal
+## portal
 
 期望渲染的节点能够脱离父组件范围，可以将节点放在任意我期望的位置。
 
@@ -802,17 +802,17 @@ ReactDOM.craetePortal(child, container)
 * container：希望将 child 放在什么位置，应该是一个 DOM 节点
 ```
 
-# 高阶组件
+## 高阶组件
 
-## 1、高阶函数
+### 1、高阶函数
 
 一个函数接受一个函数作为参数，然后返回一个函数。
 
-## 2、高阶组件（HOC）
+### 2、高阶组件（HOC）
 
 HOC 是 React 中组件复用的高级技巧，具体是指以组件为参数，然后返回新组件的函数。
 
-## 3、基本结构
+### 3、基本结构
 
 ```jsx
 const HOC = (Component) => {
@@ -821,9 +821,9 @@ const HOC = (Component) => {
 }
 ```
 
-## 4、应用场景
+### 4、应用场景
 
-### 1）、属性代理
+#### 1）、属性代理
 
 比如统一处理多个组件的 loading 效果。
 
@@ -865,9 +865,9 @@ const WithTable = (Component) => {
 }
 ```
 
-# 性能优化
+## 性能优化
 
-## 1、场景
+### 1、场景
 
 ```jsx
 >> 父子组件嵌套
@@ -886,7 +886,7 @@ const WithTable = (Component) => {
   子组件无论与父组件的状态是否有关，都会 render;
 ```
 
-## 2、优化手段
+### 2、优化手段
 
 ```jsx
 >> shouldComponentUpdate - 针对 class 组件，如果 props 和 state 都没有改变
@@ -905,7 +905,7 @@ const WithTable = (Component) => {
   React.PureComponent 和 React.Component用法差不多，唯一不同的是 PureComponent 会浅比较 props 和 state 是否相同，从而决定是否重新渲染组件。
 ```
 
-## 3、useMemo
+### 3、useMemo
 
 这个函数的返回值会被缓存，在组件第一次渲染的时候执行，以后会在依赖发生改变后再次执行。
 
@@ -918,7 +918,7 @@ useMemo(create, deps);
 * deps：依赖，是一个数组。
 ```
 
-## 4、memo
+### 4、memo
 
 和 PureComponent 类似，用于性能调优，函数组件和类组件都可以使用，区别是 memo 只能判断 props 而不能处理 state 的改变。
 
@@ -926,18 +926,18 @@ useMemo(create, deps);
 memo(组件)
 ```
 
-# [路由](https://reactrouter.com/en/main)
+## [路由](https://reactrouter.com/en/main)
 
-## 1、环境搭建
+### 1、环境搭建
 
 ```bash
 # 直接在现有的项目中添加路由
 npm install react-router-dom
 ```
 
-## 2、路由引入
+### 2、路由引入
 
-### 1）、BrowserRouter
+#### 1）、BrowserRouter
 
 history 模式路由，即路径中是带 `/`
 
@@ -952,7 +952,7 @@ ReactDOM.render(
 );
 ```
 
-### 2）、HashRouter
+#### 2）、HashRouter
 
 hash 路由，即路径中带 `#`
 
@@ -967,9 +967,9 @@ ReactDOM.render(
 );
 ```
 
-## 3、路由组件
+### 3、路由组件
 
-### 1）、Route
+#### 1）、Route
 
 用于匹配当前 url 要渲染的组件。
 
@@ -979,7 +979,7 @@ ReactDOM.render(
 * index：表示默认路由，设置该属性后，Route 不能有子组件
 ```
 
-### 2）、Routes
+#### 2）、Routes
 
 作为 Route 的上一级组件，可以优化路径匹配。
 
@@ -995,7 +995,7 @@ ReactDOM.render(
 </Routes>
 ```
 
-### 3）、Link
+#### 3）、Link
 
 用于链接跳转，最终会被渲染为 a 标签。
 
@@ -1006,7 +1006,7 @@ import { Link } from 'react-router-dom';、
 * to：链接的路径
 ```
 
-### 4）、路由嵌套
+#### 4）、路由嵌套
 
 ```jsx
 // 第一步
@@ -1023,7 +1023,7 @@ import { Outlet } from 'react-router-dom';
 </div>
 ```
 
-### 5）、useNavigate
+#### 5）、useNavigate
 
 用于返回一个类似 history 的对象，可用于编程式导航。
 
@@ -1042,7 +1042,7 @@ navigate(-1);
 navigate('/', {replace: true});
 ```
 
-### 6）、useSearchParams
+#### 6）、useSearchParams
 
 获取url的查询参数。
 
@@ -1053,7 +1053,7 @@ const [searchParams, setSearchParams] = useSearchParams()
 console.log('获取查询参数：', searchParams.get('id'));
 ```
 
-### 7）、useParams
+#### 7）、useParams
 
 获取动态参数。
 
@@ -1064,7 +1064,7 @@ const params = useParams();
 console.log('获取动态参数：', params);
 ```
 
-# [Ant Design](https://ant.design/index-cn)
+## [Ant Design](https://ant.design/index-cn)
 
 ```bash
 >> UI 安装
@@ -1113,13 +1113,11 @@ React.createElement(LaptopOutlined)
 => 生成: <LaptopOutlined />
 ```
 
-
-
-# context
+## context
 
 提供了一个无需为每层组件手动添加 props ，就能在组件树中进行数据传递的方法。
 
-## 1、class 组件 - [context](https://react.docschina.org/docs/context.html)
+### 1、class 组件 - [context](https://react.docschina.org/docs/context.html)
 
 ```jsx
 // 第一步、创建 context 对象，参数是一个默认值
@@ -1147,7 +1145,7 @@ const MyContext = React.createContext(defaultValue);
 </MyContext.Consumer>
 ```
 
-## 2、函数组件 - useContext
+### 2、函数组件 - useContext
 
 允许在函数组件中使用 context 对象，在 context 值发生改变时重新渲染。
 
@@ -1165,9 +1163,9 @@ function App() {
 }
 ```
 
-## 3、Provider 封装
+### 3、Provider 封装
 
-### 1）、class 组件 —— 封装
+#### 1）、class 组件 —— 封装
 
 ```jsx
 import React, { Component } from 'react';
@@ -1206,7 +1204,7 @@ root.render(
 );
 ```
 
-### 2）、函数组件 —— 封装
+#### 2）、函数组件 —— 封装
 
 ```jsx
 import React, { useState } from 'react';
@@ -1235,7 +1233,7 @@ root.render(
 );
 ```
 
-# useReducer
+## useReducer
 
 useReducer 是 useState 的替代方案，能够解决 useState 状态更新逻辑散落在 UI 中，不能独立复用，不方便测试。
 所以当处理比较复杂的数据时，更建议使用 useReducer。
@@ -1283,9 +1281,9 @@ function App() {
 
 :warning: 使用 context、useReducer，数据不能直接绑带表单里，数据是通过 `dispatch` 来修改，绑到表单则会直接修改，不合逻辑
 
-# [Redux](https://cn.redux.js.org/)
+## [Redux](https://cn.redux.js.org/)
 
-## 1、react 数据通信
+### 1、react 数据通信
 
 - props
 - 事件回调
@@ -1293,11 +1291,11 @@ function App() {
 - mobx（小型的状态管理工具）
 - redux
 
-## 2、redux 认识
+### 2、redux 认识
 
 redux 是 JS 的状态容器，可以使用一个叫 action 对象的事件来管理和更新应用的状态。不依赖任何的框架，可以在 JS 中独立使用。
 
-## 3、环境
+### 3、环境
 
 ```bash
 >> 新项目
@@ -1337,9 +1335,9 @@ const store = createStore(reducer);
 export default store;
 ```
 
-## 4、核心概念
+### 4、核心概念
 
-### 1）、store
+#### 1）、store
 
 store 是一个对象，用于存放整个应用的状态，且一个应用只能有一个 store 。
 
@@ -1351,13 +1349,13 @@ const store = createStore(reducer);
 export default store;
 ```
 
-### 2）、数据获取
+#### 2）、数据获取
 
 ```jsx
 store.getState();  // 返回应用当前的状态
 ```
 
-### 3）、reducer
+#### 3）、reducer
 
 是一个纯函数，会根据不同的 action 对象返回一个新的 state 。
 
@@ -1375,7 +1373,7 @@ function reducer (state = [], action) {
 - 不要执行有副作用的操作，比如 `API` ，`计时器`等等
 - 也不要调用非纯函数，如 `new Date()`
 
-### 4）、action
+#### 4）、action
 
 是一个对象，该对象必须拥有 type 属性，也可以设置其他属性。
 
@@ -1398,11 +1396,11 @@ const addAction = function(payload) {
 }
 ```
 
-### 5）、dispatch
+#### 5）、dispatch
 
 是一个函数，需要修改 state 的时候，调用该函数，然后传入 action ，此时 reducer 函数就会根据 `action.type` 来决定返回什么内容。
 
-### 6）、subscribe
+#### 6）、subscribe
 
 一旦 state 的值发生改变，就会自动运行该函数。
 
@@ -1412,7 +1410,7 @@ store.subscribe(() => {
 })
 ```
 
-### 7）、combineReducers
+#### 7）、combineReducers
 
 用于将多个 reducer 合并为一个 reducer 。
 
@@ -1427,9 +1425,9 @@ const mainReducer = combineReducers({
 store = createStore(mainReducer)
 ```
 
-## 5、异步处理
+### 5、异步处理
 
-### 1）、了解
+#### 1）、了解
 
 reducer 函数是一个纯函数，不允许在里面进行异步操作
 
@@ -1449,7 +1447,7 @@ const LoginAction = (payload) => ({
 dispatch(LoginAction({}))
 ```
 
-### 2）、redux-thunk
+#### 2）、redux-thunk
 
 因为在 reducer 中只能同步操作，那么要想异步处理 redux 就只能在组件中先进行异步操作，然后成功后再 dispatch。
 
@@ -1475,11 +1473,11 @@ import thunkMiddleware from 'redux-thunk';
 const store = createStore(mainReducer, applyMiddleware([thunkMiddleware])); 
 ```
 
-# react-redux
+## react-redux
 
 目前官方推荐的将 react 和 redux 进行绑定的库。
 
-## 1、Provider
+### 1、Provider
 
 该组件会作为整个应用的顶层组件，接受 store 属性，该属性应该使用store 来进行赋值。
 
@@ -1489,7 +1487,7 @@ const store = createStore(mainReducer, applyMiddleware([thunkMiddleware]));
 </Provider>
 ```
 
-## 2、useSelector
+### 2、useSelector
 
 用于组件中获取 store 的 hook 。
 
@@ -1503,7 +1501,7 @@ const App = () => {
 * selector：是一个函数，返回 state 中的某个值
 ```
 
-## 3、useDispatch
+### 3、useDispatch
 
 返回 dispatch 函数的引用。
 
@@ -1519,11 +1517,11 @@ const App =() => {
 }
 ```
 
-# redux 调试工具
+## redux 调试工具
 
 浏览器安装扩展 Redux DevTools
 
-```js
+```jsx
 代码中配置： 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -1533,23 +1531,23 @@ const store = createStore(mainReducer, composeEnhancers(
 ));
 ```
 
-# 搜索功能
+## 搜索功能
 
-## 1、实现逻辑
+### 1、实现逻辑
 
-### 1）、正常情况
+#### 1）、正常情况
 
 - 点击搜索按钮 ➡ 发送请求（有参数） ➡ 后端返回数据
 - 点击重置按钮 ➡ 发送请求（没有参数或者参数为空值） ➡ 后端返回数据
 
-### 2）、前端自己模拟本地 JSON 数据
+#### 2）、前端自己模拟本地 JSON 数据
 
 - 点击搜索按钮 ➡ 根据参数处理本地数据（数据只有一份，过滤的时候就会改造数据，无法还原的）
 - 怎么解决 ➡ 改造之前先拷贝一份数据（备份）
 
-# 动态路由
+## 动态路由
 
-## 1、创建 Icon 组件
+### 1、创建 Icon 组件
 
 ```jsx
 import * as Icon from "@ant-design/icons";
@@ -1563,7 +1561,7 @@ React.createElement(LaptopOutlined)
 => 生成: <LaptopOutlined />
 ```
 
-## 2、菜单改造
+### 2、菜单改造
 
 ```jsx
 // 路由的数据结构
@@ -1619,7 +1617,7 @@ function filterMenu(data) {
 }
 ```
 
-## 3、动态路由
+### 3、动态路由
 
 ```jsx
 import React, { useEffect } from "react";
@@ -1693,9 +1691,9 @@ const AsyncRouter = () => {
 export default React.memo(AsyncRouter);
 ```
 
-# [打印功能](https://www.npmjs.com/package/react-to-print)
+## [打印功能](https://www.npmjs.com/package/react-to-print)
 
-## 1、环境
+### 1、环境
 
 ```bash
 环境安装
@@ -1745,7 +1743,7 @@ const Example = () => {
 };
 ```
 
-# react 结合 ts
+## react 结合 ts
 
 1、创建ts 项目
 
@@ -1764,13 +1762,13 @@ const container:HTMLElement = document.getElementById("root")!;
 const root = createRoot(container);
 ```
 
-# 自定义 hooks
+## 自定义 hooks
 
-## 1、自定义 hooks
+### 1、自定义 hooks
 
 以 use 开头，自定义 hooks 可以调用 React hooks 。
 
-## 2、例子
+### 2、例子
 
 ```jsx
 // 场景1：管理界面 - 表格 - 会请求数据、分页、搜索
@@ -1809,15 +1807,15 @@ const { list, getList } = useList(axios())
 
 ```
 
-# 即时通讯
+## 即时通讯
 
-## 1、http 协议
+### 1、http 协议
 
 HTTP 协议有一个缺陷 - 通信只能由客户端发起，通信完成之后就会断开连接。
 
-## 2、解决手段
+### 2、解决手段
 
-### 1）、轮询(短轮询，长轮询)
+#### 1）、轮询(短轮询，长轮询)
 
 浏览器每隔一段时间就向服务器端发送请求，服务器端接收到请求后，无论是否有新的数据，都会直接进行响应。
 
@@ -1837,9 +1835,9 @@ setInterval(() => {
 }, 5000);
 ```
 
-### 2）、websocket
+#### 2）、websocket
 
-## 3、websocket 概念
+### 3、websocket 概念
 
 2011年成为标准，目前所有浏览器都已经支持。
 
@@ -1859,7 +1857,7 @@ websocket  默认使用请求协议为 `ws://` ，默认端口也是 `80` ，加
 - http 请求
 - 浏览器渲染（html，css，js）
 
-## 4、使用场景
+### 4、使用场景
 
 - 社交app
 - 直播
@@ -1868,24 +1866,24 @@ websocket  默认使用请求协议为 `ws://` ，默认端口也是 `80` ，加
 - 股价
 - 大屏数据
 
-## 5、实现
+### 5、实现
 
 - ws 模块
 - socket.io
 
-# ws
+## ws
 
 是 nodejs 下一个极简的 websocket 实现方案。
 
-## 1、模块安装 - 服务器端
+### 1、模块安装 - 服务器端
 
 ```bash
 npm i ws
 ```
 
-## 2、引入 - 服务器端
+### 2、引入 - 服务器端
 
-```js
+```jsx
 const { WebSocketServer } = require("ws");
 const wss = new WebSocketServer({
   port: 8080, // 端口号
@@ -1903,7 +1901,7 @@ wss.on('connection', (ws) => {
 });
 ```
 
-## 3、前端连接
+### 3、前端连接
 
 ```jsx
 let wsUrl = "ws://127.0.0.1:8080";

@@ -1,6 +1,6 @@
-# [HBuilderX 安装](https://www.dcloud.io/hbuilderx.html)
+## [HBuilderX 安装](https://www.dcloud.io/hbuilderx.html)
 
-# 条件编译
+## 条件编译
 
 以 `#ifdef` 或 `#ifndef` 加 **`%PLATFORM%`** 开头，以 `#endif` 结尾。
 
@@ -22,5 +22,5 @@ export function createApp() {
 // #endif
 ```
 
-# [目录结构](https://uniapp.dcloud.net.cn/tutorial/project.html)
+## [目录结构](https://uniapp.dcloud.net.cn/tutorial/project.html)
 

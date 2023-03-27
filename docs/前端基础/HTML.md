@@ -1,8 +1,8 @@
-# [w3school](https://www.w3school.com.cn/index.html)
+## [w3school](https://www.w3school.com.cn/index.html)
 
-# [MDN - HTML](https://developer.mozilla.org/zh-CN/docs/Learn/HTML)
+## [MDN - HTML](https://developer.mozilla.org/zh-CN/docs/Learn/HTML)
 
-# 网页的构成
+## 网页的构成
 
 网页由结构（html）、样式 （css）、行为（js）组成
 
@@ -23,13 +23,13 @@ W3C：国际万维网联盟，是一个组织，这个组织定义的标准叫�
 - .mp4：视频
 - .mp3：音频
 
-# HTML
+## HTML
 
 HTML，超文本标记语言， Hyper Text Markup Language（HTML）
 
 在代码中，是以 `<标签名称>` 的形式
 
-## 1、html 历史
+### 1、html 历史
 
 - html1
 
@@ -61,7 +61,7 @@ HTML，超文本标记语言， Hyper Text Markup Language（HTML）
 
 ​			4、标签顺序要一致
 
-## 2、html 文件的后缀名
+### 2、html 文件的后缀名
 
 - .html
 
@@ -73,7 +73,7 @@ HTML，超文本标记语言， Hyper Text Markup Language（HTML）
 
   将ssl技术嵌入进去，保障网页的安全性（选讲）
 
-## 3、如何开发网页
+### 3、如何开发网页
 
 方式1：先在指定的硬盘目录下，创建一个学习资源的目录，再把这个目录，拖拽到 vscode 桌面的图标上，就会自动打开 vscode 开发工具， 这样就有一个工程目录了。
 
@@ -102,9 +102,9 @@ HTML，超文本标记语言， Hyper Text Markup Language（HTML）
 
 4）、在操作系统的 `设置-应用-默认应用` 中，浏览器设置 chrome 为默认。
 
-# 文档结构标签
+## 文档结构标签
 
-## 1、DOCTYPE 
+### 1、DOCTYPE
 
 DOCTYPE，document type 的缩写。一个 `文档类型标记` 是一种标准通用标记语言的文档类型声明。
 
@@ -112,7 +112,7 @@ DOCTYPE，document type 的缩写。一个 `文档类型标记` 是一种标准�
  <!DOCTYPE html>：告诉浏览器，使用 html5 的标准来解析文档
 ```
 
-## 2、html
+### 2、html
 
 这是一个 `根标签` 。除了 DOCTYPE 以外，其它所有标签，都必须写在根中间。
 
@@ -124,17 +124,17 @@ DOCTYPE，document type 的缩写。一个 `文档类型标记` 是一种标准�
 * lang：html 标签的标签属性，lang 语言
 ```
 
-## 3、head
+### 3、head
 
 `网页头部标签` ，主要包含一些与网页渲染有关的内容，如网页标签，网页编码，网页的兼容性和响应式。
 
-## 4、meta
+### 4、meta
 
 `元标签` ，只能写在 `<head>` 标签中间，一般会在 `<title>` 标签之前写它。
 
 如：设置网页的编码： `<meta charset="utf-8" />` ：元标签，是一个单标签，没有闭合标签。
 
-## 5、title
+### 5、title
 
 `网页标题标签` ，写在 `<head>` 标签中，必须写 `<meta >` 之后，确保标题使用 utf-8 的标签来显示。
 
@@ -142,11 +142,11 @@ DOCTYPE，document type 的缩写。一个 `文档类型标记` 是一种标准�
 <title>这是一个标题标签</title>
 ```
 
-## 6、body
+### 6、body
 
 网页的 `主体标签` ，主要包含网页的结构和内容。
 
-## 7、标签分类
+### 7、标签分类
 
 - 单标签（非闭合标签）：就是在写标签时只有开始标签，没有结束标签。由于没有结束标签，所以只能在开始标签的 `>` 前，先打一 `空格` ，再打 `/` ，表示闭合标签。
 - 双标签（闭合标签）：在写标签时要写开始标签，同时还必须要写结束标签。结束标签中，在标签名前，加 `/` ，表示闭合标签。
@@ -155,7 +155,7 @@ DOCTYPE，document type 的缩写。一个 `文档类型标记` 是一种标准�
 > 把一个标签，写在另一个标签的开始标签与结束标签之间，称为 `嵌套写法` 。
 > 把一个标签，写在一个标签之前，或者之后，称为 `并列写法` 。
 
-## 8、标签属性
+### 8、标签属性
 
 每个标签都有公共的和私有的标签属性。
 
@@ -194,11 +194,11 @@ DOCTYPE，document type 的缩写。一个 `文档类型标记` 是一种标准�
 > ```
 >
 
-# 基本标签
+## 基本标签
 
 最早的布局是使用表格 table 来布局，现在流行布局是 div+css 布局。
 
-## 1、div 与 span
+### 1、div 与 span
 
 - div 标签是块标签、双标签。
 
@@ -207,7 +207,7 @@ DOCTYPE，document type 的缩写。一个 `文档类型标记` 是一种标准�
 
 作用： div 用于 `布局` ，对应线框图中，每一个大框框。span 主要用于 `包裹文本内容` ，对应 axure 中的文本标签。
 
-## 2、p
+### 2、p
 
 块标签、 段落标签，语义化的标签，在使用它时，网页中的内容表示一个文章的段落。
 
@@ -215,13 +215,13 @@ DOCTYPE，document type 的缩写。一个 `文档类型标记` 是一种标准�
 >
 > 当网页上要显示一段文本时，可以使用 p 标签。
 
-## 3、标题标签
+### 3、标题标签
 
 h1~h6：用来显示文章的标题，或者强调标题栏的内容。如页面加粗显示，强调内容的单独一行的文本，一般是标题。根据字号大小，来选择使用哪一个标题标签。
 
 :notebook_with_decorative_cover: 特征： 加粗，数字越大，字号越大， `独占一行` 显示，上下都有外边距。
 
-## 4、特殊字符
+### 4、特殊字符
 
 | 符号       | 写法    |
 | ---------- | ------- |
@@ -235,9 +235,9 @@ h1~h6：用来显示文章的标题，或者强调标题栏的内容。如页面
 | × 乘号     | &times  |
 | ÷ 除号     | &divide |
 
-## 5、列表标签
+### 5、列表标签
 
-### 1）、有序列表
+#### 1）、有序列表
 
 ol（父级标签）>  li（子标签）
 
@@ -255,7 +255,7 @@ ol（父级标签）>  li（子标签）
   I、i：大、小写的罗马数字
 ```
 
-### 2）、无序列表
+#### 2）、无序列表
 
 ```html
 <ul type="disc">
@@ -272,7 +272,7 @@ ol（父级标签）>  li（子标签）
 页面上要显示新闻列表、导航、辅助导航时，都可以使用列表标签（有序、无序）
 ```
 
-### 3）、自定义列表（无列表项目符号）
+#### 3）、自定义列表（无列表项目符号）
 
 ```html
 <dl> 
@@ -295,7 +295,7 @@ ol（父级标签）>  li（子标签）
 
 ![自定义列表标签](/images/自定义列表标签.png)
 
-## 6、超链接标签
+### 6、超链接标签
 
 ```html
 <a href="https://www.baidu.com" target="">链接文字</a>
@@ -309,7 +309,7 @@ ol（父级标签）>  li（子标签）
 * name：在指定name的窗口中显示网页
 ```
 
-## 7、水平分割线与换行标签
+### 7、水平分割线与换行标签
 
 ```html
 <hr />：水平分割线
@@ -317,7 +317,7 @@ ol（父级标签）>  li（子标签）
 <br />：换行标签，都是一个单标签
 ```
 
-## 8、字体标签
+### 8、字体标签
 
 ```html
 <font face="宋体" color="#83cbac" size="7">字体</font>
@@ -327,7 +327,7 @@ ol（父级标签）>  li（子标签）
 * size：设置字号，1-7，7最大
 ```
 
-## 9、图片标签
+### 9、图片标签
 
 ```html
 <img src="" alt="" title="" width="" height="">
@@ -341,7 +341,7 @@ ol（父级标签）>  li（子标签）
 
 > :warning: 注：当你要修改图片， width 和 height 中，只需要写一个属性就可以了。图片会自动根据大小比例进行调整，缩放大小。
 
-## 10、[文本格式化标签](https://www.w3school.com.cn/html/html_formatting.asp)
+### 10、[文本格式化标签](https://www.w3school.com.cn/html/html_formatting.asp)
 
 | 标签       | 作用               |
 | ---------- | ------------------ |
@@ -377,9 +377,9 @@ ol（父级标签）>  li（子标签）
 
 ![文本格式化标签](/images/文本格式化标签.png)
 
-## 11、音频和视频标签（HTML5 新增）
+### 11、音频和视频标签（HTML5 新增）
 
-### 1）、音频
+#### 1）、音频
 
  <audio src="/videos/宫野栞-入海（时光代理人版本）.mp3" controls></audio>
 
@@ -396,7 +396,7 @@ ol（父级标签）>  li（子标签）
 | src      | url      | 要播放的视频的 url                                           |
 | muted    | muted    | 静音                                                         |
 
-### 2）、视频
+#### 2）、视频
 
 <video src="/videos/时光代理人主题曲.mp4" width="300"></video>
 
@@ -415,7 +415,7 @@ ol（父级标签）>  li（子标签）
 | width    | pixels   | 视频播放器的宽度                                             |
 | height   | pixels   | 视频播放器的高度                                             |
 
-## 12、内联框架
+### 12、内联框架
 
 ```html
 <iframe name="myWindow" src="default.html" frameborder="1" width="500" height="500"</iframe>
@@ -453,7 +453,7 @@ iframe 是一个内联标签
 
 ![内联框架](/images/内联框架.png)
 
-# 锚点
+## 锚点
 
 把页面滚动到锚点所在位置，让锚点移动到浏览器的顶部或者是底部。
 
@@ -491,25 +491,25 @@ iframe 是一个内联标签
 
 ![锚点](/images/锚点.png)
 
-# 块元素与内联元素
+## 块元素与内联元素
 
-## 1、块级标签
+### 1、块级标签
 
 - 每一个块标签，在浏览器中，都是 `另起一行，单独显示` ，并且 `独占一行`
 - 可以用来布局页面
 - 可以嵌套块元素，也可以嵌套内联元素
 - 块级标签有 header，footer，section，nav，ul，ol，li，div，h1~h6，p...
 
-## 2、内联标签
+### 2、内联标签
 
 - 多个内联标签，都依次在 `同一行显示` ，如果内容超过一行的长度，自动折行
 - 不可以用来布局页面
 - 只能嵌套内联元素，不能嵌套块元素
 - 内联标签有 a，img，input，button，span...
 
-# 路径
+## 路径
 
-## 1、相对路径
+### 1、相对路径
 
 根据文件自己当前的位置，去寻找目标文件。
 
@@ -517,23 +517,23 @@ iframe 是一个内联标签
 - `..`：表示返回上一级目录或者文件夹
 - `/`：路径与路径之间的分隔符号
 
-## 2、绝对路径
+### 2、绝对路径
 
 以硬盘的盘符开始，网站项目中不可使用。
 
 > 如：C:\Users\daidai\Pictures\一二布布\1.jpg
 >
 
-## 3、根路径
+### 3、根路径
 
 从项目服务器所在的根路径开始，去寻找目标文件。
 
 > 如：/root/www/images/1.jpg
 >
 
-# table
+## table
 
-## 1、表格的基本结构
+### 1、表格的基本结构
 
 ```html
 <table>
@@ -583,7 +583,7 @@ iframe 是一个内联标签
 
 表格的嵌套组件标签，越是内容的标签， align 级别越高。
 
-## 2、table
+### 2、table
 
 | 属性        | 值                             | 描述                                                       |
 | ----------- | ------------------------------ | ---------------------------------------------------------- |
@@ -594,7 +594,7 @@ iframe 是一个内联标签
 | cellspacing | px、%                          | 单元格之间的空白                                           |
 | width       | px、%                          | 表格的宽度                                                 |
 
-## 3、tr
+### 3、tr
 
 | 属性    | 值                                 | 描述                                             |
 | ------- | ---------------------------------- | ------------------------------------------------ |
@@ -602,7 +602,7 @@ iframe 是一个内联标签
 | bgcolor | rgb(x,x,x)、#xxxxxx、colorname     | 表格行的背景颜色（不赞成使用，请使用样式代替。） |
 | valign  | top、middle、bottom、baseline      | 表格行中内容的垂直对齐方式                       |
 
-## 4、td
+### 4、td
 
 | 属性    | 值                                 | 描述                                             |
 | ------- | ---------------------------------- | ------------------------------------------------ |
@@ -614,7 +614,7 @@ iframe 是一个内联标签
 | height  | px、%                              | 表格单元格的高度（不赞成使用，请使用样式代替。） |
 | valign  | top、middle、bottom、baseline      | 单元格内容的垂直排列方式                         |
 
-## 5、caption
+### 5、caption
 
 ```html
 <table border="1" width="50%">
@@ -631,7 +631,7 @@ iframe 是一个内联标签
 
 ![带有caption的表格](/images/带有caption的表格.png)
 
-## 6、th
+### 6、th
 
 表格的表头使用 th 标签进行定义。浏览器会把表头显示为粗体居中的文本。
 
@@ -654,7 +654,7 @@ iframe 是一个内联标签
 
 ![带有th的表格](/images/带有th的表格.png)
 
-## 7、表格单元格合并
+### 7、表格单元格合并
 
 - rowspan：**从上向下**跨行合并单元格。所以标签属性要写在第1行的列上。
 - colspan：**从左向右**跨列合并单元格。要写要第1列上。
@@ -685,7 +685,7 @@ iframe 是一个内联标签
 
 ![表格合并](/images/表格合并.png)
 
-# form
+## form
 
 ```html
 <!-- 所有的表单项，都应该由form包裹。-->
@@ -713,7 +713,7 @@ html5新增属性
 - get：提交的信息会显示在 url 上，不安全，并且 url 会有长度限制
 - post：不会显示在 url 上，相比 get 安全一点，支持更多类型的编码格式且不对数据类型做限制
 
-# input
+## input
 
 ```html
 <input >
@@ -731,19 +731,19 @@ html5新增属性
 * autofoucs：自动获取光标
 ```
 
-## 1、单行文本输入框 text
+### 1、单行文本输入框 text
 
 ```html
 <input type="text">
 ```
 
-## 2、密码输入框 password
+### 2、密码输入框 password
 
 ```html
 <input type="password">
 ```
 
-## 3、提交按钮 submit
+### 3、提交按钮 submit
 
 ```html
 <input type="submit" value="登录">
@@ -751,13 +751,13 @@ html5新增属性
 * value：显示按钮的名称
 ```
 
-## 4、重置按钮 reset
+### 4、重置按钮 reset
 
 ```html
 <input type="reset" value="重置">
 ```
 
-## 5、单选 radio
+### 5、单选 radio
 
 ```html
 <input type="radio" name="sex" value="男" checked="checked">
@@ -785,7 +785,7 @@ html5新增属性
 <label for="usex2">女</label>
 ```
 
-## 6、多选 checkbox
+### 6、多选 checkbox
 
 ```html
 <label>
@@ -802,7 +802,7 @@ html5新增属性
 </label>
 ```
 
-## 7、文件上传 file
+### 7、文件上传 file
 
 ```html
 <input type="file" name="photo">
@@ -817,7 +817,7 @@ html5新增属性
 > 凡是有文件上传，项目中都使用 `multipart/form-data` 编码，formData 对象来传文件和表单的数据。
 >
 
-## 8、图片按钮 image
+### 8、图片按钮 image
 
 图片按钮的作用是与 `type="submit"` 功能一致，都会提交表单。
 
@@ -827,7 +827,7 @@ html5新增属性
 * src：表示引用图片的路径和文件名
 ```
 
-## 9、隐藏表单域 hidden
+### 9、隐藏表单域 hidden
 
 网页上是不能看到这个内容的，但是提交表单数据时，会接收到这个域的数据。一般可以用来隐藏的传数据到后台。
 
@@ -835,7 +835,7 @@ html5新增属性
 <input type="hidden" name="sourceSite" value="1">
 ```
 
-## 10、HTML5中增加的 type 属性
+### 10、HTML5中增加的 type 属性
 
 - 颜色
 
@@ -915,7 +915,7 @@ url：用于编辑 URL 的字段
 * required：验证输入字符串是否是一个url
 ```
 
-# select
+## select
 
 ```html
 <select name="edu" id="edu" multiple="multiple">
@@ -935,7 +935,7 @@ url：用于编辑 URL 的字段
 
 ![select标签](/images/select标签.png)
 
-# textarea
+## textarea
 
 ```html
 <textarea name="info" id="info" cols="30" rows="10"></textarea>
@@ -948,7 +948,7 @@ url：用于编辑 URL 的字段
 
 ![textarea标签](/images/textarea标签.png)
 
-# button
+## button
 
 ```html
 <button type="submit">提交</button>
@@ -962,7 +962,7 @@ url：用于编辑 URL 的字段
 <input type="button" value="普通按钮">
 ```
 
-# 表单与表格嵌套应用
+## 表单与表格嵌套应用
 
 ```html
 <form>
@@ -979,13 +979,13 @@ url：用于编辑 URL 的字段
 </form>
 ```
 
-# 特殊的标签属性
+## 特殊的标签属性
 
 - `readonly="readonly"` ：只读，不可以写入或者修改数据
 - `disabled="disabled"` ：禁用属性
 - `required="required"` ：表示必填，不能为空值
 
-# legend 和 fieldset
+## legend 和 fieldset
 
 ```html
 <fieldset>
@@ -1001,7 +1001,7 @@ url：用于编辑 URL 的字段
 
 ![fieldset标签](/images/fieldset标签.png)
 
-# HTML5  新增标签
+## HTML5  新增标签
 
 每个 HTML5 新增加的标签，都是块标签。
 
@@ -1018,7 +1018,7 @@ url：用于编辑 URL 的字段
 
 > :warning: 注：header 标签不能被放在 footer 、address 或者另一个 header 元素内部
 
-## 1、figure
+### 1、figure
 
 figure 标签规定独立的流内容（图像、图表、照片、代码等等）。元素的内容应该与主内容相关，同时元素的位置相对于主内容是独立的。如果被删除，则不应对文档流产生影响。
 
@@ -1029,7 +1029,7 @@ figure 标签规定独立的流内容（图像、图表、照片、代码等等�
 </figure>
 ```
 
-## 2、hgroup
+### 2、hgroup
 
 表示文档部分的多级标题，用于对网页或区段（section）的标题进行组合。网页在界面上没有区别，增强了语义化的理解。
 
@@ -1040,7 +1040,7 @@ figure 标签规定独立的流内容（图像、图表、照片、代码等等�
 </hgroup>
 ```
 
-## 3、datalist
+### 3、datalist
 
 配合 input 标签使用，用来表示可选的列表，可用于搜索功能。
 
@@ -1057,7 +1057,7 @@ figure 标签规定独立的流内容（图像、图表、照片、代码等等�
 
 ![datalist标签](/images/datalist标签.png)
 
-## 4、blockquote
+### 4、blockquote
 
 blockquote 标签定义摘自另一个源的块引用。浏览器通常会对 blockquote 元素进行缩进。
 

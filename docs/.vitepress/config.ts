@@ -102,8 +102,15 @@ export default defineConfig({
           text: 'JavaScript',
           collapsed: true,
           items: [
-            { text: 'JavaScript', link: '/前端基础/JavaScript.md' },
-            { text: '闭包', link: '/其它/闭包练习题.md' },
+            { text: 'JS基础', link: '/前端基础/JS基础.md' },
+            { text: 'JS高级', link: '/前端基础/JS高级.md' },
+            { text: '闭包练习题', link: '/前端基础/闭包练习题.md' },
+          ]
+        },
+        {
+          text: 'TypeScript',
+          collapsed: true,
+          items: [
             { text: 'TypeScript', link: '/前端基础/TypeScript.md' },
           ]
         },
@@ -137,10 +144,22 @@ export default defineConfig({
           items: [
             { text: 'NodeJs', link: '/其它/NodeJs.md' },
             { text: 'sql语句', link: '/其它/sql语句.md' },
+            { text: 'canvas', link: '/其它/canvas.md' },
+          ]
+        },
+        {
+          text: 'CSS预编译语言',
+          collapsed: true,
+          items: [
             { text: 'Sass', link: '/其它/Sass.md' },
             { text: 'Less', link: '/其它/Less.md' },
+          ]
+        },
+        {
+          text: 'Git',
+          collapsed: true,
+          items: [
             { text: 'Git', link: '/其它/Git.md' },
-            { text: 'canvas', link: '/其它/canvas.md' },
           ]
         }
       ],
@@ -150,13 +169,14 @@ export default defineConfig({
           collapsed: true,
           items: [
             { text: '前端面试题', link: '/杂七杂八/前端面试题.md' },
+            { text: '手写代码', link: '/杂七杂八/手写代码.md' },
           ]
         },
         {
           text: '实际踩坑',
           collapsed: true,
           items: [
-            { text: '123', link: '/杂七杂八/前端面试题.md' },
+            { text: '未更新', link: '/杂七杂八/前端面试题.md' },
           ]
         }
       ],
@@ -172,7 +192,7 @@ export default defineConfig({
 
     // 右侧大纲配置
     outline: {
-      level:  [1,6],
+      level: 'deep',
       label: '本页目录'
     },
 
@@ -192,58 +212,21 @@ export default defineConfig({
       text: '在 GitHub 上编辑'
     },
     algolia: {
-      appId: 'G8YT6Q2POC',
-      apiKey: '9ecd5e638c244f2d4eee7222d07cdc24',
-      indexName: 'myblog',
-      locales: {
-        zh: {
-          placeholder: '搜索文档',
-          translations: {
-            button: {
-              buttonText: '搜索文档',
-              buttonAriaLabel: '搜索文档'
-            },
-            modal: {
-              searchBox: {
-                resetButtonTitle: '清除查询条件',
-                resetButtonAriaLabel: '清除查询条件',
-                cancelButtonText: '取消',
-                cancelButtonAriaLabel: '取消'
-              },
-              startScreen: {
-                recentSearchesTitle: '搜索历史',
-                noRecentSearchesText: '没有搜索历史',
-                saveRecentSearchButtonTitle: '保存至搜索历史',
-                removeRecentSearchButtonTitle: '从搜索历史中移除',
-                favoriteSearchesTitle: '收藏',
-                removeFavoriteSearchButtonTitle: '从收藏中移除'
-              },
-              errorScreen: {
-                titleText: '无法获取结果',
-                helpText: '你可能需要检查你的网络连接'
-              },
-              footer: {
-                selectText: '选择',
-                navigateText: '切换',
-                closeText: '关闭',
-                searchByText: '搜索提供者'
-              },
-              noResultsScreen: {
-                noResultsText: '无法找到相关结果',
-                suggestedQueryText: '你可以尝试查询',
-                reportMissingResultsText: '你认为该查询应该有结果？',
-                reportMissingResultsLinkText: '点击反馈'
-              }
-            }
-          }
-        }
-      }
+      appId: 'DSSH4WPDOD',
+      apiKey: '31e6563f7dcc05fa3e3880a4323f7d94',
+      indexName: 'zhudaidai416',
+      placeholder: '请输入关键词',
+      translations: {
+        button: {
+          buttonText: '搜索文档',
+        },
+      },
     },
 
-    // 上下篇文本提示文字
+    // 上下页文本提示文字
     docFooter: {
-      prev: '上一篇',
-      next: '下一篇'
+      prev: '上一页',
+      next: '下一页'
     }
   }
 })

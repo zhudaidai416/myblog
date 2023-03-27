@@ -1,10 +1,10 @@
-# 浏览器&服务器
+## 浏览器&服务器
 
-## 1、前端（浏览器）
+### 1、前端（浏览器）
 
 在本机开发网站，只能在本机预览，其他人看不到的。
 
-## 2、后端（服务器）
+### 2、后端（服务器）
 
 浏览器如何访问服务器资源
 
@@ -17,7 +17,7 @@
 > 		1、直接在浏览器地址栏输入地址访问
 > 		2、通过 Ajax 的 GET 进行请求
 
-# 请求响应流程
+## 请求响应流程
 
 1、前端发送请求
 
@@ -33,7 +33,7 @@
 
 7、拿到后响应给前端的数据，根据业务逻辑，渲染页面
 
-# 前期准备工作
+## 前期准备工作
 
 1、相关命令
 
@@ -68,7 +68,7 @@ npm -v
 
 3、新建好服务器的文件
 
-```javascript
+```js
 项目根目录
 ├─ 服务器主文件	  // app.js
 ├─ 路由			 // router
@@ -89,11 +89,11 @@ npm -v
 
 1）、安装nrm包，用来修改npm源
 
-```javascript
+```bash
 npm install
 ```
 
-```javascript
+```bash
 npm install nrm -g
 ```
 
@@ -101,7 +101,7 @@ npm install nrm -g
 
 2）、测试所有的镜像源的网络延迟
 
-```javascript
+```bash
 nrm text
 
 /*	运行结果
@@ -116,13 +116,13 @@ nrm text
 
 3）、将镜像源修改为淘宝
 
-```javascript
+```bash
 nrm use taobao
 ```
 
-# 初始化项目
+## 初始化项目
 
-```javascript
+```bash
 // 命令初始化
 npm init
 
@@ -137,11 +137,11 @@ npm init
 */
 ```
 
-# 下载express框架
+## 下载express框架
 
 通过express框架搭建服务器，至此，项目基础搭建完毕
 
-```javascript
+```bash
 npm install express@4 -s
 
 /*	目录结构
@@ -160,9 +160,9 @@ npm install express@4 -s
 >
 > -s：局部安装
 
-# 编写服务器主文件代码
+## 编写服务器主文件代码
 
-```javascript
+```js
 // 引入express @require：node环境中封装的外部引入文件的方法
 const express = require('express')
 // 引入日志模块
@@ -183,9 +183,9 @@ app.listen(8888,function(){
 })
 ```
 
-# 运行服务器
+## 运行服务器
 
-```javascript
+```js
 // 启动服务器，终端上运行 @ctrl+c：终止服务器，pgUp：恢复上条命令，ctrl+l：清空命令
 node app.js
 
@@ -201,9 +201,9 @@ ip地址:端口号/默认打开src中的index.html文件
 
 通过get方法请求，200：状态码
 
-# 添加小图标
+## 添加小图标
 
-```javascript
+```js
 // 下载小图标模块：npm install serce-favicon -s
 
 // 在app.js的开头一定要引用serve-favicon
@@ -214,11 +214,11 @@ const favicon = require('serve-favicon')
 app.use(favicon(__dirname+'/src/images/ba3.jpg'))
 ```
 
-# 路由配置
+## 路由配置
 
-## root/router/index_router.js
+### root/router/index_router.js
 
-```javascript
+```js
 const express = require('express')
 // 引入路由
 const rooter = express.Router()
@@ -240,9 +240,9 @@ module.exports = router
 */
 ```
 
-## root/app.js
+### root/app.js
 
-```javascript
+```js
 // 引入路由文件 @自定义的index_router.js
 const myRooter = require('./router/index_router')
 
@@ -251,11 +251,11 @@ app.use(myRooter)
 // app.use(express.static(__dirname + '/src'))
 ```
 
-# 控制器
+## 控制器
 
-## root/controller/stuCtrl.js
+### root/controller/stuCtrl.js
 
-```javascript
+```js
 // 引入数据库配置文件
 const db = require('../config/dbConfig')
 
@@ -276,9 +276,9 @@ const stuCtrl = {
 }
 ```
 
-## root/config/dbConfig.js（封装调用数据库方法）
+### root/config/dbConfig.js（封装调用数据库方法）
 
-```javascript
+```js
 // 安装mysql数据库模块：npm install mysql -s 
 // 引入数据库模块
 const mysql = require('mysql')
@@ -303,7 +303,7 @@ module.exports = {
 }
 ```
 
-# 父子路由
+## 父子路由
 
 接口过多时，可以将路由进行细化
 
@@ -313,9 +313,9 @@ module.exports = {
 
 但是只需要引入一个主路由即可
 
-## 主路由 parent_router.js
+### 主路由 parent_router.js
 
-```javascript
+```js
 const express = require('express')
 const rooter = express.Router()
 
@@ -326,9 +326,9 @@ router.use('/user',require('./child_router'))
 module.exports = router
 ```
 
-## 子路由 child_router.js
+### 子路由 child_router.js
 
-```javascript
+```js
 const express = require('express')
 const rooter = express.Router()
 const stuCtrl = require('../controller/stuCtrl')
@@ -339,9 +339,9 @@ router.get('/addStu',stuCtrl.addStu)
 module.exports = router
 ```
 
-# 提交给后端的方法
+## 提交给后端的方法
 
-## 1、同步请求
+### 1、同步请求
 
 get与post都为同步请求
 
@@ -351,7 +351,7 @@ get请求时接口中获取的数据为`req.query`
 
 post请求时接口中获取的数据为`req.body`
 
-```javascript
+```js
 // 当req.body内为undefined时，按如下方法配置解析post请求的方法
 
 // app.js文件：
@@ -371,24 +371,24 @@ app.use(body.urlencoded({extended:false}))
 | 何时使用 | 查询请求     | 几乎所有表单请求（增删改） |
 | 请求参数 | 写在open()内 | 写在send()内               |
 
-## 2、异步请求
+### 2、异步请求
 
-### ajax
+#### ajax
 
-#### 1）、理解
+##### 1）、理解
 
   * 前端主动调用的一个综合技术
   * 用于从后端获取数据 - 前提必须后端给一个入口
   * 无刷新
 
-#### 2）、ajax 应用
+##### 2）、ajax 应用
 
  * 验证用户名是否存在
   * 登录
   * 列表数据
   * 上传
 
-#### 3）、请求方式
+##### 3）、请求方式
 
 \>>  GET
 
@@ -416,7 +416,7 @@ app.use(body.urlencoded({extended:false}))
  * 表单（提交数据、可能数据量就会比较大）
   * 有隐私数据（注册、登录）
 
-#### 4）、[HTTP状态码](C:\Users\daidai\Desktop\Note\文档\HTTP状态码.pdf)
+##### 4）、[HTTP状态码](C:\Users\daidai\Desktop\Note\文档\HTTP状态码.pdf)
 
 1xx
 
@@ -428,7 +428,7 @@ app.use(body.urlencoded({extended:false}))
 
 5xx -> 500
 
-#### 5）、Content-Type
+##### 5）、Content-Type
 
 数据类型，前后端传输数据的时候必须设置该字段，才能正常接受数据的。
 
@@ -444,11 +444,11 @@ app.use(body.urlencoded({extended:false}))
 
 `ajax`请求是异步请求
 
-### 原生ajax
+#### 原生ajax
 
-#### 1、get请求
+##### 1、get请求
 
-```javascript
+```js
 // login方法由登录按钮的点击事件触发
 
 // get请求
@@ -482,9 +482,9 @@ function login(){
 }
 ```
 
-#### 2、post请求
+##### 2、post请求
 
-```javascript
+```js
 // login方法由登录按钮的点击事件触发
 
 // post请求
@@ -532,9 +532,9 @@ ajax（XMLHttpRequest）对象的三个属性：
 
 `onreadystatechange` 事件被触发 4 次（0 - 4）, 分别是： 0-1、1-2、2-3、3-4，对应着 readyState 的每个变化。所以回调函数中，当 <mark>readyState == 4 && status ==200</mark> 才是完全正确的返回状态
 
-### 原生ajax的封装
+#### 原生ajax的封装
 
-```javascript
+```js
 function myAjax(obj){
   return new Promise((resolve,reject) => {
     obj = obj || {}
@@ -588,25 +588,23 @@ function formatData(data){
 
 
 
-## 提交给后端的方法
+### 提交给后端的方法
 
 引入文件后，可以得到公开的对象
 
 表单元素的name是后端的键值对中的key
 
+## fs（文件系统）
 
-
-# fs（文件系统）
-
-## 1、理解
+### 1、理解
 
 属于 nodejs 内置模块，是不需要安装的，直接通过 `require` 引入之后使用。该模块用于文件及文件目录的创建、删除、查询等。
 
-## 2、语法
+### 2、语法
 
-### 1）、读取文件内容——异步读取
+#### 1）、读取文件内容——异步读取
 
-```javascript
+```js
 fs.readFile(path[,options],callback)
 
 *path：要读取文件的路径及其文件名
@@ -614,7 +612,7 @@ fs.readFile(path[,options],callback)
 *callback：回调函数，文件读取成功或者失败后要执行的方法
 ```
 
-```javascript
+```js
 const fs = require('fs')
 
 // doc：文件读取成功，读取到的文件内容
@@ -628,9 +626,9 @@ fs.readFile('./demo.txt','utf-8',(err,doc) => {
 
 ![fs读取文件](/images/fs读取文件.png)
 
-### 2)、写入文件内容——异步写入
+#### 2)、写入文件内容——异步写入
 
-```javascript
+```js
 fs.writeFile(file，data[,options],callback)
 
 *file：写入文件的路径
@@ -639,7 +637,7 @@ fs.writeFile(file，data[,options],callback)
 *callback：回调函数，文件读取成功或者失败后要执行的方法
 ```
 
-```javascript
+```js
 const fs = require('fs')
 
 fs.writeFile('./w.txt','朱呆呆',(err) => {
@@ -650,31 +648,31 @@ fs.writeFile('./w.txt','朱呆呆',(err) => {
 })
 ```
 
-# 异步
+## 异步
 
-## 1、理解
+### 1、理解
 
 简单来说，异步就是执行到该代码时，不用等到它执行完毕，而是继续执行后面的代码。
 
-## 2、异步场景
+### 2、异步场景
 
 fs 模块部分的方法、ajax、计时器、数据库操作
 
-## 3、异步编程
+### 3、异步编程
 
 回调函数——容易产生回调地狱（回调嵌套，代码可读性非常差、后期维护非常困难，我们把这种情况称为回调地狱）
 
 Promise——ES6
 
-# Promise
+## Promise
 
-## 1、概念
+### 1、概念
 
 主要用于解决异步编程的问题，比回调更合理。从语法上说， Promise 是一个对象。
 
-## 2、语法
+### 2、语法
 
-```javascript
+```js
 new Promise((resolve,reject) => {
   // 成功
   if(条件){
@@ -689,7 +687,7 @@ new Promise((resolve,reject) => {
 
 可以放同步代码也可以放异步代码
 
-## 3、Promise 的状态
+### 3、Promise 的状态
 
 - 创建 Promise 时，默认 -pending 状态
 
@@ -703,11 +701,11 @@ new Promise((resolve,reject) => {
 >
 > 重要：promise内部是同步的，then 才是异步。
 
-## 4、then函数 
+### 4、then函数 
 
 该函数接受两个参数，第一个参数是 Promise 成功的回调，第二个参数是 Promise 失败的回调（一般用catch替换）
 
-```javascript
+```js
 // 写法1
 new Promise((resolve, reject) => {
    // ...
@@ -735,7 +733,7 @@ new Promise((resolve, reject) => {
   })
 ```
 
-```javascript
+```js
 // then支持链式写法，即.then()之后还可以继续.then()
 // 因为then可以返回Promise或者返回一个同步，这个可以继续传递给下一个then
 new Promise()
@@ -744,13 +742,13 @@ new Promise()
   ...
 ```
 
-## 5、Promise.resolve()
+### 5、Promise.resolve()
 
 - 这里的 resolve 的参数是一个原始值，那么直接表示 fufilled（成功状态）
 - 不带参数，也是直接表示 fufilled
 - 也可以传递 Promise 对象，那么直接返回该对象
 
-```javascript
+```js
 Promise.resolve(123)
 // 等同于
 new Promise((resolve, reject) => {
@@ -758,13 +756,13 @@ new Promise((resolve, reject) => {
 })
 ```
 
-## 6、Promise.reject()
+### 6、Promise.reject()
 
 - 这里的 reject 的参数是一个原始值，那么直接表示 rejected（失败状态）
 - 不带参数，也是直接表示 rejected
 - 也可以传递 Promise 对象，那么直接返回该对象
 
-```javascript
+```js
 Promise.reject(123)
 // 等同于
 new Promise((resolve, reject) => {
@@ -772,7 +770,7 @@ new Promise((resolve, reject) => {
 })
 ```
 
-## 7、Promise.all()
+### 7、Promise.all()
 
 - 用于并发情况，all 接受一个数组参数，数组中元素都是 Promise，这些 Promise 一起成功，或者一起失败。一定会等到最慢的那一个。
 
@@ -780,16 +778,16 @@ new Promise((resolve, reject) => {
 - 应用场景：并发请求，同时发起请求，一起返回数据。
 
 
-## 8、Promise.race()
+### 8、Promise.race()
 
 - 赛跑的意思，最先执行完毕的会输出。
 
 
 - 应用场景： 图片加载、请求超时
 
-###### 例子：
+**例子：**
 
-```javascript
+```js
 const p1 = new Promise((resolve, reject) => {
   setTimeout(() => resolve(1), 1000)
 });
@@ -819,17 +817,17 @@ p1改成：setTimeout(() => reject(1), 1000)
 // 输出结果：最快的失败则失败： 1
 ```
 
-# async / await
+## async / await
 
-## 1、理解
+### 1、理解
 
 - 也是解决异步编程的，目前的终极解决方案。
 
 - 该语法是基于 promise 的，在函数前加上 async 关键字，函数内部遇到 await 就会等到它返回结果，然后执行下一步。
 
-## 2、语法
+### 2、语法
 
-```javascript
+```js
 async function() {
   await Promise
 }
@@ -837,11 +835,11 @@ async function() {
 
 > 注： async 依然是属于异步的，内部代码才是同步的。
 
-## 3、async 错误捕获
+### 3、async 错误捕获
 
 因为 await 接受 Promise 的返回值，这个返回值可能是成功的也可能是失败。所以需要通过 try catch 去捕获错误。
 
-```javascript
+```js
 async function() {
   try {
     await Promise

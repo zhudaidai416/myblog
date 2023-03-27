@@ -1,428 +1,8 @@
-# 核心语法基础
+## 函数
 
-## 1、JavaScript的定义
+### 1、函数的创建
 
-一种直译式脚本语言，一种动态类型、弱类型、基于原型的语言
-
-### 1）、组成部分
-
-- 核心（ECMAScript）：描述该语言的语法和基本对象
-- 文档对象模型（DOM）：描述处理网页内容的方法和接口
-- 浏览器对象模型（BOM）：描述与浏览器进行交互的方法和接口
-
-### 2）、两种类型注释
-
-- 单行注释：//
-- 多行注释：/*  */
-
-## 2、JavaScript添加的方法
-
-1、在HTML中嵌入JavaScript脚本（内嵌式）
-
-```javascript
-<script type="text/javascript">
-    JavaScript代码
-</script>
-```
-
-2、在HTML中链接一个外部的JavaScript文件
-
-```javascript
-<script type="text/javascript" src="JavaScript文件名.js"></script>
-```
-
-3、直接编写在元素的事件属性中（所有on开头的属性名）
-
-```javascript
-<input type="button" value="Press Me" onclick="alert('Hello World');">
-```
-
-4、伪URL方法（在a标签href属性写入js代码）
-
-```javascript
-<a href="javascript:alert('Hello World');">Click</a>
-```
-
-# 变量输入输出
-
-## 1、输入
-
-- prompt()
-
-
-## 2、输出
-
-- 控制台输出：console.log()
-- 页面输出：document.write()
-- 弹出框输出（警告）：alert()
-- innerHTML 写入 HTML 元素
-
-# 变量
-
-## 1、声明变量
-
-```
-关键字var	变量名字
-```
-
-## 2、变量赋值
-
-```
-变量名 = 值
-```
-
-简写：一边声明变量，一边赋值
-
-当对某个值进行操作时，使用变量
-
-## 3、命名变量
-
-规范：
-
-- 第一个字符必须是字母、下划线（_）或美元符号（$）
-
-- 余下的字符可以是下划线、美元符号或任何字母或数字字符
-
-驼峰命名法：变量名字的第一个字母是大写，后面的字母是小写
-
-关键字、保留字、true、false、null并不能作为标识符
-
-- 常见关键字
-
-|  break   |    else    |  new   |  var  |
-| :------: | :--------: | :----: | :---: |
-|   case   |  finally   | return | void  |
-|  catch   |    for     | switch | while |
-| continue |  function  |  this  | with  |
-| default  |     if     | throw  |       |
-|  delete  |     in     |  try   |       |
-|    do    | instanceof | typeof |       |
-
-- 常见保留字
-
-| abstract |    enum    |    int    |    short     |
-| :------: | :--------: | :-------: | :----------: |
-| boolean  |   export   | interface |    static    |
-|   byte   |  extends   |   long    |    super     |
-|   char   |   final    |  native   | synchronized |
-|  class   |   float    |  package  |    throws    |
-|  const   |    goto    |  private  |  transient   |
-| debugger | implements | protected |   volatile   |
-|  double  |   import   |  public   |              |
-
-# 数据类型
-
-## 1、基本数据类型
-
-string字符串、number数值、boolean布尔、undefined、null
-
-## 2、引用数据类型
-
-object对象、array数组、function函数
-
-# 运算符
-
-## 1、操作符：typeof
-
-```
-typeof undefined    // undefined
-typeof null        // object
-```
-
-## 2、算数运算符：\+    -    *    /    %
-
-## 3、比较（关系）运算符：\>    <    >=    <=    ==    !=    ===    !==
-
-返回的一定是布尔值
-
-|       表达式        |  值   |
-| :-----------------: | :---: |
-| null  ==  undefined | true  |
-|   ‘NaN’  ==  NaN    | false |
-|     5  ==  NaN      | false |
-|    NaN  ==  NaN     | false |
-|    false  ==  0     | true  |
-|     true  ==  1     | true  |
-|     true  ==  2     | false |
-|  undefined  ==  0   | false |
-|     null  ==  0     | false |
-|   ‘100’  ==  100    | true  |
-|   ‘100’  ===  100   | false |
-
-## 4、逻辑运算符：&&并且  ||或者  !取反
-
-## 5、一元运算：++  --
-
-- 如使用前置（Prefix）自增，操作符在操作数前（例如 ++x）， 操作数会加一，然后返回加一之后的值。
-- 后置自增（例如 x++），操作数会加一 3，然后返回加一之前的值
-
-## 6、二元运算
-
-## 7、三元运算：条件表达式 ? 表达式1 : 表达式2
-
-> 当结果为true时，执行表达式1，否则执行表达式2
-
-## 8、赋值运算符：=  +=  -=  *=  /=
-
-# 数据类型之间的转换
-
-## 1、转数字
-
-- parseInt()：将值转成整数数字
-- parseFloat()：将值转成小数点数字
-- Number()
-
-## 2、转字符串
-
-- String()
-
-## 3、转布尔值
-
-Boolean()
-
-# 转义符
-
-| 字面量 |  含义  |
-| :----: | :----: |
-|   \n   |  换行  |
-|   \t   |  制表  |
-|   \b   |  空格  |
-|   \r   |  回车  |
-|   \f   |  进纸  |
-|  \ \   |  斜杠  |
-|  \ '   | 单引号 |
-|  \ ''  | 双引号 |
-
-# 编程三大结构
-
-顺序结构：语句的顺序执行
-
-分支结构：有些代码执行有些代码不执行，会有条件约束
-
-循环结构：重复执行一个或几个模块，直到满足某个条件为止
-
-## 1、分支结构
-
-### 1）、单分支
-
-```javascript
-if(条件表达式){
-
-}
-```
-
-### 2）、双分支
-
-```javascript
-if(条件表达式){
-
-}else{
-
-}
-```
-
-### 3）、多分支
-
-```javascript
-if(条件表达式){
-
-}else if(条件表达式){
-
-}else{
-
-}
-```
-
-```javascript
-switch(){
-    case 1:        ;break;
-    case 2:        ;break;
-    case 3:        ;break;
-    default:    ;break;
-}
-```
-
-注意：
-
-- switch里面的case判断等同于else if（）{}
-
-- case判断===要比较值和数据类型
-
-## 2、循环结构
-
-### 1）、while循环（先验证后循环）
-
-```javascript
-while(条件表达式){
-    循环体
-}
-```
-
-### 2）、do-while循环（先循环后验证）
-
-```javascript
-do{
-    循环体（先执行一次）
-}while(条件表达式)
-```
-
-### 3）、for循环（先判断后循环）
-
-```javascript
-for(表达式1;表达式2;表达式3){
-
-}
-
-* 表达式1：循环变量的初始化
-* 表达式2：判断条件
-* 表达式3：循环变量的改变
-```
-
-### 4）、跳出循环
-
-- break：跳出循环
-
-- continue：跳出本次循环
-
-# 数组
-
-## 1、数组定义
-
-定义：连续的储存空间
-
-通过下标获取数组的某个值，数组的下标从0开始
-
-## 2、遍历数组
-
-```javascript
-for(var i=0;i<arr.length;i++){
-    console.log("arr[i]")
-}
-```
-
-## 3、创建数组
-
-### 1）、通过字面量创建
-
-```javascript
-var arr = []
-```
-
-### 2）、通过构造器创建
-
-```javascript
-var arr = new Array()
-var arr = new Array(5)   //创建长度为5的数组
-var arr = new Array("朱一龙",4,16)   //创建有数据的数组
-```
-
-## 4、引用数组
-
-1、通过数组下标添加
-
-2、通过for循环遍历
-
-## 5、常用方法
-
-数组的方法：增 删 改 查
-
-### 1）增
-
-- push()：在末尾添加
-
-- unshift()：在第一个添加
-
-
-### 2）、删
-
-- pop()：删除数组的最后一项
-
-- shift()：删除数组的第一项
-
-- splice(起始下标,删除几个)：删除指定项
-
-### 3）、改
-
-插入：splice(起始下标,0,插入内容)
-
-替换：splice(起始下标,删除数量,替换内容)
-
-数组下标直接赋值
-
-> 修改替换 ：注意第二个参数代表删除几个，如果删除0个则代表插入
->
-> 删除1个则第三个参数值会进行插入
-
-### 4）、合并：concat
-
-```javascript
-var arr1 = [123,'234',true]
-var arr2 = [false,'hahah']
-var arr3 = arr1.concat(arr2)    //[123,'234',true,false,'hahah']
-```
-
-> 注：谁调用concat的方法，谁就在前面
->
-> concat合并方法，既不会改变arr1也不会改变arr2，会生成一个新的数组
-
-### 5）、数组的抽取截取
-
-```javascript
-slice(起始下标【要被截取】,结束下标【不会被截取】)
-```
-
-> 注：slice方法 也会生成一个新数组，原数组不会发生改变
-
-### 6）、数组的串联：join()
-
-```javascript
-var arr6 = [1,2,3,5,6,6,3,3,1,3,4,6]
-var newArr = arr6.join("*")
-// 把数组的每一项都获取出来并将*把他们连接变成一个字符串
-console.log(newArr)
-```
-
-### 7）、数组的反转：reverse()
-
-> 注：会改变原数组
-
-### 8）、清空数组
-
-- var arr=[]
-- arr.length = 0
-- arr.splice(0,arr.length)
-
-# Math对象
-
-Math对象是一个内置对象
-
-## 1、随机数
-
-Math.random()
-
-一个大数字和一个小数字组成一个范围
-
- 随机数*（大数字-小数字）+ 小数字就能得到这个范围内的数字
-
-## 2、取整方法
-
-Math.round()：四舍五入
-
-Math.ceil()：向上取整
-
-Math.floor()：向下取整
-
-Math.pow(数值,几次方)：次方计算
-
-Math.abs()：绝对值
-
-Math.sqrt()：平方根
-
-# 函数
-
-## 1、函数的创建
-
-```javascript
+```js
 >> 函数的声明 - 有提升
 function 函数名(形参){
   // 函数体
@@ -433,9 +13,9 @@ var 变量 = function(){}
 var 变量 = () => {}
 ```
 
-## 2、参数
+### 2、参数
 
-```javascript
+```js
 >> 形参
 function 函数名(形参){}
 
@@ -446,17 +26,17 @@ function 函数名(形参){}
 function 函数名(参数=值){}
 ```
 
-## 3、arguments 对象
+### 3、arguments 对象
 
 该对象可以获取所有的实际参数（实参），不管有没有设置形参。
 
-## 4、函数返回值
+### 4、函数返回值
 
 - 执行函数得到一个结果
 - return 之后的代码不会再执行
 - 如何返回多个值？将值放在对象、数组里
 
-## 5、IIFE（自运行匿名函数）
+### 5、IIFE（自运行匿名函数）
 
 1）、理解
 
@@ -464,7 +44,7 @@ function 函数名(参数=值){}
 
 2）、定义
 
-```javascript
+```js
 (function(形参){
   // 在这里添加需要执行的代码块
 })(实参)
@@ -474,7 +54,7 @@ function 函数名(参数=值){}
 }(实参))
 ```
 
-```javascript
+```js
 // 例子
 console.log('全局');
 
@@ -490,7 +70,7 @@ console.log(a);  // 输出：a is not defined
 - 将所有的运算过程放在函数中，函数`执行完毕后`就会`销毁`，不会污染全局
 - `只执行一次`
 
-## 6、递归函数
+### 6、递归函数
 
 1）、理解
 
@@ -498,7 +78,7 @@ console.log(a);  // 输出：a is not defined
 
 2）、用法
 
-```javascript
+```js
 function 函数名(){
   if(出口){  // 满足一定的条件就必须停止函数的调用，否则容易陷入死循讯
 		// ...
@@ -513,7 +93,7 @@ function 函数名(){
 
 阶乘、树形菜单、省市区级联选择
 
-```javascript
+```js
 // 例子：累加 - 递归实现从 1 乘到  10
 function add(n) {
   if(n == 1) {
@@ -539,7 +119,7 @@ console.log(add(10))
 */
 ```
 
-# 惰性载入
+## 惰性载入
 
 1、理解
 
@@ -585,9 +165,9 @@ console.log(add(10))
 </script>
 ```
 
-运行结果：![惰性载入1](/images/惰性载入1.png)
+运行结果：![惰性载入1](/images/%25E6%2583%25B0%25E6%2580%25A7%25E8%25BD%25BD%25E5%2585%25A51.png)
 
-```javascript
+```js
 // 问题：需要判断3次浏览器类型吗？
 // 不需要，因为当我们打开浏览器的时候，当前什么浏览器就已经确定了，那么只需要我们判断一次即可
 // 优化代码
@@ -626,11 +206,11 @@ event.on(btn3, 'click', function() {
 });
 ```
 
-运行结果：![惰性载入2](/images/惰性载入2.png)
+运行结果：![惰性载入2](/images/%25E6%2583%25B0%25E6%2580%25A7%25E8%25BD%25BD%25E5%2585%25A52.png)
 
-# 编译原理（了解）
+## 编译原理（了解）
 
-## 1、编译分类
+### 1、编译分类
 
 - 编译型语言
 
@@ -640,17 +220,17 @@ event.on(btn3, 'click', function() {
 
 不需要提前编译，在代码运行的时候再进行编译（JS、python）。
 
-## 2、编译原理
+### 2、编译原理
 
-### 1）、JS渲染引擎
+#### 1）、JS渲染引擎
 
 负责整个 JS 程序的编译以及执行。
 
-### 2）、编译器
+#### 2）、编译器
 
 主要负责词法分析、语法分析、代码生成。
 
-```javascript
+```js
 编译三个步骤，以 var a = 5; 这段代码为例：
 
 第一步、「分词/词法分析」：编译器会对程序代码进行分解，分为词法单元，'var', 'a', '=', '5', ';' 。
@@ -660,25 +240,25 @@ event.on(btn3, 'click', function() {
 第三步、「代码生成」：将 AST 转换为一组机器指令，用来创建一个叫 a 的变量，分配内存等。
 ```
 
-### 3）、作用域
+#### 3）、作用域
 
 在执行代码的时候，对一些变量访问权限的控制。
 
-### 4）、JS 代码执行的过程
+#### 4）、JS 代码执行的过程
 
 - 预编译阶段：由编译器将 JS 编译为可执行的代码，在这个阶段就会进行变量的声明，并对变量的声明进行提升（函数声明提升），但是值为 undefined；
 
 - 代码执行阶段：主要任务就是执行代码逻辑，也会在这一个阶段完成执行上下文的创建。
 
-## 3、作用域
+### 3、作用域
 
-### 1）、概念
+#### 1）、概念
 
 一段程序代码中所用到的名字并不总是有效的，而是限定这个名字的可用性代码范围，那么我们就称之作用域。
 
 即变量和函数是有一个作用范围的，离开这个范围就无法使用。
 
-### 2）、JS 执行环境
+#### 2）、JS 执行环境
 
 执行环境也称为执行上下文，在程序运行的时候，会生成一个管理函数和变量的对象，它决定了变量和函数的生命周期，以及访问其他数据的权限。
 
@@ -692,7 +272,7 @@ event.on(btn3, 'click', function() {
 
 - Eval 函数执行上下文
 
-### 3）、根据执行环境划分作用域
+#### 3）、根据执行环境划分作用域
 
 - 全局作用域：在函数外部的代码，在任意地方都可以使用。
 - 函数作用域：在函数内部的代码，函数外无法使用。
@@ -700,7 +280,7 @@ event.on(btn3, 'click', function() {
 
 > 注：ES5 没有块级概念
 
-```javascript
+```js
 // 例子
 var a = 123;  // 全局
 function foo() {
@@ -724,7 +304,7 @@ for(let j = 0; j < 5; j++) {
 console.log('外部：', j);  // 输出：j is not defined
 ```
 
-### 4）、作用域链（重点）
+#### 4）、作用域链（重点）
 
 作用域规定了一个变量/函数的访问权限。
 
@@ -732,7 +312,7 @@ console.log('外部：', j);  // 输出：j is not defined
 
 会从当前上下文环境中查找，没有没有找到，就会从上层执行上下文环境中查找，一直找到全局执行上下文，在这个过程中所经历的一个过程（链条）就称为作用域链。
 
-```javascript
+```js
 // 例子
 var a = 0;
 
@@ -754,17 +334,17 @@ function foo() {
 foo();
 ```
 
-# 闭包（重点、难点）
+## 闭包（重点、难点）
 
-## 1、定义
+### 1、定义
 
 闭包就是作用域的体现，就是能够读取其他函数内部变量的函数。
 
 一般情况下函数内可以访问函外的变量，但是函数外无法访问函数内的变量，但是通过闭包这个手段就可以在函数外访问函数内部的变量。
 
-## 2、实现手段
+### 2、实现手段
 
-```javascript
+```js
 // 方式一：直接将内部函数暴露给全局
 (function() {
   var i;
@@ -782,7 +362,7 @@ var iii = (function() {
 })()
 ```
 
-```javascript
+```js
 // 模拟游戏环境，角色有生命条，初始值为 100，吃血包后增加声明，受到伤害就会减少生命
 var lives = 100; // 初始生命值
 
@@ -797,9 +377,9 @@ console.log(lives);
 // lives 是全局变量，那么就可以在任意地方、任意时间进行访问以及修改
 ```
 
-![闭包1](/images/闭包1.png)
+![闭包1](/images/%25E9%2597%25AD%25E5%258C%25851.png)
 
-```javascript
+```js
 // 怎么解决，不允许外部去访问或者修改该数据
 // 通过闭包来解决这个问题
 // 方式一：直接将内部函数暴露给全局
@@ -818,9 +398,9 @@ console.log(lives);
 console.log(getLives());  // 通过闭包提供的方法来访问变量
 ```
 
-![闭包2](/images/闭包2.png)
+![闭包2](/images/%25E9%2597%25AD%25E5%258C%25852.png)
 
-```javascript
+```js
 // 方式二：将函数执行结果返回
 var game = (function() {
   var lives = 50;
@@ -844,24 +424,24 @@ game.addLives()
 console.log(game.getLives());
 ```
 
-## 3、特点
+### 3、特点
 
 - 函数嵌套函数
 - 内层函数访问了外层函数的局部变量，导致该变量常驻内存
 - 将内部函数暴露出去（return 或者 window），实现函数外访问函数内的变量
 
-## 4、作用
+### 4、作用
 
 - 延长变量的生命周期
 - 创建私有变量
 
-## 5、闭包可能产生的问题
+### 5、闭包可能产生的问题
 
 一般函数运行结束后，内部产生的函数和变量都会被释放，所以每次运行函数都是全新的。
 
 但是由于使用闭包后，会导致函数中部分的变量保留在内存中，会增加内存的消耗，所以闭包不能乱用，否则会造成网页性能问题。
 
-## 6、内存泄漏
+### 6、内存泄漏
 
 1）、概念
 
@@ -898,7 +478,7 @@ JS 中最常用的垃圾回收机制就是`标记清除`。
   </script>
   ```
 
-  ![闭包3](/images/闭包3.png)
+  ![闭包3](/images/%25E9%2597%25AD%25E5%258C%25853.png)
 
 - 被遗忘的定时器
 
@@ -906,11 +486,11 @@ JS 中最常用的垃圾回收机制就是`标记清除`。
 
 - 子元素存在的引用
 
-## 7、案例
+### 7、案例
 
-### 1)、封装一个缓存工具
+#### 1)、封装一个缓存工具
 
-```javascript
+```js
 function createCache() {
   const data = {}  // 局部变量，外部无法访问
 
@@ -931,9 +511,9 @@ cache.set('username', 'admin');
 console.log(cache.get('token'));
 ```
 
-### 2）、实现首字母大写
+#### 2）、实现首字母大写
 
-```javascript
+```js
 function capterToUpper(str) {
   console.log('计算过程很复杂，需要花费很多时间');
   return str.charAt(0).toUpperCase() + str.substr(1);
@@ -961,9 +541,9 @@ capitalize('helloWorld');
 capitalize('helloVue');
 ```
 
-### 3）、任务队列
+#### 3）、任务队列
 
-```javascript
+```js
 function queue() {
   const waitingQueue = [];  // 任务队列，所有的任务必须推进来
   let isRunning = false;  // 标记，记录当前事都有任务正在执行
@@ -1033,17 +613,17 @@ myQueue(task2).then((res) => console.log(res))
 myQueue(task3).then((res) => console.log(res))
 ```
 
-## 8、[闭包练习题](C:\Users\daidai\Desktop\Note\闭包练习题.md)
+### 8、[闭包练习题](.\闭包练习题.md)
 
-# 对象
+## 对象
 
-## 1、JS 数据类型
+### 1、JS 数据类型
 
 基本数据类型：Number、Null、String、Boolean、Undefined、Symbol（ES6 新增）
 
 引用数据类型：Object（Function、Array）
 
-## 2、Symbol
+### 2、Symbol
 
 1）、概念
 
@@ -1051,7 +631,7 @@ myQueue(task3).then((res) => console.log(res))
 
 2）、用法
 
-```javascript
+```js
 var s1 = Symbol();  // 每次调用该函数一定会得到不同的值
 var s2 = Symbol();
 console.log(s1 == s2);  // false
@@ -1068,7 +648,7 @@ let obj = {
 
 3）、案例
 
-```javascript
+```js
 // 使用 Symbol 解决对象属性被覆盖的问题
 const name = Symbol('name');
 const age = Symbol('age');
@@ -1098,9 +678,9 @@ console.log(t3)  // {name: '朱一龙', age: 3, city: '武汉'}
 - 调用 Symbol() 函数不需要加 new
 - Symbol() 作为对象属性时，不能被 for in （Object.keys）访问
 
-## 3、对象属性访问
+### 3、对象属性访问
 
-```javascript
+```js
 >> 对象.属性名
 t1.name
 
@@ -1118,31 +698,31 @@ var b = 'nam'
 obj[b + 'e']
 ```
 
-## 4、销毁对象
+### 4、销毁对象
 
-```javascript
+```js
 obj = null;  // 销毁对象
 obj.属性 = '';  // 只是清空了属性值
 delete obj.属性  // 删除属性
 ```
 
-## 5、值的复制（重点、难点）
+### 5、值的复制（重点、难点）
 
-### 1）、堆栈
+#### 1）、堆栈
 
 堆和栈都是运行时内存中分配的一个数据区域，两者都是临时存放数据的地方。
 
-### 2）、基本数据类型
+#### 2）、基本数据类型
 
 所有的值保存在栈内存中，访问的方式是按值访问。
 
 基本数据类型的值被复制的时候：会在栈中创建一个新值，然后把值复制到新变量分配的位置上，两个值互不影响。
 
-### 3）、引用数据类型
+#### 3）、引用数据类型
 
 引用数据类型的值是保存在堆内存中的，变量中保存的是一个指针，该指针放在栈中，直接复制的时候，两者相互影响。
 
-```javascript
+```js
 var num1 = 123;
 var num2 = num1;  // 基本数据类型值保存在栈中，复制的时候直接复制的是值，所以两者互相不影响。
 num1 = 456;
@@ -1157,11 +737,11 @@ obj1.age = 12;
 console.log(obj1,obj2)  // 输出：{name: '呆呆', age: 12} {name: '呆呆', age: 12}
 ```
 
-### 4）、对象的值的复制
+#### 4）、对象的值的复制
 
 - 浅拷贝：`...`，`Object.assign()`，`Array.map()`，`Array.filter()`，`Array.silce` 等等。只会拷贝第一层，属性中嵌套了对象或者数组，那么还是直接复制的地址。
 
-  ```javascript
+  ```js
   // 例子
   var obj1 = {
     name: '呆呆',
@@ -1177,7 +757,7 @@ console.log(obj1,obj2)  // 输出：{name: '呆呆', age: 12} {name: '呆呆', a
   console.log(obj1, obj2);  // 输出：{name: '呆呆', age: 12} {name: '呆呆'}
   ```
 
-  ```javascript
+  ```js
   // 例子 - 属性中嵌套了对象
   var obj1 = {
     name: '朱朱',
@@ -1197,13 +777,13 @@ console.log(obj1,obj2)  // 输出：{name: '呆呆', age: 12} {name: '呆呆', a
   console.log(obj1, obj2);  // 输出：{name: '朱朱', children: Array(2), age: 3} {name: '朱朱', children: Array(2)}
   ```
 
-  ![浅拷贝](/images/浅拷贝.png)
+  ![浅拷贝](/images/%25E6%25B5%2585%25E6%258B%25B7%25E8%25B4%259D.png)
 
 - 深拷贝：手写代码，递归遍历对象实现一个个属性的拷贝；技巧：JSON
 
   无论对象中嵌套多深，都实现值的拷贝。
 
-```javascript
+```js
 // 例子
 var obj1 = {
   name: '朱朱',
@@ -1227,32 +807,32 @@ console.log(obj1, obj2);
 // 输出：{name: '朱朱', city: undefined, address: null, children: Array(2), sayHi: ƒ, …} {name: '朱朱', address: null, children: Array(1)}
 ```
 
-![深拷贝](/images/深拷贝.png)
+![深拷贝](/images/%25E6%25B7%25B1%25E6%258B%25B7%25E8%25B4%259D.png)
 
-# 原型（非常重要）
+## 原型（非常重要）
 
-## 1、面向对象编程
+### 1、面向对象编程
 
-### 1）、面向过程编程
+#### 1）、面向过程编程
 
 以过程为中心。
 
-### 2）、面向对象编程
+#### 2）、面向对象编程
 
 以事物为中心。
 
-### 3）、面向对象的组成
+#### 3）、面向对象的组成
 
 - 对象：具体的实例。
 
 - 类：具有共同特征的一类事物的抽象，比如人类、猫类。
 
-```javascript
+```js
 // 方法1 - 内置构造函数
 var obj = new Object();
 ```
 
-```javascript
+```js
 // 方法2 - 字面量
 var obj = {};
 console.log(obj);
@@ -1278,7 +858,7 @@ var s3 = {
 }
 ```
 
-```javascript
+```js
 // 方法3 - 工厂函数
 // 通过函数的封装，去减少重复性的工作
 function craeteStudent(name, age, city) {
@@ -1295,7 +875,7 @@ var s3 = craeteStudent();
 // 工厂方法也会存在一些问题：每次调用工厂函数都会在内部创建一个对象，每一个对象都是全新的对象，各个对象之间没有任何的关系，所以无法搞清楚每一个对象到底是谁的实例，也就是无法解决对象对象识别问题。
 ```
 
-```javascript
+```js
 // 方法4 - 构造函数
 function Student(name, age, city) {
   // 隐藏代码：var obj = {}
@@ -1325,11 +905,11 @@ console.log('s1.sayHi === s2.sayHi:', s1.sayHi === s2.sayHi);  // false，注意
 // 4. 如果没有返回其他对象，那么会自动返回创建的空对象
 ```
 
-### 4）、对象识别
+#### 4）、对象识别
 
 `instanceof` 运算符用于检测构造函数的属性是否出现在某个实例对象的原型链上。即当前实例是否来源于这个构造函数。
 
-```javascript
+```js
 object instanceof constructor
 实例 instanceof 构造函数（类）
 
@@ -1337,11 +917,11 @@ object instanceof constructor
 * constructor：某个构造函数
 ```
 
-### 5）、方法过载
+#### 5）、方法过载
 
 在构造函数中直接创建的方法，在实例化时所有的对象都会拥有一个独立的方法，不同对象的同一个方法在不同的堆空间中，导致浪费内存。
 
-```javascript
+```js
 // 例子 - 所有对象拥有同一个方法
 function Student() {
   this.sayHi = function() {}
@@ -1352,19 +932,19 @@ s1.sayHi === s2.sayHi;  // false
 // 解决方法：引入原型，来避免浪费内存
 ```
 
-## 2、原型
+### 2、原型
 
-### 1）、概念
+#### 1）、概念
 
 在 JS 中，每一个「`函数`」都有一个「`prototype`」属性，这个属性其实也是一个指针（地址），会指向`函数的原型对象`，原型对象上所有的属性和方法都可以被实例共享。
 
-### 2）、访问
+#### 2）、访问
 
-```javascript
+```js
 函数.prototype // 返回一个对象，这个对象中所有的方法属性，实例共享
 ```
 
-```javascript
+```js
 // 方法5 - 原型
 function Student(name, age, city) {
   this.name = name;
@@ -1380,13 +960,13 @@ var s2 = new Student('lucy', 12, '成都');
 console.log('s1.sayHi === s2.sayHi:', s1.sayHi === s2.sayHi);  // true
 ```
 
-### 3）、作用
+#### 3）、作用
 
 - 解决方法过载的问题
 
 - 可以对类的功能进行扩展
 
-  ```javascript
+  ```js
   // 对现有的框架进行扩展
   
   // 使用axios前，需在main.js文件装入2个模块
@@ -1398,7 +978,7 @@ console.log('s1.sayHi === s2.sayHi:', s1.sayHi === s2.sayHi);  // true
   Vue.prototype.axios = axios  // 将封装的axios挂载到Vue的原型上
   ```
 
-  ```javascript
+  ```js
   // 对现有的 js 语法进行扩展
   
   // 案例 - 实现一个方法，接受一个参数，指定删除数组中某一个元素
@@ -1413,23 +993,23 @@ console.log('s1.sayHi === s2.sayHi:', s1.sayHi === s2.sayHi);  // true
   console.log(arr);
   ```
 
-### 4）、`__proto__`
+#### 4）、`__proto__`
 
 每一个「`实例对象`」都有一个 「`__proto__`」属性，会指向它的`构造函数的原型` 。
 
-### 5）、constructor
+#### 5）、constructor
 
 每一个「`原型对象`」都有一个 「`constructor`」属性，该属性指向`构造函数` 。
 
-### 6）、原型链
+#### 6）、原型链
 
 当访问对象属性的时候，如果对象本身不存在该属性，那么就会在原型对象上查找该属性，如果原型对象上也没有，就会在原型对象的原型上查找，如此循环下去，直到找到该属性或者到达顶级对象。对象查找属性的过程所经过的对象构成一个链条，称为`原型链` 。
 
 属性查找顺序︰`对象本身 -> 构造原型 -> 构造原型的原型 -> ... -> null`
 
-![原型链](/images/原型链.png)
+![原型链](/images/%25E5%258E%259F%25E5%259E%258B%25E9%2593%25BE.png)
 
-```javascript
+```js
 console.log(s1);
 console.log('s1.__proto__ === Student.prototype:',  s1.__proto__ === Student.prototype); // true
     console.log('Student.prototype.constructor === Student:', Student.prototype.constructor === Student); // true
@@ -1442,7 +1022,7 @@ console.dir(Student.__proto__);
 console.dir(Function.prototype.__proto__);
 ```
 
-```javascript
+```js
 /*
 思考题1
   实现时间对象的扩展，要求调用 formate 方法返回 yy-mm-dd 这种格式的日期。
@@ -1498,9 +1078,9 @@ btn.on('click',function(){
 }).html('添加')
 ```
 
-# this
+## this
 
-## 1、理解
+### 1、理解
 
 当函数被调用时，会创建一个活动记录（执行上下文），这个记录会包含函数在哪里调用（调用栈）。函数调用名字、函数参数等信息，而 this 就是这个上下文中的一个属性，会在函数执行的过程中用到的，在非严格模式下总是会指向一个对象，严格模式下可以是任意值。
 
@@ -1508,13 +1088,13 @@ this 在不同的场合下，表示不同的值。
 
 总之 this 是一个指针，是`在函数运行时进行绑定`的，而不是在编写函数时绑定的，所以它永远指向最后调用它的对象。
 
-## 2、this 指向（非常重要）
+### 2、this 指向（非常重要）
 
-### 1）、默认绑定
+#### 1）、默认绑定
 
 在`严格模式`下绑定到 `undefined` ，`非严格模式`绑定到全局对象 `window` 。
 
-```javascript
+```js
 function foo() {
   'use strict';  // 严格模式
   console.log(this);  // window
@@ -1524,11 +1104,11 @@ window.foo();  // foo 函数调用者是 window
 // 严格模式输出：undefined
 ```
 
-### 2）、隐式绑定
+#### 2）、隐式绑定
 
 当函数引用有上下文对象时，则会把函数中的 this 绑定到`这个上下文对象` 。
 
-```javascript
+```js
 // 隐式调用1
 var obj = {
   name: '呆呆',
@@ -1554,7 +1134,7 @@ var obj2 = {
 obj2.child.sayHi()
 ```
 
-```javascript
+```js
 // 隐式丢失
 // 例子1
 function sayHi(){
@@ -1584,11 +1164,11 @@ obj.sayHi()
 // obj 调用 sayHi，但是 window 调用 setTimeout，所以 this 是 window
 ```
 
-### 3）、构造函数中的 this
+#### 3）、构造函数中的 this
 
 当函数通过 new 关键字调用，函数内部的 this 指向`新创建的对象` 。
 
-```javascript
+```js
 function Student() {
   this.name = '';
 }
@@ -1600,11 +1180,11 @@ var s = new Student();
 // s.sayHi()
 ```
 
-### 4）、显示绑定
+#### 4）、显示绑定
 
 使用 `call`、`bind` 以及 `apply` 来指定 this 指向。
 
-```javascript
+```js
 // 借来的 this
 
 fn.call(对象,参数1,参数2,...)
@@ -1619,7 +1199,7 @@ fn.bind(obj, 参数1)
 // 永久性的修改函数中 this 的指向，一般用在回调函数中。
 ```
 
-```javascript
+```js
 // 例子 - call、apply
 var p1 = {
   name: '呆呆',
@@ -1636,7 +1216,7 @@ p1.phone.call(p2,1);  // 输出：辣辣给朱朱1小时打电话
 p1.phone.apply(p2,[1]);  // 输出：辣辣给朱朱1小时打电话
 ```
 
-```javascript
+```js
 // 例子 - bind
 var p2 = {
   name: '辣辣'
@@ -1663,11 +1243,11 @@ p1.phone(1);  // 输出：辣辣给朱朱1小时打电话
 
   - call 与 apply 的区别只在于`参数传递`
 
-### 5）、箭头函数
+#### 5）、箭头函数
 
 箭头函数中没有 this 的绑定，只能通过`箭头函数所在的作用域`来决定它的值，所以箭头函数中的 this 始终指向定义函数时 this 的指向。与调用者没有关系。
 
-```javascript
+```js
 // 例子
 var obj = {
   name: '呆呆',
@@ -1681,22 +1261,22 @@ obj.sayHi()
 // sayHi 所在的作用域就是obj对象
 ```
 
-# 面向对象三大特征
+## 面向对象三大特征
 
 JS 是属于面向对象编程的，但是在 ES5之前，JS没有类的概念的，是基于原型来实现的面向对象编程。
 
-## 1、封装
+### 1、封装
 
-### 1）、理解
+#### 1）、理解
 
 通过封装可以实现隐藏对象内部实现的细节，然后对外提供一致的接口。
 
-### 2）、如何封装
+#### 2）、如何封装
 
 - 将不需要公开的数据进行私有化处理，外部就无法直接访问
 - 可以提供一些特权方法对属性进行访问或者处理
 
-```javascript
+```js
 // 例子 - 需求：如果是女生，那么年龄不应该暴露出去
 function User(name, age, sex) {
   this.name = name;
@@ -1716,7 +1296,7 @@ console.log(u1.age);
 
 [封装细化的详细过程](C:\Users\daidai\Desktop\Note\代码\封装过程 - 详细版.html)
 
-```javascript
+```js
 // 例子 - 细化版
 (function(){
   var _age = Symbol();
@@ -1763,22 +1343,22 @@ console.log(u1.version);  // undefined，实例无法访问静态属性
 console.log(User.version);  // 1.0.0
 ```
 
-## 2、继承
+### 2、继承
 
-### 1）、理解
+#### 1）、理解
 
 将多个构造函数中的类似代码提取出来，从而减少冗余代码的目的。
 
 - 子类实例化的对象必须拥有父类所有的属性和方法
 - 子类实例化的对象也要属于父类
 
-### 2）、例子
+#### 2）、例子
 
-#### a、构造函数继承
+##### a、构造函数继承
 
 可以实现子类继承父类中所有的属性和方法，但是无法实现子类继承父类原型中的属性和方法。
 
-```javascript
+```js
 function User(name, age) {  // 父级构造函数
   this.name = name
   this.age = age
@@ -1802,11 +1382,11 @@ s1.sayHi();  // 输出：s1.sayHi is not a function
 console.log(s1.name,s1.age);  // 输出：小乔 18
 ```
 
-#### b、原型继承
+##### b、原型继承
 
 实现子类继承了父类原型上所有的属性和方法，也继承了父类所有的属性和方法，但是父类部分的属性无法获取到值。
 
-```javascript
+```js
 function User(name, age) {  // 父级构造函数
   this.name = name
   this.age = age
@@ -1829,11 +1409,11 @@ s1.sayHi();  // 输出：undefined Hi
 console.log(s1.name,s1.age);  // 输出：undefined undefined
 ```
 
-#### c、组合式继承
+##### c、组合式继承
 
 组合式继承存在的问题：两次调用 User 函数，子类原型也继承了父类属性（多余的）。
 
-```javascript
+```js
 function User(name, age) { // 父级构造函数
   this.name = name
   this.age = age
@@ -1861,11 +1441,11 @@ s1.sayHi();
 console.log(s1);
 ```
 
-#### d、寄生组合式继承
+##### d、寄生组合式继承
 
 ES5 中相对比较完美的继承
 
-```javascript
+```js
 function User(name, age) {  // 父级构造函数
   this.name = name
   this.age = age
@@ -1894,15 +1474,15 @@ t1.sayHi();
 console.log(t1)
 ```
 
-## 3、多态
+### 3、多态
 
-### 1）、理解
+#### 1）、理解
 
 方法可以根据传递的参数类型、参数个数等进行区别，然后返回不同的结果。
 
-### 2）、例子
+#### 2）、例子
 
-```javascript
+```js
 function Person() {
   this.show = function() {
     console.log('正在访问人类的世界');
@@ -1924,7 +1504,7 @@ output(new Person());
 output(new Cat());
 ```
 
-```javascript
+```js
 >> 场景
 $().html()
 $().html('内容')
@@ -1935,17 +1515,17 @@ $().css({
 })
 ```
 
-# class
+## class
 
-## 1、概念
+### 1、概念
 
 ES5  之前是没有`类`的概念，使用`构造函数`来替代类。
 
 class 是 ES6 提出来的一个语法糖，更加接近传统语言中的类的写法，作为对象的模板。
 
-## 2、语法
+### 2、语法
 
-```javascript
+```js
 // ES5 
 function Person() {  // 类 / 构造函数
   this.name = '';
@@ -1961,7 +1541,7 @@ p1.sayHi();
 Person.version;
 ```
 
-```javascript
+```js
 // ES6
 class Person {  // 类
   constructor() {  // 构造函数 
@@ -1981,11 +1561,11 @@ p2.sayHi();
 Person.version;
 ```
 
-## 3、constructor
+### 3、constructor
 
 constructor 是 class 的默认方法，通过 new 调用 class 时，会自动执行该方法，如果创建 class 的时候没有添加 constructor，那么会自动生成一个空的 constructor。
 
-```javascript
+```js
 // ES6 
 class Person {
   constructor(name, age) { // 构造函数 
@@ -2001,11 +1581,11 @@ class Person {
 }
 ```
 
-## 4、静态属性
+### 4、静态属性
 
 如果在一个属性或者方法前面加上 static 关键字，那么这个属性或方法就不能被实例继承，只能通过类名来调用。
 
-```javascript
+```js
 class Person {
   static version = '1.0.0';
   static run() {
@@ -2016,11 +1596,11 @@ Person.version
 Person.run()
 ```
 
-## 5、class 继承
+### 5、class 继承
 
 直接通过 extends 关键字来实现继承。
 
-```javascript
+```js
 class Student extends Person {  // 子类继承父类
   constructor(name, age, classname) {
     super(name, age);  // 子类构造中必须调用 super,这里 super 理解为父类的构造函数
@@ -2029,11 +1609,11 @@ class Student extends Person {  // 子类继承父类
 }
 ```
 
-## 6、getter 和 setter
+### 6、getter 和 setter
 
 使用 get 和 set 关键词对属性访问和属性设置进行拦截。
 
-```javascript
+```js
 class Vue {
   constructor() {
     this.state = {
@@ -2053,9 +1633,9 @@ vue.f = 'Hello';
 console.log(vue.f);
 ```
 
-## 7、[案例 - 使用 class 封装 Ajax](C:\Users\daidai\Desktop\Note\代码\myAjax.js)
+### 7、[案例 - 使用 class 封装 Ajax](C:\Users\daidai\Desktop\Note\代码\myAjax.js)
 
-# JS 设计模式
+## JS 设计模式
 
 设计模式就是来帮助我们写出可复用和可维护性的程序。
 
@@ -2067,7 +1647,7 @@ console.log(vue.f);
 - 最少知识
 - 开放 - 封闭
 
-## 1、工厂模式
+### 1、工厂模式
 
 1）、说明
 
@@ -2075,7 +1655,7 @@ console.log(vue.f);
 
 2）、案例
 
-```javascript
+```js
 // 简单工厂模式
 function UserFactory(role) {
   function SuperAdmin() {
@@ -2105,7 +1685,7 @@ function UserFactory(role) {
 UserFactory('SuperAdmin')
 ```
 
-```javascript
+```js
 // 通过安全模式去创建工厂
 function UserFactory(role) {
   if(this instanceof UserFactory) {  //判断是否使用 new 关键字来调用方法 
@@ -2137,7 +1717,7 @@ var b = UserFactory('Admin');  // 少了new，需要进行改造
 console.log(b);  // 输出：参数错误，可选参数应该是SuperAdmin，Admin，User
 ```
 
-## 2、单例模式
+### 2、单例模式
 
 1）、说明
 
@@ -2149,7 +1729,7 @@ console.log(b);  // 输出：参数错误，可选参数应该是SuperAdmin，Ad
 
 3）、单例的实现
 
-```javascript
+```js
 const Singleton = (function() {
   let instance;
   
@@ -2164,7 +1744,7 @@ const Singleton = (function() {
 
 4）、案例
 
-```javascript
+```js
 // 案例1 - 模态框
 <button id="btn">模态框</button>
 
@@ -2195,7 +1775,7 @@ btn.onclick = function() {
 // 输出：点击按钮只显示一个模态框
 ```
 
-```javascript
+```js
 // 案例2 - 全局数据存储对象
 function Store(state) {
   this.state = {...state}
@@ -2227,7 +1807,7 @@ console.log(store.state);  // 输出：{num: 0}
 console.log(store2.state);  // 输出：{num: 0}
 ```
 
-## 3、策略模式
+### 3、策略模式
 
 1）、说明
 
@@ -2235,7 +1815,7 @@ console.log(store2.state);  // 输出：{num: 0}
 
 2）、案例
 
-```javascript
+```js
 // 案例1 - 返回今天星期几
 var w = new Date().getDay();
 
@@ -2256,7 +1836,7 @@ var week = ['星期天','星期一','星期二','星期三','星期四','星期�
 console.log(week[w]);
 ```
 
-```javascript
+```js
 // 案例2 - 通过城市名去返回城市地标
 // 法1：
 switch(city){
@@ -2275,7 +1855,7 @@ const a = {
 }
 ```
 
-```javascript
+```js
 // 案例3 - 年终奖分配
 var nianzhong = {
   A: function(c) {
@@ -2297,7 +1877,7 @@ nianzhong['B'](5000);
 nianzhong['C'](4000);
 ```
 
-```javascript
+```js
 // 案例4 - 简单的表单验证策略
 <form>
   <input type="text" id="user">
@@ -2333,7 +1913,7 @@ document.getElementById('subbtn').onclick = function() {
 }
 ```
 
-## 4、观察者模式
+### 4、观察者模式
 
 1）、概念
 
@@ -2356,7 +1936,7 @@ document.getElementById('subbtn').onclick = function() {
 
 5）、案例
 
-```javascript
+```js
 // 观察者：购房者
 function Observer(name) {
   this.name = name;
@@ -2417,7 +1997,7 @@ hengda.notify('破产了');
 */
 ```
 
-## 5、发布/订阅者模式
+### 5、发布/订阅者模式
 
 1）、概念
 
@@ -2435,7 +2015,7 @@ hengda.notify('破产了');
 
 3）、案例
 
-```javascript
+```js
 function EventBus() {
   this.handleEvents = {};
 }
@@ -2481,11 +2061,11 @@ bus.emit('wanke', '加推两栋，只要999999')
 */
 ```
 
-# 路由
+## 路由
 
 根据不同的 `url` 返回不同的页面。
 
-## 1、路由划分
+### 1、路由划分
 
 - 前端路由
 
@@ -2497,11 +2077,11 @@ bus.emit('wanke', '加推两栋，只要999999')
 
   php、jsp、ejs
 
-## 2、前端路由模式
+### 2、前端路由模式
 
 都是伴随 AJAX 的发展的，前端流行单页应用（SPA），所以会在当前的 html 中进行`无刷新`的交互。
 
-### 1）、hash 模式
+#### 1）、hash 模式
 
 `http://localhost:3000/home#login`
 
@@ -2509,11 +2089,11 @@ bus.emit('wanke', '加推两栋，只要999999')
 
 当 hash 发生改变的时候，就会触发 hashchange 这个事件。
 
-### 2）、history 模式
+#### 2）、history 模式
 
 在 HTML 5 发布后才新增的一种模式，给 history 对象增加了两个 API，分别是 `pushState` 和 `replaceState` 。此时调用该方法可实现修改 url,但是不会发起请求，所以也可以实现前端路由，并且该方式不会在路径中出现 # 这个符号，所以更加美观。
 
-```javascript
+```js
 >> history.state
    history 的状态值，可以不断的堆叠的。
 
@@ -2527,17 +2107,17 @@ bus.emit('wanke', '加推两栋，只要999999')
 注意：必须保证是在服务器模式下使用。
 ```
 
-### 3）、popstate 事件
+#### 3）、popstate 事件
 
 每当同一个文档的浏览器历史出现变化时，就会触发该事件。
 
 > 注意：调用 pushState 和 replaceState 并不会触发该事件，只有点击浏览器的`前进后退按钮`，`才会触发`该事件，或者通过 JS 去调用 `history.go()`，`history.back()` 和 `history.forward()` 才会触发。
 
-# 响应式数据
+## 响应式数据
 
-## 1、语法
+### 1、语法
 
-```javascript
+```js
 Object.defineProperty(obj, prop, des)
 数据劫持，会直接在一个对象上定义一个属性，或者修改一个现有的属性，然后返回这个对象。
 
@@ -2554,7 +2134,7 @@ Object.defineProperty(obj, prop, des)
     * set：一个给属性提供 setter 的方法。
 ```
 
-```javascript
+```js
 // 案例
 var obj = {
   name: '呆呆',
@@ -2585,9 +2165,9 @@ for(var i in obj) {
 }
 ```
 
-## 2、案例
+### 2、案例
 
-```javascript
+```js
 // 单个属性劫持
 <div id="app1"></div>
 
@@ -2610,9 +2190,9 @@ Object.defineProperty(vm, 'msg', {
 })
 ```
 
-运行结果：![单个属性劫持](/images/单个属性劫持.png)
+运行结果：![单个属性劫持](/images/%25E5%258D%2595%25E4%25B8%25AA%25E5%25B1%259E%25E6%2580%25A7%25E5%258A%25AB%25E6%258C%2581.png)
 
-```javascript
+```js
 // 多个属性劫持
 <div id="app2"></div>
 
@@ -2646,7 +2226,7 @@ function defineReact() {
 defineReact();
 ```
 
-运行结果：![多个属性劫持](/images/多个属性劫持.png)
+运行结果：![多个属性劫持](/images/%25E5%25A4%259A%25E4%25B8%25AA%25E5%25B1%259E%25E6%2580%25A7%25E5%258A%25AB%25E6%258C%2581.png)
 
 
 

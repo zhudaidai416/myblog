@@ -1,12 +1,12 @@
-# TS 认识
+## TS 认识
 
-## 1、概念
+### 1、概念
 
 是属于 JS 的超集，支持所有 JS 的语法，然后新增加了其他内容，比如类型约束、接口、泛型、枚举等。
 
 TS 需要先编译为 JS ，然后才能运行。
 
-## 2、环境搭建
+### 2、环境搭建
 
 ```bash
 >> 全局安装 ts 的 cli
@@ -26,7 +26,7 @@ TS 需要先编译为 JS ，然后才能运行。
 
 项目搭建流程![vue-ts搭建项目](/images/vue-ts搭建项目.png)
 
-# 类型约束
+## 类型约束
 
 在 ts 中声明的变量（或者函数的参数等）都会进行类型约束，不同类型的数据之间不能赋值。
 
@@ -64,7 +64,7 @@ function foo(): void {
 9、unknown
 ```
 
-## 10、元组类型（ Tuple ）
+### 10、元组类型（ Tuple ）
 
 用于定义具有有限数量的未命名属性的类型，使用元组时必须提供每个属性的值。
 
@@ -79,7 +79,7 @@ tu.push(123);
 
 ```
 
-## 11、枚举类型（ Enum ）
+### 11、枚举类型（ Enum ）
 
 用于组织收集一组相关变量的方式，可以非常清晰地去表达意图。
 
@@ -121,7 +121,7 @@ enum Hun {
 
 枚举作用：给数值或者其他数据进行语义化，提高代码的可读性。
 
-## 12、接口
+### 12、接口
 
 接口是对行为的抽象。
 
@@ -202,7 +202,7 @@ const odj: PropsB = {
 }
 ```
 
-## 13、类型别名
+### 13、类型别名
 
 用于给一个类型取一个新名字，和接口有点类似，可以用于原始类型、接口联合等等。
 
@@ -226,7 +226,7 @@ interface IPB {
 type IP = IPA & IPB;
 ```
 
-## 14、JS 内置对象
+### 14、JS 内置对象
 
 在 JS 中有很多内置对象，可以直接用于 TS 的类型约束。
 
@@ -238,7 +238,7 @@ Document
 
 HTMLElement（包含HTMLInputElement、Event、MouseEvent）
 
-## 15、函数
+### 15、函数
 
 ```tsx
 function foo(x: number,y: number): number {
@@ -265,7 +265,7 @@ function foo(x: number = 0,y: number = 0): number {
 }
 ```
 
-## 16、数组
+### 16、数组
 
 ```tsx
 // 约束数组
@@ -291,9 +291,9 @@ const arr: IProps = [{
 }];
 ```
 
-# 运算符
+## 运算符
 
-## 1、非空断言 ！
+### 1、非空断言 ！
 
 一般用在变量名或者函数之后，用于强调对应的元素是非 null 或者 undefined 。
 
@@ -303,7 +303,7 @@ function foo(callback?: () => void){
 })
 ```
 
-## 2、链运算符 ？
+### 2、链运算符 ？
 
 用来判断左侧的表达式是否为 null 或者 undefined ，如果为空就不执行，否则执行后面的代码。
 
@@ -314,7 +314,7 @@ a?.b() // 如果a存在就会调用b
 success && success()
 ```
 
-## 3、类型断言
+### 3、类型断言
 
 确定知道某个变量的类型。
 
@@ -337,7 +337,7 @@ function isFish(animal: Cat | Fish) {
 }
 ```
 
-# class
+## class
 
 ```tsx
 class Person {
@@ -388,15 +388,15 @@ class Admin implements PersonProps {
 }
 ```
 
-# 泛型
+## 泛型
 
-## 1、说明
+### 1、说明
 
 泛型是指在定义函数、接口或者类的时候，不预先指定具体的类型，而是在使用的时候再指定类型的一种特性。
 
 简单理解就是给类型变成一个变量。
 
-## 2、案例
+### 2、案例
 
 ```tsx
 function id(value: number): number {
@@ -423,11 +423,11 @@ id<number>(1);
 id<string>('abc');
 ```
 
-## 3、泛型的定义
+### 3、泛型的定义
 
 泛型使用 `<>` 进行定义，使用 `A - Z` 来定义泛型变量，常见的为 `T, K, U`
 
-## 4、其他泛型定义
+### 4、其他泛型定义
 
 ```tsx
 function foo<T, U>(x: T, y: U): void {
@@ -453,17 +453,17 @@ class Cat<T = any> {  // 泛型默认值
 function foo<T extends Date>(arg: T) {}
 ```
 
-# 插件
+## 插件
 
 - Volar（vscode插件）
 - Vue 3 Snippets / Vue VSCode Snippets（vscode插件）
 - Vue.js devtools beta（浏览器插件）
 
-# [Element Plus](https://element-plus.org/zh-CN/#/zh-CN)
+## [Element Plus](https://element-plus.org/zh-CN/#/zh-CN)
 
 1、[按需引入](https://element-plus.org/zh-CN/guide/quickstart.html#%E6%8C%89%E9%9C%80%E5%AF%BC%E5%85%A5)
 
-```cmd
+```bash
 # 安装 Element Plus
 npm install element-plus --save
 
@@ -474,7 +474,7 @@ npm install -D unplugin-vue-components unplugin-auto-import
 npm i -D unplugin-icons
 ```
 
-```js
+```tsx
 // 修改 vite.config.ts 文件
 import AutoImport from "unplugin-auto-import/vite";
 import Components from "unplugin-vue-components/vite";

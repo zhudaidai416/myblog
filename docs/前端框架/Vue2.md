@@ -1,8 +1,8 @@
-# [Vue2 官方文档](https://v2.cn.vuejs.org/)
+## [Vue2 官方文档](https://v2.cn.vuejs.org/)
 
-# Vue认识
+## Vue认识
 
-## 1、前端三大框架
+### 1、前端三大框架
 
 - Angular（最早的是Angular.js）
 
@@ -13,7 +13,7 @@
 - React.js
 
 
-## 2、前端与后端分离
+### 2、前端与后端分离
 
 各司其职，前端应用与后端应用一般是分开部署。
 
@@ -21,7 +21,7 @@
 
 后端负责内容：接口、操作数据库、权限控制...
 
-## 3、服务器端渲染与客户端渲染
+### 3、服务器端渲染与客户端渲染
 
 | 服务端渲染                                                   | 客户端渲染                                                 |
 | ------------------------------------------------------------ | ---------------------------------------------------------- |
@@ -30,7 +30,7 @@
 | 优点：1、安全，因为服务器的内容对前端都不可见2、对 SEO 有利，由于搜索引擎只会读取 html ，不会执行 JavaScript ，因此客户端渲染的页面在搜索引擎看来只是个空白页面。 | 优点：1、节省流量，数据量少2、用户体验好，可以不用刷新页面 |
 | 一般需要安全性高的页面，比如注册、登录，会使用服务端渲染     | 安全性要求不高的页面，如商品页等，会使用客户端渲染         |
 
-## 4、开发模式
+### 4、开发模式
 
 1）、MVC
 
@@ -42,7 +42,7 @@
 - V：视图层
 - VM：ViewMoudle，一个抽象层
 
-## 5、什么是 Vue
+### 5、什么是 Vue
 
 渐进式 JavaScript 框架
 
@@ -63,13 +63,13 @@ SPA
 - css命名冲突
 - 前进后退功能复杂度较高
 
-## 6、Vue 特点
+### 6、Vue 特点
 
 - 组件化（一个视图功能）
 - 虚拟DOM
 - 响应式数据（绑定的变量发生改变的时候，视图层会自动更新）
 
-## 7、Vue 引入
+### 7、Vue 引入
 
 ```js
 // 第一步、引入框架 JavaScript
@@ -79,9 +79,9 @@ SPA
 let vm = new Vue()
 ```
 
-# Vue 语法
+## Vue 语法
 
-## 1、Mustache 插值语法
+### 1、Mustache 插值语法
 
 1）、说明
 
@@ -101,7 +101,7 @@ let vm = new Vue()
 
 > 注意：不能使用 if else、switch、for
 
-## 2、v-bind
+### 2、v-bind
 
 1）、说明
 
@@ -139,7 +139,7 @@ v-bind 可以在标签属性上响应式更新数据。
 <p :style="[myStyle,myStyle2]">style绑定多个对象</p>
 ```
 
-## 3、v-once
+### 3、v-once
 
 1）、说明
 
@@ -151,7 +151,7 @@ v-bind 可以在标签属性上响应式更新数据。
 <p v-once>{{msg}}</p>
 ```
 
-## 4、v-text 和 v-html
+### 4、v-text 和 v-html
 
 1）、说明
 
@@ -164,7 +164,7 @@ v-bind 可以在标签属性上响应式更新数据。
 <p v-html="myText"></p>
 ```
 
-## 5、条件渲染
+### 5、条件渲染
 
 1）、说明
 
@@ -190,7 +190,7 @@ v-else 必须跟在 v-if 或者 v-else-if 的后面。
 </template>
 ```
 
-## 6、v-show
+### 6、v-show
 
 1）、说明
 
@@ -210,7 +210,7 @@ v-if 与 v-show 的区别
 
 - v-if 有比较高的切换开销，而  v-show 有更高的初始化渲染开销
 
-## 7、列表渲染
+### 7、列表渲染
 
 1）、说明
 
@@ -232,7 +232,7 @@ v-if 与 v-show 的区别
 // 唯一值：可以使用 index，但不是最好，建议使用 id
 ```
 
-## 8、事件绑定v-on
+### 8、事件绑定v-on
 
 ```js
 // 方式一
@@ -311,7 +311,7 @@ new Vue({
   - .enter
   - .space
 
-## 9、数据修改
+### 9、数据修改
 
 1）、说明
 
@@ -347,7 +347,7 @@ vm.$set(target, key, value);
 this.$set(target, key, value);
 ```
 
-## 10、v-model
+### 10、v-model
 
 1）、说明
 
@@ -365,7 +365,7 @@ new Vue({
 })
 ```
 
-# 脚手架
+## 脚手架
 
 1）、说明
 
@@ -373,7 +373,7 @@ new Vue({
 
 2）、脚手架安装
 
-```cmd
+```bash
 // 脚手架安装
 npm install -g @vue/cli
 mac安装：sudo npm install -g @vue/cli
@@ -385,7 +385,7 @@ vue --version
 
 3）、搭建项目
 
-```cmd
+```bash
 >> 第一步、创建项目
 vue create 项目名
 
@@ -410,7 +410,7 @@ To create a production build, run npm run build.
 
 4）、项目目录结构
 
-```cmd
+```bash
 ├─ public  // 静态资源目录，开发期间不需要修改的
 ├─ src  // 源代码目录
 │	├─ assets  // 资源目录，一般存放 css、图片、字体等
@@ -426,9 +426,9 @@ To create a production build, run npm run build.
 
 6）、浏览器插件：vue devtools
 
-# 组件
+## 组件
 
-## 1、组件概念
+### 1、组件概念
 
 组件就是一个提供特定功能的一段代码，包含 html ， css ， js ，相当于一个自定义标签。
 
@@ -436,9 +436,9 @@ To create a production build, run npm run build.
 
 现在的开发不是为了创建 html 文件，而是创建各个组件，通过大量的组件而完成的。
 
-## 2、组件的定义
+### 2、组件的定义
 
-### 1）、全局组件
+#### 1）、全局组件
 
 ```vue
 Vue.component('组件名',{
@@ -459,7 +459,7 @@ Vue.component('MyModal', MyModal)
 <MyModal />
 ```
 
-### 2）、局部组件
+#### 2）、局部组件
 
 ```vue
 new Vue({
@@ -489,7 +489,7 @@ export default {
 </script>
 ```
 
-### 3)、单文件组件
+#### 3)、单文件组件
 
 该组件是一个文件，以 `.vue` 结尾。
 
@@ -520,9 +520,9 @@ export default {
 </script>
 ```
 
-## 3、组件中引入子组件
+### 3、组件中引入子组件
 
-### App.vue 中引入子组件 Todo.vue
+#### App.vue 中引入子组件 Todo.vue
 
 ```vue
 // 第一步、创建子组件
@@ -549,7 +549,7 @@ export default {
 </script>
 ```
 
-## 4、props
+### 4、props
 
 1）、说明
 
@@ -580,7 +580,7 @@ props 是父组件传递给子组件的数据，子组件只能使用，而不�
 // 如果是在 js 中访问 props，那么通过 this.title 的方式访问
 ```
 
-## 5、动态组件
+### 5、动态组件
 
 1）、说明
 
@@ -626,7 +626,7 @@ export default {
 </script>
 ```
 
-## 6、组件缓存（keep-alive） - 性能优化
+### 6、组件缓存（keep-alive） - 性能优化
 
 1）、说明
 
@@ -656,15 +656,15 @@ deactivated
 或者使用 exclude 来决定哪些组件不缓存。
 ```
 
-## 7、组件封装
+### 7、组件封装
 
 某一段代码或者某个需求重复出现后。
 
 组件怎么封装：`props 和 slot`
 
-# ES6 模块化
+## ES6 模块化
 
-## 1、前端模块化方案
+### 1、前端模块化方案
 
 - CMD
 
@@ -684,7 +684,7 @@ deactivated
 
 ​		export default
 
-## 2、语法
+### 2、语法
 
 ```js
 / >> import from：引入模块 /
@@ -720,13 +720,13 @@ export default foo;
 import foo,{a} from './a';
 ```
 
-# 生命周期（钩子函数）
+## 生命周期（钩子函数）
 
-## 1、概念
+### 1、概念
 
 是指每一个 vue 实例被创建时都要经过的一系列的初始化过程，在这个过程中`自动运行一系列`的函数。
 
-## 2、钩子函数
+### 2、钩子函数
 
 ```js
 -- 组件生命周期
@@ -763,9 +763,9 @@ import foo,{a} from './a';
 -- vue-router 生命周期
 ```
 
-# 计算属性和属性监听
+## 计算属性和属性监听
 
-## 1、计算属性 - [computed](https://v2.cn.vuejs.org/v2/api#computed)
+### 1、计算属性 - [computed](https://v2.cn.vuejs.org/v2/api#computed)
 
 1）、概念
 
@@ -789,7 +789,7 @@ import foo,{a} from './a';
 可以直接用在{{}}, v-if , v-for , v-bind
 ```
 
-## 2、属性监听 - [watch](https://v2.cn.vuejs.org/v2/api#watch)
+### 2、属性监听 - [watch](https://v2.cn.vuejs.org/v2/api#watch)
 
 1）、说明
 
@@ -812,7 +812,7 @@ import foo,{a} from './a';
 }
 ```
 
-## 3、总结 - computed、methods 和 watch 的使用
+### 3、总结
 
 computed
 
@@ -830,15 +830,15 @@ watch
 
 - 监测数据变化的，可以检测 data，props，router
 
-# 自定义指令
+## 自定义指令
 
-## 1、说明
+### 1、说明
 
 Vue 内置了很多的指令，同时也允许开发者自定义指令。
 
-## 2、语法
+### 2、语法
 
-### 1）、全局自定义指令
+#### 1）、全局自定义指令
 
 ```js
 Vue.directive(指令名, {})
@@ -856,7 +856,7 @@ Vue.directive('focus', {
 // 然后在其他任意一个组件中就可以直接使用
 ```
 
-### 2）、局部自定义指令
+#### 2）、局部自定义指令
 
 ```vue
 {
@@ -884,7 +884,7 @@ export default {
 </script>
 ```
 
-### 3）、获取标签节点后，触发 focus 也行
+#### 3）、获取标签节点后，触发 focus 也行
 
 ```js
 // 原生 JS 方式
@@ -910,7 +910,7 @@ export default {
 </script>
 ```
 
-# 图片处理
+## 图片处理
 
 ```vue
 // 方式1
@@ -934,7 +934,7 @@ import 图片别名 from 地址
 
 方式1：最终图片路径会发生改变![图片资源引入](/images/图片资源引入.png)
 
-## 1、直接渲染img
+### 1、直接渲染img
 
 ```vue
 // 相对路径
@@ -944,9 +944,9 @@ import 图片别名 from 地址
 <img alt="Vue logo" src="http://www.logo.png">
 ```
 
-## 2、动态绑定
+### 2、动态绑定
 
-```cmd
+```bash
 npm run build  // 打包代码
 ```
 
@@ -984,15 +984,15 @@ export default {
 </script>
 ```
 
-# 插槽 - (主要用在封装组件 - UI)
+## 插槽 - (主要用在封装组件 - UI)
 
-## 1、概念
+### 1、概念
 
 可以允许开发者进行组件的扩展，可以更好的复用组件以及定制化处理。
 
 使用组件的时候，双标签之间插入的内容是不会渲染出来的。
 
-## 2、匿名插槽 - 默认插槽
+### 2、匿名插槽 - 默认插槽
 
 ```vue
 // 父组件
@@ -1006,7 +1006,7 @@ export default {
 <slot>这里是插槽位置</slot>
 ```
 
-## 3、具名插槽
+### 3、具名插槽
 
 1）、说明
 
@@ -1030,19 +1030,19 @@ export default {
 </div>
 ```
 
-## 4、作用域插槽
+### 4、作用域插槽
 
-# 组件通信 - 组件之间数据的传递
+## 组件通信 - 组件之间数据的传递
 
-## 1、说明
+### 1、说明
 
 默认情况下，每一个组件的作用域都是独立的，也就是说组件中的 data、methods 都只能在当前组件使用，无法传递给其他组件，更加无法修改其他组件的 data。
 
 为什么要通信，不少于2个组件需要传递信息的时候。
 
-## 2、通信方式
+### 2、通信方式
 
-### 1）、props（父传子）
+#### 1）、props（父传子）
 
 该方法用于父组件向子组件传递数据，子组件只能使用不能修改，但是不建议跨多个组件传值。
 
@@ -1065,7 +1065,7 @@ export default {
 </script>
 ```
 
-### 2）、事件回调 $emit（子传父）
+#### 2）、事件回调 $emit（子传父）
 
 子组件向父组件传递数据。
 
@@ -1123,7 +1123,7 @@ export default {
 </script>
 ```
 
-### 3）、sync（子修改父）
+#### 3）、sync（子修改父）
 
 可以实现父子组件双向的数据传递，允许子组件接收到父组件的数据后，直接修改数据。
 
@@ -1137,11 +1137,11 @@ onClose() {
 }
 ```
 
-### 4）、event bus —— 见十六点
+#### 4）、event bus —— 见十六点
 
 可以用于兄弟组件，注意事项，在 `$emit` 之前，必须要先 `$on` 。
 
-### 5）、$root
+#### 5）、$root
 
 所有组件通过 `this.$root` 访问根组件。
 
@@ -1153,37 +1153,37 @@ new Vue({
 })
 ```
 
-### 6）、$parent
+#### 6）、$parent
 
 子组件通过 `this.$parent` 可以获取父组件实例。
 
-### 7）、$chidren
+#### 7）、$chidren
 
 父组件通过 `this.$chidren` 可以获取子组件实例。
 
-### 8）、$ref
+#### 8）、$ref
 
 获取 DOM 节点，或者组件实例。
 
-### 9）、[v-model](https://v2.cn.vuejs.org/v2/guide/components-custom-events.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E7%9A%84-v-model)
+#### 9）、[v-model](https://v2.cn.vuejs.org/v2/guide/components-custom-events.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6%E7%9A%84-v-model)
 
 只能用在表单元素
 
-### 10）、vuex
+#### 10）、vuex
 
 vue2.x 状态管理工具。
 
-# [路由](https://router.vuejs.org/zh/)
+## [路由](https://router.vuejs.org/zh/)
 
-## 1、概念
+### 1、概念
 
 SPA（单页应用程序）-可以通过路由模拟多页应用效果。
 
 前端路由理解为单页开发中，负责页面内容的分发，根据不同的 url 地址去展示不同的内容。
 
-## 2、环境搭建
+### 2、环境搭建
 
-```cmd
+```bash
 // 第一步、创建项目
 # vue/cli 脚手架
 vue create 项目名
@@ -1202,9 +1202,9 @@ Vue CLI v5.0.8
 
 ![路由项目配置](/images/路由项目配置.png)
 
-## 3、路由配置
+### 3、路由配置
 
-### src/router/index.js
+#### src/router/index.js
 
 ```js
 import Vue from 'vue'
@@ -1241,7 +1241,7 @@ new Vue({
 }).$mount('#app')
 ```
 
-## 4、路由组件
+### 4、路由组件
 
 ```html
 >> router-link
@@ -1251,7 +1251,7 @@ new Vue({
    当前url匹配后，在该位置渲染组件。
 ```
 
-### src/App.vue
+#### src/App.vue
 
 ```vue
 <template>
@@ -1265,9 +1265,9 @@ new Vue({
 </template>
 ```
 
-## 5、嵌套路由
+### 5、嵌套路由
 
-### src/router/index.js
+#### src/router/index.js
 
 ```js
 // 第一步、配置
@@ -1290,7 +1290,7 @@ new Vue({
 },
 ```
 
-### src/views/MeView.vue
+#### src/views/MeView.vue
 
 ```vue
 // 第二步、在设置 children 的路由页面中配置子路由要展示的位置
@@ -1308,7 +1308,7 @@ new Vue({
 </template>
 ```
 
-## 6、[跳转路由携带参数](https://router.vuejs.org/zh/guide/essentials/navigation.html)
+### 6、[跳转路由携带参数](https://router.vuejs.org/zh/guide/essentials/navigation.html)
 
 * hash
 * query
@@ -1331,9 +1331,9 @@ router.push({ path: '/register', query: { plan: 'private' } })
 router.push({ path: '/about', hash: '#team' })
 ```
 
-# css处理
+## css处理
 
-## 1、全局共有的css
+### 1、全局共有的css
 
 可以编写 css 文件，然后在主模块 main.js 引用
 
@@ -1341,7 +1341,7 @@ router.push({ path: '/about', hash: '#team' })
 import './assets/css/base.css'
 ```
 
-## 2、组件中 css 的处理
+### 2、组件中 css 的处理
 
 ```vue
 <p :class="{on :true}"></p>
@@ -1349,7 +1349,7 @@ import './assets/css/base.css'
 <p :style="{}"></p>
 ```
 
-## 3、单文件组件的 style 标签
+### 3、单文件组件的 style 标签
 
 因为 css 没有局部和全局的概念，所有的 css 都是全局 css ，所以默认情况下 `<style>` 就是全局，各个组件之间如果 class 名字相同，则会相互影响。
 
@@ -1362,13 +1362,13 @@ import './assets/css/base.css'
 
 小提示：当前单文件组件可以添加多个 style 标签需要局部的添加 scoped 属性，不需要的则写直接 style 。
 
-# filter
+## filter
 
-## 1、概念
+### 1、概念
 
 Vue 为开发者提供了一个方法，帮助我们进行数据的筛选处理，一般应用在模板上的。
 
-## 2、定义
+### 2、定义
 
 ```js
 >> 全局过滤器
@@ -1423,21 +1423,21 @@ methods: {
 </script>
 ```
 
-# 新增/编辑/查看
+## 新增/编辑/查看
 
 内容差不多，如何展示？
 
-## 1、弹窗 - 模态框
+### 1、弹窗 - 模态框
 
-## 2、新组件
+### 2、新组件
 
 重新跳转一个页面去展示。
 
-### 1）、两个路由界面之间如何传递参数
+#### 1）、两个路由界面之间如何传递参数
 
 通过 `this.$route` 可以获取路由信息。
 
-```javascript
+```js
 * 查询参数：在 URL 中，以 ? 开头的路径部分,后面跟上 key=value&key=value
   this.$route.query
 ```
@@ -1458,9 +1458,9 @@ methods: {
     this.$router.params.id
 ```
 
-# EventBus
+## EventBus
 
-## 1、说明
+### 1、说明
 
 - props：父传子
 - $emit：子传父
@@ -1471,7 +1471,7 @@ EventBus 又称为中央事件总线，作为Vue 组件沟通的桥梁，所有�
 
 一般用于小型项目，后期维护要求不高的情况。
 
-## 2、实现
+### 2、实现
 
 ```js
 / 第一步、创建一个单独的空 Vue 实例作为事件中心/
@@ -1507,7 +1507,7 @@ export default {
 }
 ```
 
-## 3、优缺点
+### 3、优缺点
 
 - 优点
 
@@ -1522,25 +1522,25 @@ export default {
   - 事件监听必须在事件触发之前完成
   - 一定要在组件销毁之前取消监听，否则会出现多次监听的效果
 
-# [Vuex](https://vuex.vuejs.org/zh/)
+## [Vuex](https://vuex.vuejs.org/zh/)
 
-## 1、认识
+### 1、认识
 
 集中式存储管理当前应用的所有组件状态，保证状态以一种可预测的方式进行变化。
 
-## 2、应用场景
+### 2、应用场景
 
 任何两个组件甚至是更多组件之间传递数据。
 
-## 3、特点
+### 3、特点
 
 驱动式的数据源
 
 声明式的方式将状态映射到视图
 
-## 4、环境
+### 4、环境
 
-```cmd
+```bash
 // 在已有的项目中加入 vuex
 npm i vuex
 
@@ -1558,9 +1558,9 @@ Vue CLI v5.0.8
 ? Save this as a preset for future projects? 'No
 ```
 
-## 5、核心概念
+### 5、核心概念
 
-### store（/src/store/index.js）
+#### store（/src/store/index.js）
 
 每一个 Vue 实例只能包含一个 store 实例，该 store 相当于一个仓库，所有需要跨组件通信的组件都从 store 中读取数据，修改数据的时候也通过 store 提供的方法来修改。
 
@@ -1579,11 +1579,11 @@ new Vuex.Store({
 })
 ```
 
-### 1）、State
+#### 1）、State
 
 作为 store 中的数据，所有跨组件的数据都可以放在这里。
 
-#### a、语法
+##### a、语法
 
 ```js
 >> 使用（/src/store/index.js）
@@ -1597,7 +1597,7 @@ new Vuex.Store({
   this.$store.state.num
 ```
 
-#### b、mapState 辅助函数
+##### b、mapState 辅助函数
 
 ```js
 >> mapState 辅助函数
@@ -1621,13 +1621,13 @@ new Vuex.Store({
   }
 ```
 
-### 2）、Mutation 
+#### 2）、Mutation
 
 修改 store 中的数据必须通过 Mutation 修改。
 
 该函数内部只能是`同步操作`，不能有其他任何与数据修改无关的操作，比如请求、计时器、本地存储等。
 
-#### a、语法
+##### a、语法
 
 ```js
 >> 使用
@@ -1645,7 +1645,7 @@ new Vuex.Store({
   this.$store.commit('incrementPayload', 5)  // 传参
 ```
 
-#### b、mapMutations 辅助函数
+##### b、mapMutations 辅助函数
 
 ```js
 >> mapMutations 辅助函数
@@ -1664,11 +1664,11 @@ new Vuex.Store({
   }
 ```
 
-### 3）、Getter
+#### 3）、Getter
 
 可以理解为 vuex 的计算属性，getters 的返回值会根据它的依赖被缓存起来，只有它的依赖发生了改变才会被重新计算。
 
-#### a、语法
+##### a、语法
 
 ```js
 >> 使用
@@ -1686,20 +1686,20 @@ new Vuex.Store({
   this.$store.getters.doubleNum
 ```
 
-#### b、mapGetters 辅助函数
+##### b、mapGetters 辅助函数
 
 ```js
 >> mapGetters 辅助函数
   简写。
 ```
 
-### 4）、Action
+#### 4）、Action
 
 可以用于异步操作、或者其他非纯函数操作（本地存储），当异步完成后，可以去提交 mutation ，从而改变状态。
 
 也就是说 action 也不能修改数据，但是可以在 action 中提交 mutation 。
 
-#### a、语法
+##### a、语法
 
 ```js
 >> 使用
@@ -1724,7 +1724,7 @@ new Vuex.Store({
   this.$store.dispatch('incrementAsyncP', 5); // 传参
 ```
 
-#### b、mapActions 辅助函数
+##### b、mapActions 辅助函数
 
 ```js
 >> mapActions 辅助函数
@@ -1753,13 +1753,13 @@ new Vuex.Store({
 
 因为 action 是异步的，那么如何知道 action 已经执行完毕了。
 
-### 5）、Module
+#### 5）、Module
 
 一个 Vue 应用中只能存在一个 store，所有的 state 都会集中在这个 store中，当项目情况非常复杂的情况下，这个 store 就会非常的臃肿。
 
 为了解决 store 臃肿的问题，vuex 允许我们将 store 分割为一个个的小模块，每一个模块都有自己的 state、mutation、action、getter、module 。
 
-#### a、语法
+##### a、语法
 
 ```js
 const moduleA = {
@@ -1793,7 +1793,7 @@ store.state.a // -> moduleA 的状态
 store.commit('add') -> 默认情况下，模块内部的 getters, mutations, actions 都是挂在在主模块下的，所以调用方式不变
 ```
 
-####  b、module 命名空间
+#####  b、module 命名空间
 
 - 上方默认情况下，有可能出现 moduleA 和 moduleB 中 mutation 名字相同，必然就会冲突。
 - 如果希望你的模块具有更高的封装度和复用性，你可以通过添加 namespaced: true 的方式使其成为带命名空间的模块。当模块被注册后，它的所有 getter、action 及 mutation 都会自动根据模块注册的路径调整命名。
@@ -1815,9 +1815,9 @@ store.state.a
 store.commit('a/add')
 ```
 
-# vue项目创建
+## vue项目创建
 
-```cmd
+```bash
 // 方式1 - 命令式
 vue create 项目名
 
@@ -1837,17 +1837,17 @@ vue ui
 
 ![vueui创建项目5](/images/vueui创建项目5.png)
 
-# [Element-UI](https://element.eleme.cn/#/zh-CN)
+## [Element-UI](https://element.eleme.cn/#/zh-CN)
 
-## 1、环境安装
+### 1、环境安装
 
-```cmd
+```bash
 npm i element-ui -S
 ```
 
-## 2、引入框架
+### 2、引入框架
 
-### 1）、全局引入
+#### 1）、全局引入
 
 ```js
 // 在 main.js 中写入以下内容：
@@ -1870,7 +1870,7 @@ new Vue({
 </template>
 ```
 
-### 2）、按需加载
+#### 2）、按需加载
 
 只引入用到的组件，从而达到减少项目体积的目的。
 
@@ -1917,202 +1917,11 @@ Vue.use(Select)
 </template>
 ```
 
-# CSS预编译器
-
-## 1、理解
-
-属于 css 的扩展语言、支持所有 css 的语法，然后新增语法。
-
-比如：变量、css 导入、css 嵌套、函数等等。
-
-种类很多：less、sass
-
-前提条件：浏览器支持 css 文件、不支持 .less 或者 .scss 文件，所以需要对这些预编译语言提前编译为 css 。
-
-## 2、[sass](https://www.sass.hk/) 安装
-
-根据不同的框架环境依赖的模块是不一样的。
-
-```cmd
-npm i sass/node-sass/dart-sass
-
-// 或者直接在 vscode 中安装相应插件，编写完 scss 文件后，就会自动转换。
-
-搜索相应关键字 sass
-
-// vue 环境下使用 sass
-第一步、安装环境时、选择 sass
-第二步、在 style 标签上加上 lang="scss"
-```
-
-## 3、[sass 语法](https://www.sass.hk/guide/)
-
-### 1）、变量
-
-可以把反复利用到的 css 值定义为变量，然后通过变量名来引用。
-
-```scss
-// 定义：以 $ 开头，后面跟上变量名
-$theme-color: #ff0;
-
-// 使用
-nav {
-  background: $theme-color;
-}
-footer {
-  border: 1px solid $theme-color;
-}
-
-// 通过 #{} 插值语句可以在选择器或者属性名中使用变量
-$b: border;
-
-p .#($b){
-  #($b)-left: 1px solid $theme-color;
-}
-```
-
-### 2）、导入
-
-可以导入 scss 文件，也可以导入 css 文件。
-
-```scss
-@import '文件名';  // 文件后缀如果是.scss 那么可以省略不写
-
-// 例子
-<style lang="scss">
-	@import './assets/scss/var';
-</style>
-```
-
-### 3）、css 嵌套
-
- 可以像标签嵌套那样进行套娃操作，从而避免重复编写。
-
-```scss
-// scss 嵌套
-.body{
-  width: 200px;
-  a{
-    color: red;
-  }
-  p{
-    color: pink;
-  }
-}
-
-// 编译后为
-.body {
-  width: 200px;
-}
-.body a{
-  color: red;
-}
-.body p{
-  color: pink;
-}
-```
-
-```scss
-// 父选择器标识符 &
-a {
-  color: red;
-  
-  &:hover {
-  	color: green;
-  }
-}
-```
-
-### 4）、混合
-
-当出现大段重复的代码时，此时就可以使用混合去实现大段样式的复用。
-
-```scss
-// 定义混合 - 此段代码可以重复利用
-@mixin center {
-  width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-// 使用 - 通过 @include 来标识
-.center{
-  @include center;
-  background: pink;
-}
-```
-
-```scss
-// 混合允许使用变量 - 类似混合是函数，函数也可以接受参数，并且参数可以有默认值
-@mixin center($w) {  // $w 就是参数
-  width: $w;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-// 使用 
-.content {
-  @include center(1000px);
-}
-
-@mixin center($w:800px) {  // 默认值
-  width: $w;
-  margin-left: auto;
-  margin-right: auto;
-}
-// 使用 
-.content {
-  @include center();  // 没有传值就是默认值
-}
-```
-
-### 5）、继承
-
-一个选择器继承另外一个选择器。
-
-```scss
-.error {
-  background: red;
-  color: #fff;
-}
-
-.seriousError {
-  @extend .error; // 通过 @extend 去继承另外一个选择器中所有的 css 代码
-  background: darkred;
-}
-```
-
-### 6）、运算
-
-```scss
-p {
-  width: $w/2;
-}
-```
-
-### 7）、函数
-
-```scss
-// 随机颜色
-@function randomNum($max,$min:0) {
-  @return ($min + random($max));
-}
-```
-
-### 8）、颜色函数
-
-### 9）、流程控制
-
-```scss
-@if
-@for
-```
-
-# 路由拦截（路由守卫）
+## 路由拦截（路由守卫）
 
 对于没有登录的用户，部分路由是不允许访问的。
 
-## 1、router.beforeEach
+### 1、router.beforeEach
 
 1）、说明
 
@@ -2156,21 +1965,21 @@ router.beforeEach((to, from, next) => {
 })
 ```
 
-# [axios](https://www.axios-http.cn/)
+## [axios](https://www.axios-http.cn/)
 
-## 1、说明
+### 1、说明
 
 axios 是一个基于Promise 的HTTP 请求库，可以在浏览器和node.js中使用。有非常多的特性
 
-## 2、安装
+### 2、安装
 
-```cmd
+```bash
 npm i axios
 ```
 
-## 3、在 vue 中如何使用 axios
+### 3、在 vue 中如何使用 axios
 
-```cmd
+```bash
 安装模块
 npm i axios vue-axios
 ```
@@ -2187,7 +1996,7 @@ Vue.use(axios, VueAxios)
 this.axios()
 ```
 
-## 4、axios 用法
+### 4、axios 用法
 
 ```js
 // GET 请求，参数放在 url 中 
@@ -2276,7 +2085,7 @@ const instance = axios.create({
 // 然后在项目中直接使用实例
 ```
 
-## 5、[封装axios](D:\Web304\Note\封装 axios.md)
+### 5、[封装axios](D:\Web304\Note\封装 axios.md)
 
 1）、封装原因
 
@@ -2296,13 +2105,13 @@ this.$axios({
 })
 ```
 
-## 6、请求跨域
+### 6、请求跨域
 
 1、说明
 
 浏览器基于安全因素的考虑，是不允许进行跨域请求的，如果发生跨域请求，就会发生一下类似的错误。
 
-```cmd
+```bash
 错误提示
 Access to XMLHttpRequest at 'http://localhost:3000/users/login' from origin 'http://localhost:8080' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: No 'Access-Control-Allow-Origin' header is present on the requested resource.
 ```
@@ -2335,50 +2144,50 @@ app.use('*', function(req, res, next) {
 })
 ```
 
-# express
+## express
 
-```cmd
+```bash
 npx express-generator --view=ejs 项目名
 ```
 
-# JWT 认证
+## JWT 认证
 
-## 1、了解
+### 1、了解
 
 JTW 全称为 json web token。
 
-## 2、认证方式
+### 2、认证方式
 
-### 1）、session 认证流程
+#### 1）、session 认证流程
 
 - 用户在浏览器中输入用户名和密码，服务器通过密码校验后生成一个session并保存到数据库。
 - 服务器为用户生成一个sessionId，并将具有sesssionId的cookie放置在用户浏览器中，在后续的请求中都将带有这个cookie信息进行访问。
 - 服务器获取cookie，通过获取cookie中的sessionId查找数据库判断当前请求是否有效。
 
-### 2）、基于 JWT 的认证流程
+#### 2）、基于 JWT 的认证流程
 
 -  用户在浏览器中输入用户名和密码，服务器通过密码校验后生成一个 token 字符串，并返回给前端。
 - 前端获取到token，存储到cookie或者local storage中，在后续的请求中都将带有这个token信息进行访问。
 - 服务器获取token值，会去验证 token 是否有效。
 
-### 3）、优缺点
+#### 3）、优缺点
 
 - JWT保存在客户端，在分布式环境下不需要做额外工作。而session因为保存在服务端，分布式环境下需要实现多机数据共享。
 - session一般需要结合Cookie实现认证，所以需要浏览器支持cookie，因此移动端无法使用session认证方案。
 
-### 4）、安全性
+#### 4）、安全性
 
 JWT的payload使用的是base64编码的，因此在JWT中不能存储敏感数据。而session的信息是存在服务端的，相对来说更安全。
 
-### 5）、性能
+#### 5）、性能
 
 经过编码之后JWT将非常长，cookie的限制大小一般是4k，cookie很可能放不下，所以JWT一般放在local storage里面。并且用户在系统中的每一次http请求都会把JWT携带在Header里面，HTTP请求的Header可能比Body还要大。而sessionId只是很短的一个字符串，因此使用JWT的HTTP请求比使用session的开销大得多。
 
-### 6）、一次性
+#### 6）、一次性
 
 无状态是JWT的特点，但也导致了这个问题，JWT是一次性的。想修改里面的内容，就必须签发一个新的JWT。
 
-## 3、JWt 组成
+### 3、JWt 组成
 
 是一个字符串，由三个部分组成：头部、载荷、签证，各部分之间通过 `.` 分割。
 
@@ -2388,7 +2197,7 @@ JWT的payload使用的是base64编码的，因此在JWT中不能存储敏感数�
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiend6IiwiYWdlIjoiMTgifQ.UQmqAUhUrpDVV2ST7mZKyLTomVfg7sYkEjmdDI5XF8Q
 ```
 
-## 4、token 处理流程
+### 4、token 处理流程
 
 - 客户端发送请求，将账号、密码发送给服务器；
 - 服务器验证通过，生成 token，返回给前端；
@@ -2397,9 +2206,9 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiend6IiwiYWdlIjoiMTgifQ.UQmqAUhU
 - 后端从请求头中获取 token，然后验证该 token 是否是服务器签发的，以及有效期；
 - 验证通过，返回前端想要的数据，是否返回错误，不给数据；
 
-## 5、token 生成（服务器生成）
+### 5、token 生成（服务器生成）
 
-```cmd
+```bash
 // 利用 express-jwt 模块
 // 安装
 npm i express-jwt
@@ -2478,9 +2287,9 @@ instance.interceptors.response.use(function (response) {
 });
 ```
 
-# 动画
+## 动画
 
-## 1、说明
+### 1、说明
 
 Vue 中可以实现在 插入、更新、移除 DOM 的时候，添加过渡效果。
 
@@ -2490,7 +2299,7 @@ Vue 中可以实现在 插入、更新、移除 DOM 的时候，添加过渡效�
 - 动态组件
 - 列表渲染
 
-## 2、使用
+### 2、使用
 
 需要添加动画的标签或者组件，在外部添加 transition 组件包装。
 
@@ -2530,15 +2339,15 @@ Vue 中可以实现在 插入、更新、移除 DOM 的时候，添加过渡效�
 </style>
 ```
 
-# nextTick
+## nextTick
 
-## 1、说明
+### 1、说明
 
 - Vue 实现的响应式并不是数据发生变化后 DOM 立即变化，而是按照一定的策略进行 DOM 更新。
 - Vue 在更新 DOM 时是异步的，只要监听到数据变化，Vue 将开启一个队列，将同一事件循环中发生的所有数据变更缓存在这个队列中。
 - 也就是说 Vue 在修改数据后，视图并不是同步更新的，想要操作更新后的 DOM 就必须使用 nextTick 来操作。
 
-## 2、语法
+### 2、语法
 
 ```js
 // 在组件中通过 this 访问
@@ -2552,7 +2361,7 @@ Vue.nextTick(() => {
 })
 ```
 
-# 异步处理
+## 异步处理
 
 ```js
 >> 回调函数
@@ -2584,4 +2393,3 @@ Vue.nextTick(() => {
   foo()
   console.log(3)
 ```
-

@@ -1,10 +1,10 @@
-# 一、数据库的种类
+## 一、数据库的种类
 
 关系型数据库、非关系型数据库（nosql）
 
 都是存的表结构
 
-# 二、数据库的数据类型
+## 二、数据库的数据类型
 
 1、整数类型int
 
@@ -14,57 +14,57 @@
 
 4、日期与时间类型date、datetime
 
-# 三、数据库的基本操作
+## 三、数据库的基本操作
 
-## 1、创建数据库
+### 1、创建数据库
 
-### 1）、通过编辑器创建数据库
+#### 1）、通过编辑器创建数据库
 
-### 2）、通过sql语句创建 
+#### 2）、通过sql语句创建 
 
 ```sql
 create database 数据库名称;
 ```
 
-## 2、查看数据库
+### 2、查看数据库
 
 ```sql
 show create database 数据库名称;
 ```
 
-## 3、删除数据库
+### 3、删除数据库
 
 ```sql
 drop database 数据库名称;
 ```
 
-## 4、查看所有数据库
+### 4、查看所有数据库
 
 ```sql
 show databases;
 ```
 
-## 5、数据库的字符集修改
+### 5、数据库的字符集修改
 
 ```sql
 alter database 数据库名 character set gbk;
 ```
 
-## 6、切换数据库
+### 6、切换数据库
 
 ```sql
 use 数据库;
 ```
 
-## 7、查看当前使用的数据库
+### 7、查看当前使用的数据库
 
 ```sql
 select database();
 ```
 
-# 四、数据表的基本操作
+## 四、数据表的基本操作
 
-## 1、创建数据表
+### 1、创建数据表
 
 ```sql
 create table 表名(
@@ -75,7 +75,7 @@ create table 表名(
 );
 ```
 
-## 2、查看数据表
+### 2、查看数据表
 
 ```sql
 -- 查看当前数据库中所有表
@@ -88,7 +88,7 @@ show create table 表名;
 desc 表名;
 ```
 
-## 3、修改数据表
+### 3、修改数据表
 
 ```sql
 -- 修改表名
@@ -107,15 +107,15 @@ alter table 表名 add 字段名 字段类型;
 alter table 表名 drop 字段名;
 ```
 
-## 4、删除数据表
+### 4、删除数据表
 
 ```sql
 drop table 表名;
 ```
 
-# 五、数据表的约束
+## 五、数据表的约束
 
-## 1、主键约束
+### 1、主键约束
 
 用于唯一标识对应的记录
 
@@ -139,25 +139,25 @@ create table student(
 );
 ```
 
-## 2、非空约束
+### 2、非空约束
 
 ```sql
 字段名 数据类型 not null;
 ```
 
-## 3、默认值约束
+### 3、默认值约束
 
 ```sql
 字段名 数据类型 default 默认值;
 ```
 
-## 4、唯一性约束
+### 4、唯一性约束
 
 ```sql
 字段名 数据类型 unique;
 ```
 
-## 5、外键约束
+### 5、外键约束
 
 ```sql
 -- 创建数据表时
@@ -207,15 +207,15 @@ constraint foreign key(classid) references class(cid)
 > 2、从表里外键的数据类型必须与主表中主键的数据类型一致
 > 3、主表发生变化时应注意主表与从表的数据一致性问题
 
-## 6、自增
+### 6、自增
 
 ```sql
 auto_increment
 ```
 
-# 六、数据操作
+## 六、数据操作
 
-## 1、添加数据
+### 1、添加数据
 
 ```sql
 insert into 表名（字段名1,字段名2,...) values (值1,值2,...);
@@ -235,7 +235,7 @@ insert into student values
 insert into student (id,name,age) values (4,'拢龙',3);
 ```
 
-## 2、删除数据
+### 2、删除数据
 
 ```sql
 delete from 表名 [where 条件表达式];
@@ -252,13 +252,13 @@ truncate table 表名;
 >
 > 3、delete语句是dml语句，truncate语句通常被认为是ddl语句。
 
-## 3、改数据
+### 3、改数据
 
 ```sql
 update 表名 set 字段名1=值1[,字段名2 =值2,…] [where 条件表达式];
 ```
 
-# 七、数据表简单查询
+## 七、数据表简单查询
 
 ```sql
 -- 查询所有字段
@@ -279,35 +279,35 @@ select distinct 字段名 from 表名;
 select name,age+10 from student;
 ```
 
-# 八、函数
+## 八、函数
 
-## 1、聚合函数
+### 1、聚合函数
 
 - 使用规则：只有selete子句和having子句、order by子句中能够使用聚合函数。例如，在where子句中使用聚合函数是错误的。
 
-### 1）、count()
+#### 1）、count()
 
 统计表中数据的行数或者统计指定列其值不为NULL的数据个数
 
-### 2）、max()
+#### 2）、max()
 
 计算指定列的最大值
 
-### 3）、min()
+#### 3）、min()
 
 计算指定列的最小值
 
-### 4）、sum()
+#### 4）、sum()
 
 计算指定列的数值和
 
-### 5）、avg()
+#### 5）、avg()
 
 计算指定列的平均值
 
-## 2、其他函数
+### 2、其他函数
 
-### 1）、时间函数
+#### 1）、时间函数
 
 ```sql
 select now();
@@ -327,7 +327,7 @@ select date_sub(now(),interval 1 month);
 select datediff('2019-07-22','2019-05-05');
 ```
 
-### 2）、字符串函数
+#### 2）、字符串函数
 
 ```sql
 -- 连接函数
@@ -340,7 +340,7 @@ select instr()
 select length()
 ```
 
-### 3）、数学函数
+#### 3）、数学函数
 
 ```sql
 -- 绝对值
@@ -353,7 +353,7 @@ select floor(3.14);
 select ceiling(3.14);
 ```
 
-# 九、条件查询
+## 九、条件查询
 
 ```sql
 -- 使用关系运算符查询
@@ -406,36 +406,36 @@ select * from student order by stuAge desc
 select * from student order by stuAge asc
 ```
 
-# 十、别名设置
+## 十、别名设置
 
-## 1、为表取别名
+### 1、为表取别名
 
 ```sql
 select * from 表名 [as] 表的别名 where ...;
 ```
 
-## 2、为字段取别名
+### 2、为字段取别名
 
 ```sql
 select 字段名1 [as] 别名1,字段名2 [as] 别名2,... from 表名 where ...;
 ```
 
-# 十一、多表连接查询
+## 十一、多表连接查询
 
-## 1、交叉连接查询（笛卡尔连接）
+### 1、交叉连接查询（笛卡尔连接）
 
 ```sql
 select * from 表1 cross join 表2;
 ```
 
-## 2、内连接查询
+### 2、内连接查询
 
 ```sql
 -- inner join：连接两个表，on：连接条件，inner可以省略
 select 查询字段1,查询字段2, ... from 表1 [inner] join 表2 on 表1.关系字段=表2.关系字段
 ```
 
-## 3、外连接查询
+### 3、外连接查询
 
 ```sql
 -- 外连接又分为左(外)连接和右(外)连接
@@ -446,7 +446,7 @@ select 查询字段1,查询字段2, ... from 表1 [inner] join 表2 on 表1.关�
 select 查询字段1,查询字段2, ... from 表1 left | right [outer] join 表2 on 表1.关系字段=表2.关系字段 where 条件;
 ```
 
-# 十二、子查询
+## 十二、子查询
 
 ```sql
 -- 查询所有学生信息以及班级
@@ -458,20 +458,20 @@ select *,(select className from class where cid = classId) from student
 select * from student where  classId = (select cid from class where className = '一班')
 ```
 
-## 1、比较运算符
+### 1、比较运算符
 
 ```sql
 select * from class where cid = (select classid from student where sname='呆呆');
 ```
 
-## 2、exists
+### 2、exists
 
 ```sql
 -- exists关键字后面的参数可以是任意一个子查询，它不产生任何数据只返回true或false。当返回值为true时外层查询才会执行。
 select * from class where exists (select * from student where sname='呆呆');
 ```
 
-## 3、all
+### 3、all
 
 ```sql
 -- 带all关键字的子査询返回的结果需同时满足所有内层査询条件
@@ -480,7 +480,7 @@ select * from class where exists (select * from student where sname='呆呆');
 select * from student where stuAge > all (select stuAge from student where sex = '男')
 ```
 
-## 4、any
+### 4、any
 
 ```sql
 -- any关键字表示满足其中任意一个条件就返回一个结果作为外层查询条件
@@ -488,7 +488,7 @@ select * from student where stuAge > all (select stuAge from student where sex =
 select * from student where stuAge > any (select stuAge from student where sex = '男')
 ```
 
-# 十三、总结
+## 十三、总结
 
 ```sql
 -- 查询语句的书写顺序和执行顺序
@@ -497,9 +497,9 @@ select => from => where => group by => having => order by => limit
 from => where => group by => having => select => order by => limit
 ```
 
-# 十四、数据库设计
+## 十四、数据库设计
 
-## 1、数据库设计的三大范式
+### 1、数据库设计的三大范式
 
 - 第一范式：数据库中所有的字段值都是不可分解的原子值。
 
@@ -510,6 +510,6 @@ from => where => group by => having => select => order by => limit
 - 第三范式：先满足第二范式，表中所有的非主键必须和主键之间相关，而不能间接相关。
 
 
-## 2、一般电商系统的数据库设计
+### 2、一般电商系统的数据库设计
 
 ![一般电商系统的数据库设计](/images/一般电商系统的数据库设计.png)

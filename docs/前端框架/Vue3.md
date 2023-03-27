@@ -1,6 +1,6 @@
-# [Vue3 官方文档](https://cn.vuejs.org/)
+## [Vue3 官方文档](https://cn.vuejs.org/)
 
-# 介绍
+## 介绍
 
 - vue3 支持 vue2 绝大部分的内容
 - 部分接口移除（过滤器、$children、$on、$off）
@@ -10,17 +10,17 @@
 - template 支持多标签
 - 新增 CompositionAPI（组合式API）语法
 
-# 创建项目
+## 创建项目
 
 方法1 - vue/cli
 
-```cmd
+```bash
 vue create 项目名
 ```
 
 方法2 - 本地构建
 
-```cmd
+```bash
 npm init vue@latest
 ```
 
@@ -28,7 +28,7 @@ npm init vue@latest
 
 方法3 - [vite](https://vitejs.cn/guide/)
 
-```cmd
+```bash
 # 查看npm版本
 npm -v
 
@@ -43,7 +43,7 @@ npm init vite@latest my-vue-app -- --template vue
 
 ![vite搭建项目](/images/vite搭建项目.png)
 
-# vue 实例化
+## vue 实例化
 
 ```js
 // vue2.x
@@ -76,7 +76,7 @@ app.use(router)  // 挂载路由
 app.use(store)  // 挂载store
 ```
 
-# 全局配置
+## 全局配置
 
 ```js
 const app = createApp();
@@ -92,11 +92,11 @@ app.config = {
 app.config.globalProperties.$axios = axios;
 ```
 
-# setup
+## setup
 
 是 vue3 中 composition API 的统一入口，也可以看作是一个生命周期（在 beforeCreate 之前执行的）。
 
-```javascript
+```js
 // 选项式 API - vue3 依然支持
 export default {
   name: '',
@@ -120,7 +120,7 @@ export default {
 <script setup></script>
 ```
 
-## 1、vue3.0
+### 1、vue3.0
 
 ``` js
 export default {
@@ -153,7 +153,7 @@ export default {
 };
 ```
 
-## 2、vue3.2及以后 - setup 语法糖
+### 2、vue3.2及以后 - setup 语法糖
 
 ``` html
 <script setup>
@@ -164,7 +164,7 @@ export default {
 </script>
 ```
 
-## 3、getCurrentInstance
+### 3、getCurrentInstance
 
 返回当前组件实例。
 
@@ -177,9 +177,9 @@ console.log(instance);
 </script>
 ```
 
-# defineProps / defineEmits
+## defineProps / defineEmits
 
-## 1、组件props
+### 1、组件props
 
 ```vue
 <template>
@@ -199,7 +199,7 @@ console.log(props);
 </script>
 ```
 
-## 2、触发事件
+### 2、触发事件
 
 ```vue
 // 子组件
@@ -229,11 +229,9 @@ const foo = (val) => {
 </script>
 ```
 
+## ref / reactive
 
-
-# ref / reactive
-
-## 1、ref
+### 1、ref
 
 ref 用于创建响应式数据，一般用于基本数据（引用数据也是可以的）。在 JS 中通过 `.value` 的形式访问或者修改，模板中直接使用的。
 
@@ -264,7 +262,7 @@ const red = () => {
 </template>
 ```
 
-## 2、reactive
+### 2、reactive
 
 用于创建引用类型的数据，不能对其进行解构，否则会失去响应式。
 
@@ -329,7 +327,7 @@ const list = ref([])
 list.value = [];
 ```
 
-# [生命周期](https://cn.vuejs.org/guide/essentials/lifecycle.html)
+## [生命周期](https://cn.vuejs.org/guide/essentials/lifecycle.html)
 
 vue2中的生命周期依然可以使用，但是不能放在 script setup 中。
 
@@ -349,7 +347,7 @@ onMounted(() => {
 </script>
 ```
 
-# computed
+## computed
 
 在 setup 中使用计算属性，需要导入 computed 。
 
@@ -360,11 +358,11 @@ const num = ref(0);
 const formateNum = computed(() => num.value.toFixed(2));
 ```
 
-# watch
+## watch
 
 在 setup 中需要检测数据的改变，需要导入 watch 。
 
-## 1、检测 ref 数据
+### 1、检测 ref 数据
 
 ``` js
 import { ref, watch } from "vue";
@@ -380,9 +378,9 @@ watch(num, (newVal, oldVal) => {
 });
 ```
 
-## 2、检测 reactive 数据
+### 2、检测 reactive 数据
 
-``` JS
+``` js
 import { reactive, watch } from "vue";
 
 const state = reactive({
@@ -397,7 +395,7 @@ watch(
 );
 ```
 
-## 3、深度检测
+### 3、深度检测
 
 ``` js
 const state = reactive({ count: 0 })
@@ -410,7 +408,7 @@ watch(
 )
 ```
 
-## 4、watchEffect
+### 4、watchEffect
 
 是 watch 的升级版本，立即执行传入的函数，并追踪依赖变化。
 
@@ -418,13 +416,13 @@ watch(
 watchEffect(() => console.log(count.value))
 ```
 
-# pinia
+## pinia
 
-## 1、概念
+### 1、概念
 
 Pinia 是一个全新的 Vue 状态管理库，是 Vuex 的代替者。
 
-## 2、特点
+### 2、特点
 
 * vue2 和 vue3 都支持
 * 只保留了 state，getter，action
@@ -432,15 +430,15 @@ Pinia 是一个全新的 Vue 状态管理库，是 Vuex 的代替者。
 * 对 ts 的支持很好
 * 代码分割
 
-## 3、使用
+### 3、使用
 
-### 1）、安装
+#### 1）、安装
 
 ``` bash
 npm i pinia
 ```
 
-### 2）、挂载
+#### 2）、挂载
 
 ``` js
 import { createApp } from 'vue';
@@ -454,7 +452,7 @@ app.use(pinia)
 app.mount('#app')
 ```
 
-### 3）、创建store
+#### 3）、创建store
 
 ``` js
 // store/index.js
@@ -487,7 +485,7 @@ export const mainStore = defineStore('main', {
 })
 ```
 
-### 4）、store使用
+#### 4）、store使用
 
 ``` html
 <template>
@@ -506,7 +504,7 @@ export const mainStore = defineStore('main', {
 </script>
 ```
 
-## 4、state
+### 4、state
 
 ``` js
 const store = mainStore();
@@ -522,7 +520,7 @@ import {storeToRefs} from 'pinia';
 const {count} = storeToRefs(store); // 此时解构会保证响应式
 ```
 
-## 5、修改数据
+### 5、修改数据
 
 ```js
 // 方式1 - 简单的数据直接操作 store 就可以了
