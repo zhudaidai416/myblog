@@ -6,6 +6,7 @@
   .container {
     max-width: var(--vp-layout-max-width) !important;
   }
+
   .content-container,
   .content {
     max-width: 100% !important;
@@ -19,6 +20,7 @@
 
   .content {
     padding-bottom: 32px;
+
     .VPDocFooter {
       display: none;
     }
@@ -29,6 +31,7 @@
     .custom-block-title {
       display: none;
     }
+
     p {
       margin: 0;
     }

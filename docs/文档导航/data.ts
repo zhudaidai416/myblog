@@ -214,6 +214,41 @@ export const NAV_DATA: NavData[] = [
         link: 'https://cn.vitejs.dev'
       },
       {
+        icon: 'https://no.buging.cn/img/nodeapp.png',
+        title: 'Node.js',
+        desc: 'Node.js 是一个开源的、跨平台的 JavaScript 运行时环境',
+        link: 'https://nodejs.cn'
+      },
+    ]
+  },
+  {
+    title: '图标库',
+    items: [
+      {
+        icon: 'https://img.alicdn.com/imgextra/i2/O1CN01FF1t1g1Q3PDWpSm4b_!!6000000001920-55-tps-508-135.svg',
+        title: 'iconfont',
+        desc: '阿里妈妈MUX倾力打造的矢量图标管理、交流平台',
+        link: 'https://www.iconfont.cn'
+      },
+      {
+        icon: '',
+        title: 'Font Awesome',
+        desc: '一套绝佳的图标字体库和CSS框架',
+        link: 'https://fontawesome.dashgame.com'
+      },
+      {
+        icon: 'https://media.flaticon.com/dist/min/img/logo/flaticon_negative.svg',
+        title: 'flaticon',
+        desc: 'Vector Icons and Stickers - PNG, SVG, EPS, PSD and CSS',
+        link: 'https://www.flaticon.com'
+      },
+      {
+        icon: 'https://lf1-cdn2-tos.bytegoofy.com/bydesign/iconparksite/static/media/logo_with_name.598fc011.svg',
+        title: 'IconPark',
+        desc: '丰富多彩的资源库免费使用',
+        link: 'https://iconpark.oceanengine.com'
+      },
+      {
         icon: '',
         title: '',
         desc: '',
@@ -247,6 +282,12 @@ export const NAV_DATA: NavData[] = [
         title: 'Ant Design',
         desc: '助力设计开发者「更灵活」地搭建出「更美」的产品，让用户「快乐工作」～',
         link: 'https://ant.design/index-cn'
+      },
+      {
+        icon: 'https://no.buging.cn/img/echarts.png',
+        title: 'Echarts',
+        desc: '一个基于 JavaScript 的开源可视化图表库',
+        link: 'https://echarts.apache.org'
       },
       {
         icon: 'https://img.yzcdn.cn/public_files/2017/12/18/fd78cf6bb5d12e2a119d0576bedfd230.png',

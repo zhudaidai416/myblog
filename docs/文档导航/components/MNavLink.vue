@@ -43,23 +43,27 @@ const svg = computed(() => {
   height: 100%;
   cursor: pointer;
   transition: all 0.3s;
+
   &:hover {
     transform: scale(105%);
     transition: all 0.5s;
     border: 2px solid var(--vp-c-brand);
     box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.05), 0 3px 15px 0 rgba(0, 0, 0, 0.05);
   }
+
   .box {
     display: flex;
     flex-direction: column;
     padding: 16px;
     height: 100%;
+
     // color: var(--vp-c-text-1);
     &-header {
       display: flex;
       align-items: center;
     }
   }
+
   .icon {
     display: flex;
     justify-content: center;
@@ -71,15 +75,18 @@ const svg = computed(() => {
     font-size: 24px;
     background-color: var(--vp-c-mute);
     transition: background-color 0.25s;
+
     :deep(svg) {
       width: 24px;
       fill: currentColor;
     }
+
     :deep(img) {
       border-radius: 4px;
       width: 24px;
     }
   }
+
   .title {
     overflow: hidden;
     flex-grow: 1;
@@ -89,6 +96,7 @@ const svg = computed(() => {
     font-size: 16px;
     font-weight: 600;
   }
+
   .desc {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -102,19 +110,21 @@ const svg = computed(() => {
     color: var(--vp-c-text-2);
   }
 }
+
 @media (max-width: 960px) {
   .m-nav-link {
     .box {
       padding: 8px;
     }
+
     .icon {
       width: 40px;
       height: 40px;
     }
+
     .title {
       line-height: 40px;
       font-size: 14px;
     }
   }
-}
-</style>
+}</style>
