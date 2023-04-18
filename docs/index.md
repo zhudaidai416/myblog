@@ -18,13 +18,13 @@ hero:
       link: https://github.com/zhudaidai416/myblog
 
 features:
-  - icon: 🌵
+  - icon: 🌱
     title: 前端基础
     details: HTML5、CSS3、JavaScript、TypeScript...
     linkText: 前往查看
     link: /前端基础/HTML.md
 
-  - icon: 🍂
+  - icon: 🌵
     title: 前端框架
     details: Vue2、Vue3、React...
     linkText: 前往查看
@@ -36,23 +36,40 @@ features:
     linkText: 前往查看
     link: /小程序/微信小程序.md
 
+  - icon: 🌴
+    title: 编译&构建&打包
+    details: NodeJs、vite、Webpack...
+    linkText: 前往查看
+    link: /编译&构建&打包/NodeJs.md
+
+  - icon: 🍂
+    title: 可视化
+    details: 地图、canvas...
+    linkText: 前往查看
+    link: /可视化/canvas.md
+
   - icon: 🍁
     title: 其它
-    details: NodeJs、mysql、Sass、Less、Git、正则表达式...
+    details: sass、less、git、正则表达式...
     linkText: 前往查看
-    link: /其它/NodeJs.md
+    link: /其它/sass.md
 
-  - icon: 🌱
+  - icon: 💭
+    title: 面试相关
+    details: 面试题、手写代码...
+    linkText: 前往查看
+    link: /面试相关/CSS.md
+
+  - icon: 🔖
+    title: 杂七杂八
+    details: 开源项目学习、实际踩坑...
+    linkText: 前往查看
+    link: /杂七杂八/Vue3项目.md
+
+  - icon: 📺
     title: 呆呆日常
     details: 剪辑🎞、画画🎨...
     linkText: 前往查看
     link: https://note.youdao.com/s/983OK7ep
 
-  - icon: 🔖
-    title: 杂七杂八
-    details: 面试题、实际踩坑...
-    linkText: 前往查看
-    link: /杂七杂八/前端面试题.md
-
 ---
-

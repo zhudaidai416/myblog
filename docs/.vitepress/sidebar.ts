@@ -47,14 +47,52 @@ export default {
       ]
     }
   ],
-  '/其它/': [
+  '/编译&构建&打包/': [
     {
-      text: '其它',
+      text: 'Node相关',
       collapsed: true,
       items: [
-        { text: 'NodeJs', link: '/其它/NodeJs.md' },
+        { text: 'Node.js', link: '/编译&构建&打包/NodeJs.md' },
+      ]
+    },
+    {
+      text: '打包',
+      collapsed: true,
+      items: [
+        { text: 'webpack', link: '/编译&构建&打包/webpack.md' },
+      ]
+    },
+    {
+      text: '各种封装',
+      collapsed: true,
+      items: [
+        { text: 'axios封装', link: '/编译&构建&打包/axios封装.md' },
+      ]
+    },
+  ],
+  '/可视化/': [
+    {
+      text: '地图',
+      collapsed: true,
+      items: [
+        { text: '百度地图', link: '/可视化/百度地图.md' },
+      ]
+    },
+    {
+      text: 'canvas',
+      collapsed: true,
+      items: [
+        { text: 'canvas', link: '/可视化/canvas.md' },
+      ]
+    },
+  ],
+  '/其它/': [
+    {
+      text: '数据库',
+      collapsed: true,
+      items: [
         { text: 'sql语句', link: '/其它/sql语句.md' },
-        { text: 'canvas', link: '/其它/canvas.md' },
+        { text: 'mysql封装', link: '/其它/mysql封装.md' },
       ]
     },
     {
@@ -73,20 +111,37 @@ export default {
       ]
     }
   ],
-  '/杂七杂八/': [
+  '/面试相关/': [
     {
       text: '面试题💫',
       collapsed: true,
       items: [
-        { text: '前端面试题', link: '/杂七杂八/前端面试题.md' },
-        { text: '手写代码', link: '/杂七杂八/手写代码.md' },
+        { text: 'CSS', link: '/面试相关/CSS.md' },
+        { text: 'JS', link: '/面试相关/JS.md' },
+        { text: 'Vue', link: '/面试相关/Vue.md' },
+      ]
+    },
+    {
+      text: '算法🍨',
+      collapsed: true,
+      items: [
+        { text: '手写代码', link: '/面试相关/手写代码.md' },
+      ]
+    },
+  ],
+  '/杂七杂八/': [
+    {
+      text: '开源项目学习💫',
+      collapsed: true,
+      items: [
+        { text: 'Vue3项目', link: '/杂七杂八/Vue3项目.md' },
       ]
     },
     {
       text: '实际踩坑🕳',
       collapsed: true,
       items: [
-        { text: '未更新', link: '/杂七杂八/前端面试题.md' },
+        { text: '未更新', link: '/杂七杂八/实际项目踩坑.md' },
       ]
     }
   ],
