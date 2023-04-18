@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.d6bf9272.js";const A=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"小程序/微信小程序.md","lastUpdated":1681808994000}'),p={name:"小程序/微信小程序.md"},e=l("",170),o=[e];function r(c,t,i,D,F,y){return n(),a("div",null,o)}const C=s(p,[["render",r]]);export{A as __pageData,C as default};
