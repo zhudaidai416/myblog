@@ -8,11 +8,16 @@ export default defineConfig({
   // 部署站点的 base URL，即仓库
   base: '/myblog/',
 
+  // 标签页图标
+  head: [
+    ['link', { rel: 'icon', href: 'images/logo2.png' }]
+  ],
+
   // 站点语言、标题、描述
   lang: 'zh-CN',
   title: '朱呆呆',
   titleTemplate: '个人博客',
-  description: '朱呆呆博客包含前端常用知识、好用工具等',
+  description: '朱呆呆博客包含前端常用知识、好用工具等...',
 
   // 防止无效链接而导致构建失败
   ignoreDeadLinks: true,
