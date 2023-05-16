@@ -116,9 +116,11 @@ export default {
       text: '面试题💫',
       collapsed: true,
       items: [
+        { text: 'HTTP', link: '/面试相关/HTTP.md' },
         { text: 'CSS', link: '/面试相关/CSS.md' },
         { text: 'JS', link: '/面试相关/JS.md' },
         { text: 'Vue', link: '/面试相关/Vue.md' },
+        { text: '面试记录', link: '/面试相关/面试记录.md' },
       ]
     },
     {

@@ -30,7 +30,7 @@ export default defineConfig({
 
   // markdown 配置
   markdown: {
-    lineNumbers: true
+    lineNumbers: true,
   },
 
   // 主题配置
