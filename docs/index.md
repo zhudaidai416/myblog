@@ -14,6 +14,10 @@ hero:
       link: /前端基础/HTML.md
 
     - theme: alt
+      text: 面试题
+      link: /面试相关/HTTP.md
+
+    - theme: alt
       text: to GitHub
       link: https://github.com/zhudaidai416/myblog
 
@@ -52,13 +56,13 @@ features:
     title: 其它
     details: sass、less、git、正则表达式...
     linkText: 前往查看
-    link: /其它/sass.md
+    link: /其它/Sass.md
 
   - icon: 💭
     title: 面试相关
     details: 面试题、手写代码...
     linkText: 前往查看
-    link: /面试相关/CSS.md
+    link: /面试相关/HTTP.md
 
   - icon: 🔖
     title: 杂七杂八

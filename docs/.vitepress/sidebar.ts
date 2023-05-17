@@ -88,14 +88,6 @@ export default {
   ],
   '/其它/': [
     {
-      text: '数据库',
-      collapsed: true,
-      items: [
-        { text: 'sql语句', link: '/其它/sql语句.md' },
-        { text: 'mysql封装', link: '/其它/mysql封装.md' },
-      ]
-    },
-    {
       text: 'CSS预编译语言',
       collapsed: true,
       items: [
@@ -109,7 +101,15 @@ export default {
       items: [
         { text: 'Git', link: '/其它/Git.md' },
       ]
-    }
+    },
+    {
+      text: '数据库',
+      collapsed: true,
+      items: [
+        { text: 'sql语句', link: '/其它/sql语句.md' },
+        { text: 'mysql封装', link: '/其它/mysql封装.md' },
+      ]
+    },
   ],
   '/面试相关/': [
     {

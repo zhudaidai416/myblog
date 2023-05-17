@@ -41,7 +41,8 @@ export const nav = [
         text: '🛠工具',
         items: [
           { text: 'Adobe全家桶安装包', link: 'https://www.yuque.com/yihulaojiu-gsfg9/zz2qv5/vixkf6' },
-          { text: '前端面试题', link: 'https://docs.qq.com/doc/DQ09uU1J6Rk1nYXdL' }
+          { text: '前端面试题1', link: 'https://docs.qq.com/doc/DQ09uU1J6Rk1nYXdL' },
+          { text: '前端面试题2', link: 'https://zhuanlan.zhihu.com/p/605933425' }
         ]
       },
     ]
@@ -57,7 +58,7 @@ export const nav = [
           { text: 'Vite中文文档', link: 'https://process1024.github.io/vitepress' },
           { text: 'VueHook Plus', link: 'https://inhiblab-core.gitee.io/docs/hooks' },
           { text: 'ChoDocs', link: 'https://chodocs.cn/' },
-
+          { text: 'Justin3go', link: 'https://justin3go.com/' },
         ]
       },
     ]
