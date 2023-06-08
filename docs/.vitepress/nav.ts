@@ -47,20 +47,5 @@ export const nav = [
       },
     ]
   },
-  {
-    text: '大神博客',
-    activeMatch: '/大神博客',
-    items: [
-      {
-        text: '✨大神博客',
-        items: [
-          { text: '茂茂物语', link: 'https://notes.fe-mm.com' },
-          { text: 'Vite中文文档', link: 'https://process1024.github.io/vitepress' },
-          { text: 'VueHook Plus', link: 'https://inhiblab-core.gitee.io/docs/hooks' },
-          { text: 'ChoDocs', link: 'https://chodocs.cn/' },
-          { text: 'Justin3go', link: 'https://justin3go.com/' },
-        ]
-      },
-    ]
-  }
+  { text: '✨大神博客', link: '/杂七杂八/优秀开源项目.md' }
 ]
