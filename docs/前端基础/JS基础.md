@@ -919,7 +919,7 @@ console.log(sum(1, 2)) // 3
 ~~~js
 // 默认参数: 给形参一个默认值
 // 默认参数里面的值执行：
-// 1、没有实参传递过来 x = 0 
+// 1、没有实参传递过来x=0 
 // 2、有实参传递但是传递的是undefined，x=0
 function sum(x = 0, y = 0) {
   return x + y
@@ -931,112 +931,344 @@ console.log(sum(1, 2))  // 3
 
 ### 5、函数返回值
 
+返回值：把处理结果返回给调用者
+
 函数的本质是封装（包裹），函数体内的逻辑执行完毕后，函数外部如何获得函数内部的执行结果呢？
 
 要想获得函数内部逻辑的执行结果，需要通过 `return` 这个关键字，将内部执行结果传递到函数外部，这个被传递到外部的结果就是返回值。
 
->  返回值：把处理结果返回给调用者
+```js
+// 函数返回值细节
+// 1、return结束函数，return后面的代码不会执行了，break退出循环或者switch
+function sum(x, y) {
+  return x + y
+  console.log('我不会执行')
+}
+console.log(sum(1, 3))
 
-```html
-<script>
-    // 函数返回值细节
-    // 1. return 结束函数，return 后面的代码不会执行了， break退出循环或者switch
-    // function sum(x, y) {
-    //   return x + y
-    //   console.log('我不会执行')
-    // }
-    // console.log(sum(1, 3))
+// 2、return和被返回的结果不要换行
+function sum(x, y) {
+  return
+  x + y
+}
+console.log(sum(1, 3))
 
-    // 2. return 和被返回的结果不要换行
-    // function sum(x, y) {
-    //   return
-    //   x + y
-    // }
-    // console.log(sum(1, 3))
-
-    // 3. 如果函数没有return 则默认返回的是 undefined
-    function fn() {
-
-    }
-    console.log(fn())  // undefined
-  </script>
+// 3、如果函数没有return，则默认返回的是undefined
+function fn() {}
+console.log(fn())  // undefined
 ```
 
-总结：
-
-1. return会立即结束当前函数，所以后面代码不会再被执行
-2. 在 return 关键字和被返回的表达式之间不允许使用换行符，否则内部执行相当于会自动补充分号
-3. 函数可以没有 return，这种情况函数默认返回值为 undefined
+- **结束函数**：return会立即结束当前函数，所以后面代码不会再被执行
+- **不要换行**：在 return 关键字和被返回的表达式之间不允许使用换行符，否则内部执行相当于会自动补充分号
+- **默认返回**：函数可以没有 return，这种情况函数默认返回值为 undefined
 
 ### 6、作用域
 
 **作用域（scope）**： 变量或者值在代码中可用性的范围
 
-**作用：**作用域的使用提高了程序逻辑的局部性，增强了程序的可靠性，减少了名字冲突。
+**作用**：作用域的使用提高了程序逻辑的局部性，增强了程序的可靠性，减少了名字冲突。
 
 #### 1）、全局作用域
 
-作用于所有代码执行的环境(整个 script 标签内部)或者一个独立的 js 文件
+作用于所有代码执行的环境（整个 script 标签内部）或者一个独立的 js 文件
 
-处于全局作用域内的变量，称为全局变量
+处于全局作用域内的变量，称为**全局变量**，可以被任意地方访问和修改
 
 #### 2）、局部作用域
 
 - 函数作用域。作用于函数内的代码环境
 - 块级作用域。{ } 大括号内部
 
-处于局部作用域内的变量称为局部变量
+处于局部作用域内的变量，称为**局部变量**，只能在当前作用域中访问和修改
 
->注意：
+>:warning: 注：1、如果函数内部，变量没有声明，直接赋值，也当全局变量看，但是强烈不推荐
 >
->1. 如果函数内部，变量没有声明，直接赋值，也当全局变量看，但是强烈不推荐
->2. 但是有一种情况，函数内部的形参可以看做是局部变量。
+>2、但是有一种情况，函数内部的形参可以看做是局部变量。
 
 #### 变量的访问原则
 
-访问原则：在能够访问到的情况下先局部，局部没有再找全局，总结： `就近原则`
+访问原则：在能够访问到的情况下**先局部**，局部没有**再找全局**，总结： `就近原则`
 
 ### 7、匿名函数
 
-函数可以分为具名函数和匿名函数
+- 具名函数：带有名字的函数（只要能够访问到函数，就可以调用，不用看声明的时机和顺序）
 
-匿名函数：没有名字的函数,无法直接使用。
+- 匿名函数：没有名字的函数，无法直接使用
 
-#### 函数表达式
 
-将匿名函数赋值给一个变量，并且通过变量名称进行调用 我们将这个称为函数表达式
+#### 1）、函数表达式
 
-~~~javascript
+将匿名函数赋值给一个变量，并且通过变量名称进行调用，我们将这个称为**函数表达式**
+
+~~~js
 // 声明
 let fn = function() {
-   console.log('函数表达式')
+  console.log('函数表达式')
 }
 // 调用
 fn()
 ~~~
 
-总结：
+- 其实函数也是一种数据类型
+- 函数表达式必须先定义，后使用
+- 函数的形参和实参使用跟具名函数一致
 
-1. 其实函数也是一种数据类型
-2. 函数表达式必须先定义，后使用
-3. 函数的形参和实参使用跟具名函数一致
+#### 2）、立即执行函数
 
-#### 立即执行函数
+IIFE（立即执行函数表达式）（Immediately Invoked Function Expression）
 
-IIFE (立即执行函数表达式) (Immediately Invoked Function Expression)
+**场景介绍**：避免全局变量之间的污染
 
-**场景介绍:** 避免全局变量之间的污染
+**注意**：多个立即执行函数要用 `;` 隔开，要不然会报错
 
-**注意：**多个立即执行函数要用 ; 隔开，要不然会报错
+~~~js
+(function(){
+  
+})();
 
-~~~javascript
-(function(){ xxx  })();
-(function(){xxxx}());
+(function(){
+  
+}());
 ~~~
 
-## 
+## 对象
 
-## Math对象
+> 对象（Object）：JavaScript里的一种数据类型（引用类型），也是用于存储数据的
+>
+> 好处：可以用来详细的描述某个事物，是用键值对形式存储语义更明了
+>
+> 特点：对象数据是无序的，数组有序的  
+
+### 对象基本使用
+
+对象有属性和方法组成
+
+#### 对象属性
+
+数据描述性的信息称为属性，如人的姓名、身高、年龄、性别等，一般是名词性的。
+
+1. 属性都是成 对出现的，包括属性名和值，它们之间使用英文 `:` 分隔
+2. 多个属性之间使用英文 `,` 分隔
+3. 属性就是依附在对象上的变量（对象外是变量，对象内是属性）
+
+**1. 定义对象属性**
+
+```html
+<script>
+  // 对象也是一种数据类型，保存数据同时可以更直观的描述事物
+  // 1. 定义对象属性
+  let pig = {
+    sex: '女',
+    age: 4,
+    uname: '佩奇',
+    weight: 12.6
+  }
+</script>
+```
+
+**2. 访问对象属性**
+
+声明对象，并添加了若干属性后，可以使用 `.` 获得对象中属性对应的值，我称之为属性访问
+
+```html
+<script>
+  // 对象也是一种数据类型，保存数据同时可以更直观的描述事物
+  // 1. 定义对象属性
+  let pig = {
+    sex: '女',
+    age: 4,
+    uname: '佩奇',
+    weight: 12.6
+  }
+
+  // 2. 访问对象属性  对象.属性
+  console.log(pig.age)  // 4
+  console.log(pig.weight)  // 12.6
+</script>
+```
+
+#### 对象方法
+
+数据行为性的信息称为方法，如跑步、唱歌等，一般是动词性的，其本质是函数。
+
+1. 方法是由方法名和函数两部分构成，它们之间使用 : 分隔
+2. 多个属性之间使用英文 `,` 分隔
+3. 方法是依附在对象中的函数（对象外是函数，对象内是方法）
+
+**1.定义对象方法**
+
+~~~javascript
+// let fn = function() {}
+// 对象方法
+// 1. 定义对象方法
+let pig = {
+  uname: '佩奇',
+  sing: function () {
+    console.log('唱歌')
+  },
+  dance: function () {
+    console.log('跳舞')
+  }
+}
+console.log(pig)
+
+~~~
+
+**2.调用对象方法**
+
+声明对象，并添加了若干方法后，可以使用 `.`  调用对象中函数，我称之为方法调用。
+
+~~~javascript
+// let fn = function() {}
+// 对象方法
+// 1. 定义对象方法
+let pig = {
+  uname: '佩奇',
+  sing: function () {
+    console.log('唱歌')
+  },
+  dance: function () {
+    console.log('跳舞')
+  },
+  sum: function (x, y) {  // 2
+    // console.log(x + y)
+    return x + y
+  }
+}
+console.log(pig)
+
+// 2. 调用对象方法
+pig.sing() // 唱歌
+pig.dance()  // 跳舞
+
+// 3. 方法可以传递参数也可以有返回值，跟函数使用基本类似
+let re = pig.sum(1, 2) // 1 实参
+console.log(re)
+~~~
+
+**注：无论是属性或是方法，同一个对象中出现名称一样的，后面的会覆盖前面的。**
+
+### 操作对象
+
+对象本质是无序的数据集合, 操作对象数据无非就是 **增 删 改 查** 
+
+![67109144100](./C:/Users/daidai/Desktop/2023年JavaScript黑马武汉/笔记/assets/1671091441008.png)
+
+![67109148048](./C:/Users/daidai/Desktop/2023年JavaScript黑马武汉/笔记/assets/1671091480487.png)
+
+
+
+~~~javascript
+<script>
+  // 操作对象：对数据 查、增、改、删
+  let pig = {
+    uname: '佩奇',
+    sing: function () {
+      console.log('唱歌')
+    }
+  }
+
+// 1. 查： 对象.属性 对象.方法
+console.log(pig.uname)  // 得到属性值
+pig.sing()
+
+// 2. 增：对象.新属性 = 新值   对象.新方法 = function(){}
+pig.age = 4
+pig.dance = function () {
+  console.log('跳舞')
+}
+console.log(pig)
+
+// 3. 改：对象.属性 = 新值  对象.方法 = 新匿名函数
+pig.uname = '小猪佩奇'
+pig.sing = function () {
+  console.log('哼哼哼！！')
+}
+console.log(pig)
+
+// 4. 删： 了解，因为我们很少对对象里面的数据做删除操作  delete
+delete pig.age
+delete pig.dance
+console.log(pig)
+</script>
+~~~
+
+#### 查找属性的另外写法
+
+对于多词属性比如中横线分割的属性，点操作就不能用了
+
+我们可以采取：  对象['属性'] 方式， 单引号和双引号都阔以，当然也可以用于其他正常属性
+
+~~~javascript
+<script>
+  // 查询属性的另外写法  对象['属性'] 这个属性必须加引号
+  let pig = {
+    'pig-name': '佩奇',
+    age: 4
+  }
+// console.log(pig.pig - name)  // NaN
+console.log(pig['pig-name']) // 佩奇
+console.log(pig['age']) // 4    === pig.age 
+</script>
+~~~
+
+> 总结：多词属性或者需要解析变量的时候使用 [] 语法，其余的直接使用点语法
+
+### 遍历对象
+
+for 遍历对象的问题：
+
+- 对象没有长度length，而且是无序的
+
+所以我们要利用 for in 遍历对象
+
+**语法:**
+
+~~~javascript
+for (let 变量 in 对象) {
+  console.log(变量) // 属性名
+  console.log(对象[变量]) // 属性值
+}
+~~~
+
+1. for in语法中的 k 是一个变量, 在循环的过程中依次代表对象的属性名
+2. 由于 k 是变量, 所以必须使用 [ ] 语法解析 
+3. 一定记住： k 是获得对象的属性名， 对象名[k] 是获得 属性值
+4. 一般不用这种方式遍历数组、主要是用来遍历对象
+
+~~~javascript
+<script>
+  // 遍历对象
+  let pig = {
+    sex: '女',
+    age: 4,
+    uname: '佩奇',
+    weight: 12.6,
+
+  }
+
+// for (let key in pig) {
+//   console.log(key)  // key 是属性  
+//   console.log(pig[key]) // 对象[变量] 是值
+// }
+
+for (let key in pig) {
+  console.log(key)  // key 是属性   对象.属性
+  // console.log(pig.key)   // pig.key  undefined  因为key是个变量不是属性
+  // key  'sex'  'age'    对象[key]  对象['sex']  对象['age']
+  console.log(pig[key])
+}
+
+
+// 注意：数组遍历用传统for， for in 主要用来遍历对象
+let arr = ['red', 'green', 'pink']
+for (let k in arr) {
+  console.log(k)// 得到字符串类型的索引号
+}
+</script>
+~~~
+
+## Math 对象
 
 Math对象是一个内置对象
 
