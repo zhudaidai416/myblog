@@ -1,3 +1,5 @@
+# [MDN - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
 ## 核心语法基础
 
 ### 1、JavaScript的定义
@@ -1033,97 +1035,51 @@ IIFE（立即执行函数表达式）（Immediately Invoked Function Expression�
 
 ## 对象
 
-> 对象（Object）：JavaScript里的一种数据类型（引用类型），也是用于存储数据的
->
-> 好处：可以用来详细的描述某个事物，是用键值对形式存储语义更明了
->
-> 特点：对象数据是无序的，数组有序的  
+对象（Object）：JavaScript 里的一种**数据类型（引用类型）**，也是用于**存储数据**的
 
-### 对象基本使用
+好处：可以用来详细的描述某个事物，是用**键值对**形式存储语义更明了
+
+特点：对象数据是**无序**的，数组有序的
+
+### 1、对象基本使用
 
 对象有属性和方法组成
 
-#### 对象属性
+#### 1）、对象属性
 
 数据描述性的信息称为属性，如人的姓名、身高、年龄、性别等，一般是名词性的。
 
-1. 属性都是成 对出现的，包括属性名和值，它们之间使用英文 `:` 分隔
-2. 多个属性之间使用英文 `,` 分隔
-3. 属性就是依附在对象上的变量（对象外是变量，对象内是属性）
+- 属性都是成对出现的，包括属性名和值，它们之间使用 `:` 分隔
+- 多个属性之间使用 `,` 分隔
+- 属性就是依附在对象上的变量（对象外是变量，对象内是属性）
 
-**1. 定义对象属性**
+```js
+// 定义对象属性
+let person = {
+  sex: '女',
+  age: 18,
+  uname: '呆呆',
+  weight: 12.6
+}
 
-```html
-<script>
-  // 对象也是一种数据类型，保存数据同时可以更直观的描述事物
-  // 1. 定义对象属性
-  let pig = {
-    sex: '女',
-    age: 4,
-    uname: '佩奇',
-    weight: 12.6
-  }
-</script>
+// 访问对象属性  
+// 语法：对象.属性
+console.log(person.age)  // 18
+console.log(person.weight)  // 12.6
 ```
 
-**2. 访问对象属性**
-
-声明对象，并添加了若干属性后，可以使用 `.` 获得对象中属性对应的值，我称之为属性访问
-
-```html
-<script>
-  // 对象也是一种数据类型，保存数据同时可以更直观的描述事物
-  // 1. 定义对象属性
-  let pig = {
-    sex: '女',
-    age: 4,
-    uname: '佩奇',
-    weight: 12.6
-  }
-
-  // 2. 访问对象属性  对象.属性
-  console.log(pig.age)  // 4
-  console.log(pig.weight)  // 12.6
-</script>
-```
-
-#### 对象方法
+#### 2）、对象方法
 
 数据行为性的信息称为方法，如跑步、唱歌等，一般是动词性的，其本质是函数。
 
-1. 方法是由方法名和函数两部分构成，它们之间使用 : 分隔
-2. 多个属性之间使用英文 `,` 分隔
-3. 方法是依附在对象中的函数（对象外是函数，对象内是方法）
+- 方法是由方法名和函数两部分构成，它们之间使用 `:` 分隔
+- 多个属性之间使用 `,` 分隔
+- 方法是依附在对象中的函数（对象外是函数，对象内是方法）
 
-**1.定义对象方法**
-
-~~~javascript
-// let fn = function() {}
-// 对象方法
-// 1. 定义对象方法
-let pig = {
-  uname: '佩奇',
-  sing: function () {
-    console.log('唱歌')
-  },
-  dance: function () {
-    console.log('跳舞')
-  }
-}
-console.log(pig)
-
-~~~
-
-**2.调用对象方法**
-
-声明对象，并添加了若干方法后，可以使用 `.`  调用对象中函数，我称之为方法调用。
-
-~~~javascript
-// let fn = function() {}
-// 对象方法
-// 1. 定义对象方法
-let pig = {
-  uname: '佩奇',
+~~~js
+let person = {
+  uname: '呆呆',
+  // 定义对象方法
   sing: function () {
     console.log('唱歌')
   },
@@ -1135,162 +1091,236 @@ let pig = {
     return x + y
   }
 }
+
 console.log(pig)
 
-// 2. 调用对象方法
-pig.sing() // 唱歌
-pig.dance()  // 跳舞
+// 调用对象方法
+person.sing()  // 唱歌
+person.dance()  // 跳舞
 
-// 3. 方法可以传递参数也可以有返回值，跟函数使用基本类似
-let re = pig.sum(1, 2) // 1 实参
+// 方法可以传递参数也可以有返回值，跟函数使用基本类似
+let re = person.sum(1, 2)  // 1：实参
 console.log(re)
 ~~~
 
-**注：无论是属性或是方法，同一个对象中出现名称一样的，后面的会覆盖前面的。**
+> :warning: 注：无论是属性或是方法，同一个对象中出现名称一样的，后面的会覆盖前面的
+>
 
-### 操作对象
+### 2、操作对象
 
-对象本质是无序的数据集合, 操作对象数据无非就是 **增 删 改 查** 
+对象本质是无序的数据集合，操作对象数据无非就是 **增 删 改 查** 
 
-![67109144100](./C:/Users/daidai/Desktop/2023年JavaScript黑马武汉/笔记/assets/1671091441008.png)
+- 查询：`对象.属性`、`对象.方法`
 
-![67109148048](./C:/Users/daidai/Desktop/2023年JavaScript黑马武汉/笔记/assets/1671091480487.png)
+- 修改：`对象.属性 = 新值`
 
+- 增加：`对象.新属性 = 新值`
 
+  `对象.新方法名 = function(){}`
 
-~~~javascript
-<script>
-  // 操作对象：对数据 查、增、改、删
-  let pig = {
-    uname: '佩奇',
-    sing: function () {
-      console.log('唱歌')
-    }
+- 删除：`delete 对象名.属性名`
+
+~~~js
+let person = {
+  uname: '呆呆',
+  sing: function () {
+    console.log('唱歌')
   }
+}
 
-// 1. 查： 对象.属性 对象.方法
-console.log(pig.uname)  // 得到属性值
-pig.sing()
+// 1、查
+console.log(person.uname)
+person.sing()
 
-// 2. 增：对象.新属性 = 新值   对象.新方法 = function(){}
-pig.age = 4
-pig.dance = function () {
+// 2、增
+person.age = 4
+person.dance = function () {
   console.log('跳舞')
 }
 console.log(pig)
 
-// 3. 改：对象.属性 = 新值  对象.方法 = 新匿名函数
-pig.uname = '小猪佩奇'
-pig.sing = function () {
+// 3、改
+person.uname = '小猪'
+person.sing = function () {
   console.log('哼哼哼！！')
 }
-console.log(pig)
+console.log(person)
 
-// 4. 删： 了解，因为我们很少对对象里面的数据做删除操作  delete
+// 4、删
 delete pig.age
 delete pig.dance
 console.log(pig)
-</script>
 ~~~
 
 #### 查找属性的另外写法
 
 对于多词属性比如中横线分割的属性，点操作就不能用了
 
-我们可以采取：  对象['属性'] 方式， 单引号和双引号都阔以，当然也可以用于其他正常属性
+我们可以采取：`对象['属性']` 方式， 单引号和双引号都可以，当然也可以用于其他正常属性
 
-~~~javascript
-<script>
-  // 查询属性的另外写法  对象['属性'] 这个属性必须加引号
-  let pig = {
-    'pig-name': '佩奇',
-    age: 4
-  }
-// console.log(pig.pig - name)  // NaN
-console.log(pig['pig-name']) // 佩奇
-console.log(pig['age']) // 4    === pig.age 
-</script>
+~~~js
+let person = {
+  // 属性名如果是非法字符，可以通过''变成字符串，合法的存储到对象中
+  'u-name': '呆呆',
+  age: 4
+}
+
+// console.log(person.u-name)  // NaN
+console.log(person['u-name'])  // 呆呆
+console.log(person['age'])  // 4 === person.age
 ~~~
 
 > 总结：多词属性或者需要解析变量的时候使用 [] 语法，其余的直接使用点语法
 
-### 遍历对象
+### 3、遍历对象
 
-for 遍历对象的问题：
-
-- 对象没有长度length，而且是无序的
-
-所以我们要利用 for in 遍历对象
-
-**语法:**
+for 遍历对象的问题：对象没有长度 length，而且是无序的
 
 ~~~javascript
 for (let 变量 in 对象) {
-  console.log(变量) // 属性名
-  console.log(对象[变量]) // 属性值
+  console.log(变量)  // 属性名
+  console.log(对象[变量])  // 属性值
 }
 ~~~
 
-1. for in语法中的 k 是一个变量, 在循环的过程中依次代表对象的属性名
-2. 由于 k 是变量, 所以必须使用 [ ] 语法解析 
-3. 一定记住： k 是获得对象的属性名， 对象名[k] 是获得 属性值
-4. 一般不用这种方式遍历数组、主要是用来遍历对象
+- for in 语法中的 k 是一个变量, 在循环的过程中依次代表对象的属性名
+- 由于 k 是变量, 所以必须使用 `[]` 语法解析 
+- 一定记住： k 是获得对象的属性名， `对象名[k]` 是获得属性值
+- 一般不用这种方式遍历数组、主要是用来遍历对象
 
-~~~javascript
-<script>
-  // 遍历对象
-  let pig = {
-    sex: '女',
-    age: 4,
-    uname: '佩奇',
-    weight: 12.6,
+~~~js
+// 遍历对象
+let person = {
+  sex: '女',
+  age: 4,
+  uname: '呆呆',
+  weight: 12.6,
+}
 
-  }
-
-// for (let key in pig) {
-//   console.log(key)  // key 是属性  
-//   console.log(pig[key]) // 对象[变量] 是值
-// }
-
-for (let key in pig) {
-  console.log(key)  // key 是属性   对象.属性
-  // console.log(pig.key)   // pig.key  undefined  因为key是个变量不是属性
-  // key  'sex'  'age'    对象[key]  对象['sex']  对象['age']
-  console.log(pig[key])
+for (let key in person) {
+  console.log(key)  // key是属性：对象.属性
+  // console.log(person.key)
+  // person.key  undefined，因为key是个变量不是属性
+  // key：'sex'、'age' 对象[key]：对象['sex']、对象['age']
+  console.log(person[key])
 }
 
 
-// 注意：数组遍历用传统for， for in 主要用来遍历对象
+// 注意：数组遍历用传统for，for in主要用来遍历对象
 let arr = ['red', 'green', 'pink']
 for (let k in arr) {
-  console.log(k)// 得到字符串类型的索引号
+  console.log(k)  // 得到字符串类型的索引号
 }
-</script>
 ~~~
 
-## Math 对象
+## 内置对象
 
-Math对象是一个内置对象
+JavaScript 内部提供的对象，包含各种属性和方法给开发者调用
 
-### 1、随机数
+- document.write()
+- console.log()
 
-Math.random()
+### 1、Math 对象
 
-一个大数字和一个小数字组成一个范围
+JavaScript 提供的一个“数学”对象，提供了一系列做**数学运算**的方法
 
- 随机数*（大数字-小数字）+ 小数字就能得到这个范围内的数字
+[Math 对象在线文档](https://www.w3school.com.cn/jsref/jsref_obj_math.asp)
 
-### 2、取整方法
+| 属性/方法        | 作用         | 例子                                                         |
+| ---------------- | ------------ | ------------------------------------------------------------ |
+| PI               | 圆周率       | Math.PI  属性，返回圆周率                                    |
+| max              | 找最大值     | Math.max(8, 3, 1) 方法，返回 8                               |
+| min              | 找最小值     | Math.min(8, 3, 1) 方法，返回 1                               |
+| abs              | 绝对值       | Math.abs(-1) 方法，返回 1                                    |
+| ceil             | 向上取整     | Math.ceil(3.1) 方法，返回 4                                  |
+| floor            | 向下取整     | Math.floor(3.8) 方法，返回 3                                 |
+| round            | 四舍五入取整 | Math.round(3.8)  方法，返回 4， 遇到.5则舍入到相邻的在正无穷（+∞）方向上的整数 |
+| sqrt()           | 平方根       |                                                              |
+| pow(数值,几次方) | 次方计算     |                                                              |
 
-Math.round()：四舍五入
+#### 1）、随机数 random
 
-Math.ceil()：向上取整
+Math.random()：随机数，返回一个 0 - 1 之间，并且包括 0 不包括 1 的随机小数  <font color="red">[0, 1）</font>
 
-Math.floor()：向下取整
+#### 2）、取整
 
-Math.pow(数值,几次方)：次方计算
+```js
+// 0~10整数
+Math.floor(Math.random()*(10 + 1))
 
-Math.abs()：绝对值
+// 8~18整数
+Math.floor(Math.random()*(10 + 1)) + 8
 
-Math.sqrt()：平方根
+// 12~25整数
+Math.floor(Math.random()*(13 + 1)) + 12
 
+// n~m整数，包含n和m
+Math.floor(Math.random()*(差值 + 1)) + 起点
+```
+
+## 数据存储
+
+js 数据类型分类：
+
+- 基本数据类型（简单数据类型）
+- 引用数据类型（复杂数据类型）
+
+内存中堆栈空间分配区别：
+
+- 栈：优点**访问速度快**，基本数据类型存放到栈里面
+
+  ![栈](/images/栈.png)
+
+- 堆：优点**存储容量大**，引用数据类型存放到堆里面
+
+  引用类型变量（栈空间）里存放的是**地址**，真正的数据存放在**堆空间**中
+
+  ![堆](/images/堆.png)
+
+```js
+// 例子1
+let x = 10
+let y = x
+x = 20
+console.log(y)  // 10
+
+// 例子2
+let obj1 = {
+  age: 10
+}
+let obj2 = obj1
+obj1.age = 20
+console.log(obj2)  // { age: 20 }
+```
+
+## 声明变量总结
+
+建议：  const 优先，尽量使用 const，原因是：
+
+- 很多变量声明的时候明确不会被更改了，为了安全性，那为什么不用 const 呢？
+- 实际开发中也是，比如 React、Vue，基本 const 声明
+- 有了变量先给 const，如果发现它后面是要被修改的，再改为 let
+
+```js
+// 不可以把let改为const
+let x = 10
+x = x + 20
+console.log(x)
+
+// 可以把let改为const，跟堆内存有关
+let arr = ['blue', 'green']
+arr.push('pink')
+console.log(arr)
+
+arr = ['purple']  // 此时不可以把let改为const，相当于修改了数组，产生了新的堆内存
+
+// 可以把let改为const
+let person = {
+  name: '呆呆',
+  age: 18
+}
+person.sex = '女'
+console.log(person)
+```
+
+> :warning: 注：什么时候使用 const 不会出错？就看有没有对变量直接赋值
