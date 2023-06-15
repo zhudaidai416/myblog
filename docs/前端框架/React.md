@@ -34,7 +34,7 @@
 
 ### 1、概念
 
-React 允许我们在JS 中插入 HTML 代码，它被称为 JSX ，是属于一个 JS 语法的扩展。
+React 允许我们在 JS 中插入 HTML 代码，它被称为 JSX，是属于一个 JS 语法的扩展。
 
 ### 2、案例
 
@@ -42,13 +42,13 @@ React 允许我们在JS 中插入 HTML 代码，它被称为 JSX ，是属于一
 const t = <h1>hello</h1>;
 ```
 
-3、JSX 语法规范
+### 3、JSX 语法规范
 
 - 可以直接将标签赋值给变量
 - 如果要在标签之间插入 JS 变量或者 JS 表达式，必须使用 `{}`
 - 需要替换部分的关键字，如标签上的属性 class 写为 `className`，for 写为 `htmlFor`
 - 事件绑定要使用小驼峰的写法，如 `onClick`
-- 所有的标签必须闭合，即 <img> 必须写为 `<img />`，或者 `<img></img>`
+- 所有的标签必须闭合，即 ` <img>` 必须写为 `<img />`，或者 `<img></img>`
 - 标签中的注释需要写在 `{/* */}` 中
 - 当变量是 `Number，String` 时可以直接显示
 - 当变量是 `Null，Undefined，Bollean` 时，就会显示空

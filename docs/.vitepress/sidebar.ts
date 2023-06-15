@@ -155,6 +155,7 @@ export default {
       text: '好用工具',
       collapsed: false,
       items: [
+        { text: '安装教程', link: '/杂七杂八/安装教程.md' },
         { text: '好用工具', link: '/杂七杂八/好用工具.md' },
       ]
     }
