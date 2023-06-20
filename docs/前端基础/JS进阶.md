@@ -1586,4 +1586,468 @@ const newArr = arr.filter(item => item > 30)
 console.log(newArr)
 ~~~
 
-## 
+## 深入对象
+
+### 1、创建对象三种方式
+
+~~~js
+// 1、利用对象字面量创建对象（常用的一种方式）
+const o1 = {
+  name: '呆呆'
+}
+
+// 2、利用 new Object 创建对象（了解）
+const o2 = new Object({ name: '呆呆' })
+
+const o2 = new Object()
+o2.name = '呆呆'
+
+// 3、利用构造函数创建对象
+~~~
+
+### 2、构造函数
+
+构造函数：是一种特殊的函数，主要用来创建对象（初始化对象）
+
+使用场景：常规的 {...} 语法允许创建一个对象，可以通过构造函数来快速创建多个类似的对象
+
+- 它们的命名以<font color="red">大写字母</font>开头
+- 通过 `new` 关键字来调用构造函数，可以创建对象
+
+```js
+function Person(name, age, gender) {
+  // name 是形参也就是属性值
+  // this.name 属性
+  this.name = name
+  this.age = age
+  this.gender = gender
+}
+
+const p1 = new Person('呆呆', 6, '女')
+const p2 = new Person('朱朱', 3, '男')
+```
+
+- 使用 new 关键字调用函数的行为被称为**实例化**
+- 实例化构造函数时没有参数时可以`省略()`
+- 构造函数内部无需写 return，返回值即为新创建的对象
+- `newObject()`、`new Date()`也是实例化构造函数
+
+#### new 实例化过程
+
+- 创建新**空对象**
+- 构造函数 **this 指向新对象**
+- 执行构造函数代码
+- 返回**新对象**
+
+### 3、实例成员&静态成员
+
+#### 1）、实例成员
+
+实例对象：通过构造函数创建的对象
+
+实例成员（实例属性和实例方法）：实例对象中的属性和方法
+
+- 为构造函数传入参数，创建结构相同但值<font color="red">不同的对象</font>
+- 构造函数创建的实例对象<font color="red">彼此独立</font>互不影响
+
+```js
+function Person(name) {
+  this.name = name
+}
+
+const p1 = new Person('呆呆')
+const p2 = new Person('朱朱')
+
+p1.name = '呆呆'  // 实例属性
+p1.sayHi = () => {  // 实例方法
+  console.log('hi~~')
+}
+```
+
+#### 2）、静态成员
+
+静态成员（静态属性和静态方法）：构造函数的属性和方法
+
+- 静态成员只能构造函数来访问
+
+- 静态方法中的 this 指向构造函数
+
+  比如：Date.now()、Math.PI、Math.random()
+
+```js
+function Person(name) {
+  this.name = name
+}
+
+Person.eyes = 2  // 静态属性
+Person.sayHi = function () {  // 静态方法
+  console.log(this)  // this 指向 Person
+}
+
+Person.sayHi()
+console.log(Person.eyes)  // 2
+```
+
+### 4、一切皆对象
+
+- 引用类型：Object、Array、RegExp、Date 等
+
+- 基本数据类型：字符串、数值、布尔、undefined、null
+
+
+但是，我们会发现有些特殊情况：
+
+```js
+// 普通字符串
+const str = 'daidai'
+console.log(str.length)
+```
+
+其实字符串、数值、布尔、等基本类型也都有专门的构造函数，这些我们称为**包装类型**
+
+**包装类型执行过程：**
+
+- 创建一个 String 类型的实例
+- 调用实例上的特定方法
+- 销毁实例
+
+JS 中几乎所有的数据都可以基于**构造函数创建**，不同的构造器创建出来的数据拥有不同的属性和方法
+
+~~~js
+// 包装类型
+const str = 'andy'
+console.log(str.length)
+
+// 包装过程
+const str = new String('andy')
+str.substring()
+str = null 
+~~~
+
+## 内置构造函数
+
+### 1、Object
+
+用于创建普通对象
+
+三个常用静态方法（静态方法就是只有构造函数 Object 可以调用的）
+
+- 推荐使用字面量方式声明对象，而不是 `Object` 构造函数
+- `Object.assign(目标对象, 源对象)`：创建新的对象，对象的拷贝
+- `Object.keys()`：获取对象中所有属性
+- `Object.values()`：获取对象中所有属性值
+
+```js
+const o = { 
+  name: '呆呆', 
+  age: 6, 
+  gender: '女' 
+}
+
+// 之前的方法
+for (let k in o) {
+  console.log(k)  // 属性
+  console.log(o[k])  // 值
+}
+
+// 1、Object.keys() -- 返回的是数组
+const key = Object.keys(o)
+console.log(key)  // ['name', 'age', 'gender']
+Object.keys(o).forEach(k => console.log(k))
+
+
+// 2、Object.values() -- 返回的是数组
+const value = Object.values(o)
+console.log(value)  // ['呆呆', 6, '女']
+
+
+// 3、Object.assign(目标对象, 源对象) -- assign：赋值的意思
+// 写法1
+const o2 = {}
+Object.assign(o2, o)
+
+// 写法2
+const o2 = Object.assign({}, o)
+
+oo.name = '朱朱'
+console.log(oo)
+console.log(o)
+// 拷贝对象之后是两个不同的对象，不会相互影响
+```
+
+```js
+// 实际案例：
+// 请将 size 和 color 里面的值拼接为字符串之后，写到div标签里面，展示如下
+// 40cm*40cm/黑色
+
+const spec =  { size: '40cm*40cm' , color: '黑色'}
+document.querySelector('div').innerHTML = Object.values(spec).join('/')
+```
+
+### 2、Array
+
+用于创建数组
+
+**实例方法：**
+
+- 推荐使用字面量方式声明数组，而不是 `Array` 构造函数
+
+- `forEach()`：用于遍历数组，替代 `for` 循环（重点）
+
+- `filter()`：过滤数组单元值，生成新数组（重点）
+
+- `map()`：迭代原数组，生成新数组（重点）
+
+- `join()`：数组元素拼接为字符串，返回字符串（重点）
+
+- `find()`：查找元素， 返回符合测试条件的第一个数组元素值，如果没有符合条件的则返回 undefined（重点）
+
+- `every()`：检测数组所有元素是否都符合指定条件，如果**所有元素**都通过检测返回 true，否则返回 false（重点）
+
+- `some()`：检测数组中的元素是否满足指定条件，如果**数组中有元素**满足条件返回 true，否则返回 false
+
+- `concat()`：合并两个数组，返回生成新数组
+
+- `sort()`：对原数组单元值排序
+
+- `splice()`：删除或替换原数组单元
+
+- `reverse()`：反转数组
+
+- `findIndex()`：查找元素的索引值
+
+- `reduce()`：累加器，返回累计处理的结果，经常用于求和等
+
+#### 1）、reduce
+
+累加器，返回累计处理的结果，经常用于求和等
+
+```js
+arr.reduce(function(上一次值, 当前值){}, 初始值)
+
+* 参数1: 回调函数
+// 前一次的值，遍历的每一个元素
+* 参数2: 初始值
+// 如果没有传第二个参数, 则会默认把数组的第一个元素作为初始值, 并且遍历会从第二个元素开始（索引为 1 开始）
+```
+
+执行过程
+
+- 如果没有起始值， 则上一次值以数组的第一个数组元素的值
+- 每一次循环，把返回值给做为下一次循环的上一次值
+- 如果有起始值，则起始值做为上一次值
+
+```js
+// 1、没有初始值
+const arr = [1, 5, 8]
+const total = arr.reduce(function (prev, current) {
+  return prev + current  // 14
+})
+
+// 上一次值(prev)    当前值(current)    返回值  
+//      1                 5             6    (第一次循环) 
+//      6                 8            14    (第二次循环)
+// 结束循环，把 14 给 reduce 来返回
+
+
+// 2、有初始值
+const arr = [1, 5, 8]
+const total = arr.reduce(function (prev, current) {
+  return prev + current
+}, 10)
+
+// 上一次值    当前值    返回值
+//   10         1       11  (第一次循环)
+//   11         5       16  (第二次循环)
+//   16         8       24  (第三次循环)
+```
+
+```js
+// 例子：工资求和
+const arr = [{
+  name: '张三',
+  salary: 10000
+}, {
+  name: '李四',
+  salary: 15000
+}, {
+  name: '王五',
+  salary: 20000
+}]
+
+// 由于是对象数组, 如果不传入初始值, 则第一次 prev 是数组中第一个对象
+// 进行累加会导致字符串拼接, 无法正确求和
+const sum = arr.reduce((prev, item) => {
+  return prev + item.salary  // [Object Object]1500020000
+})
+
+// 以后对象数组求和固定写法, 传入回调函数和初始值 0
+const sum = arr.reduce((prev, item) => prev + item.salary, 0)
+```
+
+#### 2）、find 和 findIndex
+
+`indexOf()`：查找数组中元素的方法，局限性较大，一般只用于查找基本数据类型的数组
+
+`find()`：查找元素， 返回符合测试条件的第一个数组元素值，如果没有符合条件的则返回 undefined
+
+`findIndex()`：查找数组中元素的方法，返回索引，可以查找任意数据
+
+```js
+const arr1 = [10, 20, 50, 80]
+const arr2 = [{
+  name: '张三',
+  age: 18
+}, {
+  name: '李四',
+  age: 28
+}, {
+  name: '王五',
+  age: 38
+}]
+
+
+// indexOf()：查找数组中元素的方法，局限性较大，一般只用于查找基本数据类型的数组
+* 参数1: 要查找的数据
+* 参数2(可选): 从哪里开始找, 如果不传则从头开始找
+* 返回值: 数据对应的索引, 没找到返回 -1
+
+console.log(arr1.indexOf(50))  // 2
+console.log(arr1.indexOf(60))  // -1
+console.log(arr2.indexOf('张三'))  // -1
+
+
+// findIndex()：查找数组中元素的方法，返回索引，可以查找任意数据
+* 参数: 回调函数
+// 回调函数的参数和 forEach / map / filter 一样
+// 原理: 也会遍历一遍数组，遍历时执行回调函数，我们返回的结果是 true 表示找到该元素了，findIndex 的返回值就是该元素对应的索引，找到元素后会中止循环，提高效率
+
+const index = arr1.findIndex((item, index) => {
+  console.log(item, index)
+  return item === 50  // 返回查找的条件, 满足就是 true 表示找到了
+})
+console.log(index)  // 2
+console.log(arr2.findIndex(item => item.name === '李四'))  // 1
+console.log(arr2.findIndex(item => item.name === '李五'))  // 2
+
+
+// find(): 找到指定的对象
+// find 和 findIndex 的区别是:
+// findIndex 返回的是索引，find 返回的是对象
+console.log(arr2.find(item => item.name === '李四'))  // { name: '李四', age: 28 }
+console.log(arr2.find(item => item.name === '李五'))
+```
+
+#### 3）、some
+
+查找数组中有没有满足条件的元素, 如果有就返回 true，否则返回 false
+
+```js
+const arr = [{
+  name: '张三',
+  age: 18
+}, {
+  name: '李四',
+  age: 28
+}, {
+  name: '王五',
+  age: 38
+}]
+
+console.log(arr.some(item => item.name === '王五'))  // true
+console.log(arr.some(item => item.name === '李五'))  // false
+```
+
+> **总结**：some 和 find 的区别
+>
+> find 是找满足条件的元素，有就返回对象，没有就返回 undefined
+>
+> some 是找满足条件的元素，返回的是布尔值
+
+#### 4）、every
+
+遍历数组中所有的元素, 判断有没有不符合条件的元素，只要有一个不符合条件就返回 false
+
+必须所有元素都满足条件才会是 true
+
+```js
+const ages = [18, 15, 13, 8, 10]
+// 希望判断所有人都是未成年, 只要有一个不是未成年就不允许进来
+// 需求：所有的数都满足小于等于 18
+
+// 方法1：假设法
+let flag = true
+ages.forEach(item => {
+  if (item > 18) {
+    flag = false
+  }
+})
+console.log(flag)
+
+// 方法2
+console.log(ages.every(item => item <= 18))
+```
+
+> **总结：**
+>
+> - some 是只要有一个满足条件就返回 true
+>
+>   原理：遍历数组, 每一个元素进行判断，只要有一个返回时 true，整个 some 结果就是 true
+>
+> - every 是必须每一个都满足条件才返回 true，只要有一个不满足就是 false
+>
+>   原理：遍历数组, 每一个元素进行判断，只要有一个返回的是 false，整个 every 结果就是 false
+
+### 3、String
+
+用于创建字符串
+
+- `length`：用来获取字符串的度长(重点)
+- `split('分隔符')`：用来将字符串拆分成数组(重点)
+- `substring（需要截取的第一个字符的索引[,结束的索引号]）`：用于字符串截取(重点)
+- `startsWith(检测字符串[, 检测位置索引号])`：检测是否以某字符开头(重点)
+- `includes(搜索的字符串[, 检测位置索引号])`：判断一个字符串是否包含在另一个字符串中，根据情况返回 true 或 false(重点)
+- `toUpperCase`：用于将字母转换成大写
+- `toLowerCase`：用于将就转换成小写
+- `indexOf`：检测是否包含某字符
+- `endsWith`：检测是否以某字符结尾
+- `replace`：用于替换字符串，支持正则匹配
+- `match`：用于查找字符串，支持正则匹配
+
+> :warning: 注：String 也可以当做普通函数使用，这时它的作用是强制转换成字符串数据类型。
+>
+
+```js
+// 字符串方法 split 
+const str = '传智播客'
+// 1、split('分隔符')  把字符串转换为数组
+console.log(str.split(''))
+const str1 = '小米,华为,苹果'
+console.log(str1.split(','))
+
+// 2、join('分隔符')可以把数组转换为字符串
+
+// 3、把传智播客这字符串做一个翻转 变成 客播智传
+
+// 把字符串转换为数组， 数组里面reverse翻转，再把数组转换为字符串
+console.log(str.split('').reverse())
+console.log(str.split('').reverse().join(''))
+```
+
+### 4、Number
+
+用于创建数值
+
+- 推荐使用字面量方式声明数值，而不是 `Number` 构造函数
+- `toFixed`：用于设置保留小数位的长度
+
+```js
+// 数字 toFixed 方法
+const num = 12.345
+console.log(num.toFixed(2))  // 12.35
+console.log(num.toFixed(1))  // 12.3
+const num1 = 12
+console.log(num1.toFixed(2))  // 12.00
+```
+
+

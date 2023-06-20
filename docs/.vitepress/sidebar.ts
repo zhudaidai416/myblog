@@ -14,7 +14,8 @@ export default {
       collapsed: false,
       items: [
         { text: 'JS基础', link: '/前端基础/JS基础.md' },
-        { text: 'JS高级', link: '/前端基础/JS进阶.md' },
+        { text: 'JS高级（上）', link: '/前端基础/JS进阶.md' },
+        { text: 'JS高级（下）', link: '/前端基础/JS高级.md' },
         { text: '案例', link: '/前端基础/案例.md' },
         { text: '闭包练习题', link: '/前端基础/闭包练习题.md' },
       ]
