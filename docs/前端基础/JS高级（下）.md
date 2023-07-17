@@ -2,23 +2,25 @@
 
 ### 1、面向过程
 
-面向过程就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用的时候再一个一个的依次调用就可以了。
+面向过程就是分析出解决问题所需要的步骤，然后用**函数**把这些步骤**一步一步**实现，使用的时候再**一个一个**的依次调用就可以了。
 
- 举个栗子：蛋炒饭
+面向过程，就是按照我们分析好了的步骤，按照步骤解决问题。
 
-![67679290689](./C:/Users/daidai/Desktop/2023年JavaScript黑马武汉/笔记/assets/1676792906898.png)
+![面向过程编程](/images/面向过程编程.png)
 
-### 2、面向对象
+### 2、面向对象（oop）
 
-面向对象是把事务分解成为一个个对象，然后由对象之间分工与合作。
+面向对象是把事务分解成为一个个对象，然后由对象之间**分工与合作**。
 
-![67679293032](./C:/Users/daidai/Desktop/2023年JavaScript黑马武汉/笔记/assets/1676792930329.png)
+面向对象是以对象功能来划分问题，而不是步骤。
+
+![面向对象编程](/images/面向对象编程.png)
 
 在面向对象程序开发思想中，每一个对象都是功能中心，具有明确分工。
 
 面向对象编程具有灵活、代码可复用、容易维护和开发的优点，更适合多人合作的大型软件项目。
 
-面向对象的特性：
+**面向对象的特性：**
 
 - 封装性
 
@@ -30,29 +32,29 @@
 
 **面向过程**
 
-- 优点：性能比面向对象高，适合跟硬件联系很紧密的东西，例如单片机就采用的面向过程编程。
+- 优点：**性能**比面向对象**高**，适合跟硬件联系很紧密的东西，例如单片机就采用的面向过程编程
 
 - 缺点：不灵活、复用性较差
 
 
 **面向对象**
 
-- 优点：易维护、易复用、易扩展，由于面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，使系统 更加灵活、更加易于维护 
+- 优点：**易维护、易复用、易扩展**，由于面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，使系统 更加灵活、更加易于维护
 
 - 缺点：性能比面向过程低
 
 
 ## 构造函数
 
-封装是面向对象思想中比较重要的一部分，js 面向对象可以通过构造函数实现的封装
+**封装**是面向对象思想中比较重要的一部分，js 面向对象可以**通过构造函数实现的封装**
 
-把公共的属性和方法抽取封装到构造函数里面来实现数据的共享，这样创建的实例对象可以使用这些属性和方法了
+把公共的属性和方法**抽取封装到**构造函数里面来实现数据的**共享**，这样创建的实例对象可以使用这些属性和方法了
 
-- 构造函数体现了面向对象的封装特性
-- 构造函数实例创建的对象彼此独立、互不影响
+- 构造函数体现了面向对象的**封装**特性
+- 构造函数实例创建的对象**彼此独立**、互不影响
 
 ```js
-// 1、构造函数实现封装，封装人的姓名、年龄和 sayHi方法
+// 构造函数实现封装
 function Person(name, age) {
   this.name = name
   this.age = age
@@ -61,18 +63,17 @@ function Person(name, age) {
   }
 }
 
-// 实例化
+// 实例对象使用属性和方法
 const zs = new Person('张三', 18)
 const ls = new Person('李四', 19)
-console.log(zs)
-console.log(ls)
+
 console.log(zs === ls)  // false 
 
-// 2、构造函数实现封装有个小问题
+// 通过构造函数创建对象时，如果把方法放到实例对象身上，会导致创建多个对象时，方法也跟着创建了多个，造成内存浪费
 console.log(zs.sayHi === ls.sayHi)  // false 两个函数不一样
 ```
 
-封装是面向对象思想中比较重要的一部分，js 面向对象可以通过构造函数实现的封装
+![构造函数封装](/images/构造函数封装.png)
 
 前面我们学过的构造函数方法很好用，但是存在**浪费内存**的问题
 
@@ -80,13 +81,27 @@ console.log(zs.sayHi === ls.sayHi)  // false 两个函数不一样
 
 ### 1、原型对象 - prototype
 
-是什么？JavaScript 规定，每一个构造函数都有一个 `prototype` 属性，指向另一个对象，所以我们也称为原型对象
+JavaScript 规定，每一个构造函数都有一个 `prototype` 属性，指向另一个对象，所以我们也称为原型对象
 
-使用场景：
+**使用场景：**
 
-- 可以解决：构造函数封装时函数（方法）会多次创建，占用内存的问题
+- 可以解决：构造函数封装时**函数（方法）**会多次创建，占用内存的问题
 
-- 原型对象可以挂载函数，对象实例化不会多次创建原型对象里面的函数，节约内存
+- 原型对象可以挂载**函数**，对象实例化**不会**多次创建原型对象里面的函数，节约内存
+
+**特点：**
+
+- 所有通过构造函数创建出来的实例对象，都可以访问原型对象中的成员
+- 实例对象创建时，不会重复创建原型对象，每个构造函数的原型对象是唯一的，因为它是跟随构造函数走的
+- 对象会优先找自己身上的属性和方法，找不到才去原型上查找属性和方法，就近原则
+
+**作用：**
+
+- 可以把那些公共的属性和方法，直接定义在 prototype 对象上
+- 实例对象可直接访问原型对象中属性和方法
+- 这些属性和方法不会多次内存中创建，从而节约内存
+
+![原型对象](/images/原型对象.png)
 
 
 ```js
@@ -100,18 +115,15 @@ function Person(name, age) {
 
 Person.prototype.sayHi = function () {
   console.log('hi~')
+  console.log(this)  // 原型对象 this 指向实例对象，即指向实例对象 zs 或 ls
 }
+
 console.log(Person.prototype)  // 原型对象
 
 // 实例化
 const zs = new Person('张三', 18)
 const ls = new Person('李四', 19)
-zs.sayHi()
-ls.sayHi()
-// console.log(zs)
-// console.log(ls)
 
-// 构造函数实现封装有个小问题
 console.log(zs.sayHi === ls.sayHi)  //  true
 ```
 
@@ -120,48 +132,33 @@ console.log(zs.sayHi === ls.sayHi)  //  true
 > - 箭头函数不能做构造函数，因为箭头函数里面没有 this
 > - 原型对象里面的函数如果需要用到 this，也不要用箭头函数
 
-```js
-// 构造函数this指向实例对象
-function Person(name, age) {
-  this.name = name
-}
-
-// 原型对象this指向实例对象
-Person.prototype.sayHi = function () {
-  console.log('hi~')
-  console.log(this)  // 指向实例对象 zs
-}
-
-const zs = new Person('张三')
-zs.sayHi()
-```
-
 ### 2、constructor 属性
 
 
-在哪里？ 每个原型对象里面都有个 `constructor` 属性（constructor 构造函数）
+每个原型对象里面都有个 `constructor` 属性（constructor 构造函数）
 
-作用：该属性指向该原型对象的构造函数， 简单理解，就是指向我的爸爸，我是有爸爸的孩子
+作用：该属性**指向**该原型对象的**构造函数**， 简单理解，就是指向我的爸爸，我是有爸爸的孩子
 
-使用场景：
+**使用场景：**
 
-- 如果有多个对象的方法，我们可以给原型对象采取对象形式赋值
+- 如果有多个对象的方法，我们可以给原型对象采取**对象形式赋值**
 
 - 但是这样就会覆盖构造函数原型对象原来的内容，这样修改后的原型对象 constructor 就不再指向当前构造函数了
 
-- 此时，我们可以在修改后的原型对象中，添加一个 constructor 指向原来的构造函数。
+- 此时，我们可以在修改后的原型对象中，添加一个 constructor 指向原来的构造函数
+
+![constructor属性](/images/constructor属性.png)
 
 
 ~~~js
-// constructor属性
 function Person(name) {
   this.name = name
 }
 
-// 1、constructor属性在原型对象里面
+// 1、constructor 属性在原型对象里面
 console.log(Person.prototype)
 
-// 2、constructor属性 指向原型对象的构造函数
+// 2、constructor 属性：指向原型对象的构造函数
 console.log(Person.prototype.constructor === Person)  // true
 
 // 3、有什么使用场景呢？
@@ -172,11 +169,9 @@ Person.prototype.dance = function () {
   console.log('我会跳舞')
 }
 
-// console.log(Person.prototype)
-
 Person.prototype = {
-  // 手动指定一个constructor 指回构造函数
-  constructor: Person,
+  // 不加，没有 constructor 属性，={} 相当于覆盖原先的构造函数
+  constructor: Person,  // 手动指定一个 constructor 指回构造函数
   sing() {
     console.log('我会唱歌')
   },
@@ -184,14 +179,25 @@ Person.prototype = {
     console.log('我会跳舞')
   }
 }
-console.log(Person.prototype)
 ~~~
 
 ### 3、原型
 
 对象都会有一个属性 ` __proto__` 指向构造函数的 prototype 原型对象
 
-之所以我们对象可以使用构造函数 prototype 原型对象的方法，就是因为对象有 __proto__ 原型的存在
+之所以我们对象可以使用构造函数 prototype 原型对象的方法，就是因为对象有 `__proto__ 原型`的存在
+
+> :warning: 注：
+>
+> - `__proto__` 原先是 JS 非标准属性，但是 es6 规范中开始标准化，`[[Prototype]]` 和 `__proto__` 意义相同
+>
+>   ![prototype](/images/prototype.png)
+>
+> - 尽量<font color="red">不要修改</font>这个属性，对性能影响非常严重的
+>
+> - 约定： `prototype`：<font color="red">原型对象</font>， `__proto__`：<font color="red">原型</font>
+
+![原型](/images/原型.png)
 
 ~~~js
 function Person(name) {
@@ -202,15 +208,9 @@ function Person(name) {
 const zs = new Person('张三')
 console.log(zs)
 
-// __proto__ 指向原型对象 
+// __proto__ 指向原型对象
 console.log(zs.__proto__ === Person.prototype)  // true
 ~~~
-
-> :warning: 注：
->
-> - `__proto__` 原先是 JS 非标准属性，但是 es6 规范中开始标准化，`[[prototype]]` 和 `__proto__` 意义相同
-> - 尽量不要修改这个属性，对性能影响非常严重的
-> - 约定： prototype 原型对象而 `__proto__` 原型
 
 ### 4、原型链
 
@@ -218,7 +218,7 @@ console.log(zs.__proto__ === Person.prototype)  // true
 
 作用：原型链为对象成员查找机制提供一个方向，或者说一条路线
 
-![67828746767](./C:/Users/daidai/Desktop/2023年JavaScript黑马武汉/笔记/assets/1678287467678.png)
+![原型链2](/images/原型链2.png)
 
 - 当访问一个对象成员（属性/方法）时，首先查找这个对象自身有没有该成员（属性/方法）
 - 如果没有就查找它的原型对象（也就是 `__proto__` 指向的 prototype 原型对象）
@@ -283,8 +283,6 @@ console.log(arr) // __proto__
 console.log(arr.__proto__ === Array.prototype) // true
 console.log(Array.prototype.__proto__ === Object.prototype) // true
 ~~~
-
-![67828761546](./C:/Users/daidai/Desktop/2023年JavaScript黑马武汉/笔记/assets/1678287615465.png)
 
 ### 4、原型继承
 

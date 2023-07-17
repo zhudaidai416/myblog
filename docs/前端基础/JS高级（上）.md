@@ -216,11 +216,11 @@ event.on(btn3, 'click', function() {
 
 - 编译型语言
 
-在程序执行之前，需要借助一个程序，将高级程序语言编写的代码翻译为计算器能读懂的机器语言，然后直接能被运行。如 C 语言、C++ 。
+  在程序执行之前，需要借助一个程序，将高级程序语言编写的代码翻译为计算器能读懂的机器语言，然后直接能被运行。如 C 语言、C++ 。
 
 - 解释型语言
 
-不需要提前编译，在代码运行的时候再进行编译（JS、python）。
+  不需要提前编译，在代码运行的时候再进行编译（JS、python）。
 
 ### 2、编译原理
 
@@ -1150,7 +1150,7 @@ sum(1, 2, 3, 4)
 - 箭头函数不支持 arguments，但是可以使用剩余参数
 - 开发中，还是提倡多使用**剩余参数**
 
-#### 3）、展开运算符(…)
+#### 3）、展开运算符 (…)
 
 展开运算符 `…`，将一个**数组/对象**进行展开
 
@@ -1788,35 +1788,28 @@ document.querySelector('div').innerHTML = Object.values(spec).join('/')
 
 用于创建数组
 
+![数组常见方法](/images/数组常见方法.png)
+
 **实例方法：**
 
 - 推荐使用字面量方式声明数组，而不是 `Array` 构造函数
-
 - `forEach()`：用于遍历数组，替代 `for` 循环（重点）
-
 - `filter()`：过滤数组单元值，生成新数组（重点）
-
 - `map()`：迭代原数组，生成新数组（重点）
-
 - `join()`：数组元素拼接为字符串，返回字符串（重点）
-
 - `find()`：查找元素， 返回符合测试条件的第一个数组元素值，如果没有符合条件的则返回 undefined（重点）
-
 - `every()`：检测数组所有元素是否都符合指定条件，如果**所有元素**都通过检测返回 true，否则返回 false（重点）
-
 - `some()`：检测数组中的元素是否满足指定条件，如果**数组中有元素**满足条件返回 true，否则返回 false
-
 - `concat()`：合并两个数组，返回生成新数组
-
 - `sort()`：对原数组单元值排序
-
 - `splice()`：删除或替换原数组单元
-
 - `reverse()`：反转数组
-
 - `findIndex()`：查找元素的索引值
-
 - `reduce()`：累加器，返回累计处理的结果，经常用于求和等
+
+**静态方法：**
+
+- `Array.from()`：把伪数组转成真数组，不影响原来伪数组
 
 #### 1）、reduce
 
@@ -1831,7 +1824,7 @@ arr.reduce(function(上一次值, 当前值){}, 初始值)
 // 如果没有传第二个参数, 则会默认把数组的第一个元素作为初始值, 并且遍历会从第二个元素开始（索引为 1 开始）
 ```
 
-执行过程
+**执行过程：**
 
 - 如果没有起始值， 则上一次值以数组的第一个数组元素的值
 - 每一次循环，把返回值给做为下一次循环的上一次值
@@ -1998,15 +1991,34 @@ console.log(ages.every(item => item <= 18))
 >
 >   原理：遍历数组, 每一个元素进行判断，只要有一个返回的是 false，整个 every 结果就是 false
 
+#### 5）、concat、sort、reverse
+
+```js
+// concat：合并数组，不会修改原数组
+let arr1 = [1, 2, 3]
+let arr2 = [4, 5, 6]
+console.log(arr1.concat(arr2))  // [1, 2, 3, 4, 5, 6]
+
+
+// sort：排序，会修改原数组
+let arr3 = [8, 5, 2, 1, 9, 6]
+console.log(arr3.sort())  // [1, 2, 5, 6, 8, 9]
+
+
+// reverse：翻转，会修改原数组
+let arr4 = ['呆呆', '朱朱']
+console.log(arr4.reverse())  // ['朱朱', '呆呆']
+```
+
 ### 3、String
 
 用于创建字符串
 
-- `length`：用来获取字符串的度长(重点)
-- `split('分隔符')`：用来将字符串拆分成数组(重点)
-- `substring（需要截取的第一个字符的索引[,结束的索引号]）`：用于字符串截取(重点)
-- `startsWith(检测字符串[, 检测位置索引号])`：检测是否以某字符开头(重点)
-- `includes(搜索的字符串[, 检测位置索引号])`：判断一个字符串是否包含在另一个字符串中，根据情况返回 true 或 false(重点)
+- `length`：用来获取字符串的度长（重点）
+- `split('分隔符')`：用来将字符串拆分成数组（重点）
+- `substring（需要截取的第一个字符的索引[,结束的索引号]）`：用于字符串截取（重点）
+- `startsWith(检测字符串[, 检测位置索引号])`：检测是否以某字符开头（重点）
+- `includes(搜索的字符串[, 检测位置索引号])`：判断一个字符串是否包含在另一个字符串中，根据情况返回 true 或 false（重点）
 - `toUpperCase`：用于将字母转换成大写
 - `toLowerCase`：用于将就转换成小写
 - `indexOf`：检测是否包含某字符
@@ -2014,24 +2026,78 @@ console.log(ages.every(item => item <= 18))
 - `replace`：用于替换字符串，支持正则匹配
 - `match`：用于查找字符串，支持正则匹配
 
-> :warning: 注：String 也可以当做普通函数使用，这时它的作用是强制转换成字符串数据类型。
+> :warning: 注：String 也可以当做普通函数使用，这时它的作用是强制转换成字符串数据类型
 >
 
+#### 1）、split
+
 ```js
-// 字符串方法 split 
-const str = '传智播客'
-// 1、split('分隔符')  把字符串转换为数组
-console.log(str.split(''))
+// split()：根据用户传入的分隔符来切割字符串
+* 参数: 分隔符
+* 返回值: 数组，分割成一段一段的字符串
+
+
+// 例子
 const str1 = '小米,华为,苹果'
-console.log(str1.split(','))
+console.log(str1.split(','))  // ['小米', '华为', '苹果']
+```
 
-// 2、join('分隔符')可以把数组转换为字符串
+#### 2）、startsWith、endsWith
 
-// 3、把传智播客这字符串做一个翻转 变成 客播智传
+```js
+// startsWith() / endsWith()：判断字符串是否以 xxx 开头/结尾
+* 参数1: 要判断的开头字符串
+* 参数2: 从哪里开始找
+* 返回值: 布尔值，true 表示是的
 
-// 把字符串转换为数组， 数组里面reverse翻转，再把数组转换为字符串
-console.log(str.split('').reverse())
-console.log(str.split('').reverse().join(''))
+
+// 例子
+let str = '传智播客传播知识'
+console.log(str.startsWith('传智'))  // true
+console.log(str.startsWith('智', 1))  // true
+console.log(str.endsWith('知识'))  // true
+
+
+// 应用场景：可以用来判断 url 是不是以 https://www.baidu.com
+let url = 'https://www.baidu.com'
+```
+
+#### 3）、includes、trim
+
+```js
+// includes()：判断字符串是否包含某段字符
+* 参数: 要查找的字符串
+* 返回值: 布尔值，true 表示包含
+
+
+// 例子
+let str = '呆呆喜欢画画'
+console.log(str.includes('画画'))  // true
+console.log(str.includes('玩游戏'))  // false
+```
+
+```js
+// trim()：去除字符串两端的空白字符(空格、回车换行、制表符 tab)
+* 返回值: 新的字符串
+
+
+// 例1
+let str = '  你好  世界  '
+console.log(str.trim())  // 你好  世界
+
+
+// 例2
+用户名: <input type="text"><br>
+<button>登录</button>
+
+const username = document.querySelector('[type=text]')
+document.querySelector('button').addEventListener('click', function() {
+  // 非空校验
+  if (username.value.trim() === '') {
+    return alert('请输入用户名')
+  }
+  console.log('登录')
+})
 ```
 
 ### 4、Number
@@ -2042,12 +2108,14 @@ console.log(str.split('').reverse().join(''))
 - `toFixed`：用于设置保留小数位的长度
 
 ```js
-// 数字 toFixed 方法
 const num = 12.345
 console.log(num.toFixed(2))  // 12.35
 console.log(num.toFixed(1))  // 12.3
+
 const num1 = 12
 console.log(num1.toFixed(2))  // 12.00
 ```
 
+## 总结
 
+![js进阶day02](/images/js进阶day02.png)

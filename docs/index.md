@@ -48,9 +48,9 @@ features:
 
   - icon: 🍂
     title: 可视化
-    details: 地图、canvas...
+    details: ECharts、地图、canvas...
     linkText: 前往查看
-    link: /可视化/canvas.md
+    link: /可视化/ECharts.md
 
   - icon: 🍁
     title: 其它

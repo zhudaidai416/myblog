@@ -76,6 +76,13 @@ export default {
   ],
   '/可视化/': [
     {
+      text: 'ECharts',
+      collapsed: false,
+      items: [
+        { text: 'ECharts使用', link: '/可视化/ECharts.md' },
+      ]
+    },
+    {
       text: '地图',
       collapsed: false,
       items: [
