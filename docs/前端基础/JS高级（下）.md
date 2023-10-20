@@ -39,7 +39,7 @@
 
 **面向对象**
 
-- 优点：**易维护、易复用、易扩展**，由于面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，使系统 更加灵活、更加易于维护
+- 优点：**易维护、易复用、易扩展**，由于面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，使系统更加灵活、更加易于维护
 
 - 缺点：性能比面向过程低
 
@@ -216,57 +216,45 @@ console.log(zs.__proto__ === Person.prototype)  // true
 
 `__proto__` 属性链状结构称为原型链
 
-作用：原型链为对象成员查找机制提供一个方向，或者说一条路线
+作用：原型链为**对象成员**查找机制提供一个方向，或者说一条路线
 
 ![原型链2](/images/原型链2.png)
 
-- 当访问一个对象成员（属性/方法）时，首先查找这个对象自身有没有该成员（属性/方法）
-- 如果没有就查找它的原型对象（也就是 `__proto__` 指向的 prototype 原型对象）
-- 如果还没有就查找原型对象的原型对象（Object 的原型对象）
-- 依此类推一直找到 Object 为止（null）
+查找规则：
+
+- 当访问一个对象成员（属性/方法）时，首先查找这个<font color="red">对象自身</font>有没有该成员（属性/方法）
+- 如果没有就查找它的原型对象（也就是 `__proto__` 指向的 <font color="red">prototype 原型对象</font>）
+- 如果还没有就查找原型对象的原型对象（<font color="red">Object 的原型对象</font>）
+- 依此类推一直找到 Object 为止（<font color="red">null</font>）
 - 原型链就在于为对象成员查找机制提供一个方向，或者说一条路线
 
 ```js
-// Person 构造函数
 function Person(name) {
   this.name = name
 }
 
-// 1、实例对象
-const zs = new Person('张三')
-zs.sayHi = function () {
-  console.log('实例对象的方法')
-}
-zs.sayHi()
-
-// 2、Person 原型对象
-Person.prototype.sayHi = function () {
-  console.log('Person原型对象的方法')
-}
-zs.sayHi()
-
-// 3、Ojbect 原型对象
 Object.prototype.sayHi = function () {
-  console.log('Object原型对象的方法')
+  console.log('Object 的 sayHi')
 }
-zs.sayHi()
+const zs = new Person('张三')
+zs.sayHi()  // Object 的 sayHi
 
-// 4、null
-zs.sayHi()
-console.log(zs.sayHi)  // undefined
+console.log(zs.__proto__ === Person.prototype)  // true
+console.log(Person.prototype.__proto__ === Obeject.prototype)  // true
+console.log(Object.prototype.__proto__)  // null
 ```
 
 #### 1）、instanceof 运算符
 
-用来检测构造函数的原型对象 .prototype 是否存在于实例对象的原型链上
+用来<font color="red">检测构造函数的原型对象 `.prototype`</font> 是否存在于<font color="red">实例对象</font>的原型链上
+
+语法：`实例对象 instanceof 构造函数`，返回的是布尔值
 
 ~~~js
-// 语法:  实例对象 instanceof 构造函数
-
+// 简单理解（不准确）：是指当前对象是不是构造函数的实例对象
 function Person(name) {
   this.name = name
 }
-
 function Person1(name) {
   this.name = name
 }
@@ -274,64 +262,149 @@ const zs = new Person('张三')
 console.log(zs instanceof Person)  // true
 console.log(zs instanceof Person1)  // false
 
-// 数组 
+
+// 判断变量的类型，typeof 判断基本数据类型，判断引用数据类型结果都是 Object，无法精确判断
+const arr = 123
+console.log(typeof arr === 'number')  // true
+console.log(typeof [])  // Object
+
 const arr = [1, 2, 3]
 console.log(arr instanceof Array)  //  true
-console.log(arr instanceof Object)  //  true 
+console.log(arr instanceof Object)  //  true
 
-console.log(arr) // __proto__
-console.log(arr.__proto__ === Array.prototype) // true
-console.log(Array.prototype.__proto__ === Object.prototype) // true
+
+// 理解原理：判断构造函数的原型对象是否在实例对象的原型链上
+// 通俗理解为，当前的对象是否是构造函数原型底下的孩子
+console.log(zs instanceof Object)  //  true
+
+console.log(arr)  // __proto__
+console.log(arr.__proto__ === Array.prototype)  // true
+console.log(Array.prototype.__proto__ === Object.prototype)  // true
 ~~~
 
-### 4、原型继承
+:warning: 注：instanceof 一般可用于判断具体的引用数据类型，比 typeof 更准确，typeof 一般只用于判断基本数据类型
+
+### 5、原型继承
 
 继承是面向对象编程的另一个特征。龙生龙、凤生凤、老鼠的儿子会打洞描述的正是继承的含义
 
-有些公共的属性和方法可以写到父级身上，子级通过继承也可以使用这些属性和方法
+有些公共的**属性和方法**可以写到**父级**身上，**子级**通过**继承**也可以**使用**这些属性和方法
 
-JavaScript 中大多是借助原型对象实现继承的特性
+JavaScript 中大多是借助<font color="red">原型对象实现继承</font>的特性
+
+#### 1）、字面量对象继承
+
+```js
+// 不要用字面量创建对象后赋值给原型，因为多个构造函数的原型对象指向同一个对象，会导致修改时都修改，应该每个构造函数的原型对象各自独立
+const person = {
+  eyes: 2,
+  eat() {
+    console.log('我会吃饭')
+  }
+}
+function Man() {}
+function Woman() {}
+
+Man.prototype = person
+Woman.prototype = person
+Woman.prototype.baby = function(){
+  console.log('我会生孩子')
+}
+
+const m1 = new Man()
+m1.eat()
+m1.baby()  // 我会生孩子，也能调用 baby 方法
+const w1 = new Woman()
+w1.eat()
+w1.baby()  // 我会生孩子
+```
+
+问题：如果给女人添加一个 baby 方法，男人也会自动增加
+
+原因：男人和女人都同时使用了同一个对象，根据引用类型的特点，他们指向同一个对象，修改一个就会都影响（**对象不独立**）
+
+![原型继承1](/images/原型继承1.png)
+
+缺点：
+
+- 使用同一个对象，修改任何一个都会影响其他
+- 对象不独立的问题
+
+#### 2）、构造函数实例化对象继承
+
+解决： 构造函数实例化对象继承，因为 new 每次都会创建一个新的对象
+
+![原型继承2](/images/原型继承2.png)
 
 ~~~js
-// 1、抽取封装 公共的属性和方法 Person构造函数
-// 父级
+function Man() {}
+function Woman() {}
+
+// 1、抽取封装 - 公共的属性和方法
 function Person() {
   this.eyes = 2
 }
 Person.prototype.eat = function () {
   console.log('我会吃饭')
 }
-console.log(new Person())
-console.log(new Person() === new Person())  // false
-
-// 男人构造函数
-function Man() {
-
-}
-// 女人构造函数
-function Woman() {
-
-}
 
 // 2、继承 - 借助于原型对象
 Man.prototype = new Person()
-Man.prototype.constructor = Man
-console.log(Man.prototype)
-const zs = new Man()
-// console.log(zs)
-
+Man.prototype.constructor = Man  // 因为对象覆盖了原型对象，所以在把 constructor 指回当前构造函数
 Woman.prototype = new Person()
 Woman.prototype.constructor = Woman
-
-const xl = new Woman()
-// console.log(xl)
 
 Woman.prototype.baby = function () {
   console.log('我会生孩子')
 }
-console.log(xl)
-console.log(zs)  // 张三没有baby方法了
+
+const m1 = new Man()
+m1.eat()
+const w1 = new Woman()
+w1.eat()
+w1.baby()
 ~~~
+
+总结：
+
+- 创建父级构造函数
+- 将所有公共的方法放到父级的原型对象上
+- 将子级构造函数的原型对象指向父级构造函数创建的实例对象
+
+![原型继承3](/images/原型继承3.png)
+
+### 3）、拓展 - 面试题
+
+```js
+function Foo() {
+  getName = function () {
+    alert(1)
+  }
+  return this  // this 指向 window
+}
+
+Foo.getName = function () {
+  alert(2)
+}
+
+Foo.prototype.getName = function () {
+  alert(3)
+}
+
+var getName = function () {
+  alert(4)
+}
+
+function getName() {
+  alert(5)
+}
+
+Foo.getName()  // 2
+getName()  // 4
+Foo().getName()  // 1  过程：window.getName()，5=>4=>1
+getName()  // 1
+new Foo().getName()  // 3
+```
 
 ## 深浅拷贝
 

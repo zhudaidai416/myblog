@@ -177,3 +177,12 @@ git branch -D 分支名
       git push
   ```
 
+## 七、其它命令
+
+```bash
+git remote -v  # 显示所有远程仓库
+git remote show xx(xx为远程地址的别名)  #显示某个远程仓库的信息
+git remote rename old_name new_name  # 修改仓库名
+git remote rm name  # 删除远程仓库
+```
+

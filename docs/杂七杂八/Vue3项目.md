@@ -20,7 +20,7 @@
 
 [【V3 Admin Vite】教程四：平台配置（涉及布局、路由菜单、全局样式配置） - 掘金 (juejin.cn)](https://juejin.cn/post/7216621821960781880)
 
-2、vue-admin-template
+### 2、vue-admin-template
 
 项目仓库：https://github.com/PanJiaChen/vue-admin-template.git
 
@@ -30,9 +30,11 @@
 
 ![vue-admin-template](/images/vue-admin-template.png)
 
-3、VueShop
+### 3、VueShop
 
-项目仓库：
+项目课程：[黑马程序员前端Vue3小兔鲜电商项目实战](https://www.bilibili.com/video/BV1Ac411K7EQ/?share_source=copy_web&vd_source=2a9e4fd26c8f35df01a9ac444c34eb4b)
+
+项目仓库：https://gitee.com/luo-xixi-ai/VueShop.git （vue3 + ts）
 
 项目截图：
 
