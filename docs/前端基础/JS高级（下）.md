@@ -410,93 +410,108 @@ new Foo().getName()  // 3
 
 ### 1、浅拷贝
 
-浅拷贝：把对象拷贝给一个新的对象，开发中我们经常需要复制一个对象
+浅拷贝：把对象拷贝给一个<font color="red">新的</font>对象，开发中我们经常需要<font color="red">复制</font>一个对象
 
-如果直接赋值，则复制的是地址，修改任何一个对象，另一个对象都会变化
+如果<font color="red">直接赋值</font>，则复制的是<font color="red">地址</font>，修改任何一个对象，另一个对象都会变化
 
-常见方法：
+![浅拷贝1](/images/浅拷贝1.png)
 
-- 拷贝对象：`Object.assgin()` / 展开运算符 `{...obj}` 拷贝对象
-- 拷贝数组：`Array.prototype.concat()` 或者 `[...arr]`
+   ![浅拷贝2](/images/浅拷贝2.png)                                                                               
+
+**常见方法：**
+
+- 拷贝对象
+
+  - `Object.assgin()`
+
+  - 展开运算符 `{...obj}`
+
+- 拷贝数组
+
+  - `Array.prototype.concat()` 
+
+  - `[...arr]`
 
 ~~~js
-// 1、对象拷贝
+// 拷贝对象
 const obj = {
-  name: '佩奇'
+  name: '呆呆'
 }
 
-// Object.assign()
+// 方法1
 const newObj = {}
-Object.assign(newObj, obj)
-// console.log(newObj)
-console.log(newObj === obj)  // false
-newObj.name = '乔治'
-console.log(obj)
-console.log(newObj)
-
-// 展开运算符
+Object.assign(newObj, obj)  // 或者写成：const newObj = Object.assign({}, obj)
+// 方法2
 const newObj = { ...obj }
+
 console.log(newObj === obj)  // false
-newObj.name = '乔治'
-console.log(obj)
-console.log(newObj)
+newObj.name = '朱朱'
+console.log(obj)  // { name: '呆呆' }
+console.log(newObj)  // { name: '朱朱' }
+~~~
 
+```js
+// 拷贝数组
+const arr = ['呆呆', '朱朱']
 
-// 2、数组拷贝
-const arr = ['佩奇', '乔治']
-// 2.1 concat 方法实现数组浅拷贝
+// 方法1
 const arr1 = []
-const newArr = arr1.concat(arr)
-console.log(newArr)
-newArr[1] = '猪爸爸'
-console.log(arr)
-console.log(newArr)
-
-// 2.2 展开运算符
+const newArr = arr1.concat(arr)  // const newArr = [].concat(arr)
+// 方法2
 const newArr = [...arr]
-console.log(newArr)
-newArr[1] = '猪爸爸'
-console.log(arr)
-console.log(newArr)
 
-// 3、浅拷贝的问题如果遇到多层拷贝还是会影响原来的对象
+newArr[1] = '朱小呆'
+console.log(arr)  // ['呆呆', '朱朱']
+console.log(newArr)  // ['呆呆', '朱小呆']
+```
+
+**总结**：浅拷贝就是把对象里的属性和值复制一份，放到新对象中存储，新老对象是不同的地址值，所以修改其中一个对象，不会影响另一个对象的属性
+
+```js
+// 浅拷贝的问题：如果遇到多层拷贝还是会影响原来的对象
 const obj = {
   name: '佩奇',
   family: {
     father: '猪爸爸'
   }
 }
+
 const newObj = { ...obj }
 // console.log(newObj)
+
 newObj.family.father = 'dad'
+console.log(obj)  // 两者的 family.father 是一样的
 console.log(newObj)
-console.log(obj)
-~~~
+```
+
+**总结**：浅拷贝就是只拷贝对象第一层的数据，如果全部都是基本数据类型则没有问题，只要有引用数据类型的属性，就会将其地址值复制一份，导致两个对象的属性共用同一个对象
 
 > :warning: 注：
 >
-> - 如果是基本数据类型拷贝值
-> - 如果是引用数据类型拷贝的是地址
+> - 如果是基本数据类型，拷贝的是值
+> - 如果是引用数据类型，拷贝的是地址
 > - 简单理解：如果是单层对象，没问题，如果有多层就有问题，还是会影响原来对象
 >
 
 ### 2、深拷贝
 
-深拷贝：拷贝多层，不再拷贝地址
+深拷贝：<font color="red">拷贝多层</font>，不再拷贝地址
 
-常见方法：
+**常见方法：**
 
 - 通过 JSON 序列化实现
 - lodash 库实现
 - 通过递归实现
 
-#### 1）、通过 JSON 序列化实现
+#### 1）、JSON 序列化
+
+序列化：将对象转成字符串 `JSON.stringify()` 
+
+反序列化：将字符串转成对象 `JSON.parse()` 
 
 `JSON.stringify()` 序列化为 JSON 字符串，然后再 `JSON.parse()` 转回对象格式
 
 ~~~js
-
-// 深拷贝实现方式一：JSON序列化（常用的方式）
 const obj = {
   name: '佩奇',
   family: {
@@ -505,15 +520,15 @@ const obj = {
   hobby: ['跳泥坑', '唱歌']
 }
 
-console.log(JSON.stringify(obj))
-console.log(JSON.parse(JSON.stringify(obj)))
 const newObj = JSON.parse(JSON.stringify(obj))
+
 console.log(newObj === obj)  // false
 newObj.family.father = 'dad'
 console.log(obj)
 console.log(newObj)
 
-// 注意事项：JSON.stringify序列化的时候会忽略 function undefined
+
+// 注意事项：JSON.stringify 序列化的时候无法拷贝 function 和 undefined
 const obj = {
   name: '佩奇',
   love: undefined,
@@ -525,13 +540,14 @@ const obj = {
     console.log('我会唱歌')
   }
 }
+
 const newObj = JSON.parse(JSON.stringify(obj))
-console.log(newObj)
+console.log(newObj)  // 丢失了 love 和 sayHi 函数
 ~~~
 
->缺点：function 或 undefined 等，在序列化过程中会被忽略
+>:warning: 缺点：function 或 undefined 等，在序列化过程中会被忽略
 
-####  2）、js 库 lodash 实现深拷贝
+####  2）、js 库 lodash里面的 `_.cloneDeep`
 
 官网地址：https://www.lodashjs.com/
 
@@ -551,39 +567,43 @@ console.log(newObj)
         console.log('我会唱歌')
       }
     }
-    // lodash 库实现
+    
     const newObj = _.cloneDeep(obj)
     // console.log(newObj)
+    
     newObj.family.father = 'dad'
     console.log(obj)
     console.log(newObj)
-
   </script>
 </body>
 ~~~
 
-#### 3）、通过递归实现深拷贝
+> :warning: 优点：相较于序列化和反序列化的优势更加完善
+>
+> 缺点：需要额外引入一个第三方的 js 文件，增加项目体积
 
-递归：所谓递归就是一种函数调用自身的操作
+#### 3）、递归
 
-简单理解：函数内部自己调用自己，就是递归，这个函数就是递归函数
+递归：所谓递归就是一种<font color="red">函数调用自身</font>的操作
 
-递归函数的作用和循环效果类似
+- 简单理解：函数内部<font color="red">自己调用自己</font>，就是递归，这个函数就是递归函数
+- 递归函数的作用和<font color="red">循环</font>效果类似
 
-由于递归很容易发生“栈溢出”错误（stackoverflow），所以记得添加退出条件 return
+- 由于递归很容易发生“栈溢出”错误（stackoverflow），所以记得添加<font color="red">退出条件 return</font>
+
 
 ~~~js
-// 1、利用函数递归打印3句话
+// 1、打印3句话
 let i = 1
 function fn() {
+  i++
   console.log(`我是第${i}句话`)
   if (i >= 3) return
-  i++
   fn()  // 递归
 }
 fn()
 
-// 2、练习：利用递归函数实现 setTimeout 每隔一秒钟输出当前时间
+// 2、实现 setTimeout 模拟 setInterval 效果，每隔一秒钟输出当前时间
 function timer() {
   const time = new Date().toLocaleString()
   console.log(time)  // 输出当前时间
@@ -601,7 +621,7 @@ timer()
 - 如果属性值是基本数据类型，则直接赋值即可
 
 ~~~js
-// 递归实现深拷贝 - 简版实现对象和数组的拷贝
+// 简版
 const obj = {
   name: '佩奇',
   family: {
@@ -619,6 +639,7 @@ function cloneDeep(oldObj) {
   for (let k in oldObj) {
     // console.log(k)  // k 是属性
     // console.log(oldObj[k])  // oldObj[k] 是属性值
+    
     // 把旧对象的值给新对象的属性
     if (typeof oldObj[k] === 'object') {
       // 如果属性值是引用数据类型，则需要递归再次拷贝
@@ -633,6 +654,7 @@ function cloneDeep(oldObj) {
   // 返回新对象
   return newObj
 }
+
 const newObj = cloneDeep(obj)
 newObj.family.father = 'dad'
 console.log(newObj)
@@ -643,7 +665,7 @@ console.log(obj)
 
 ### 1、throw
 
-异常处理是指预估代码执行过程中可能发生的错误，然后最大程度的避免错误的发生导致整个程序无法继续运
+异常处理是指预估代码执行过程中<font color="red">可能发生的错误</font>，然后最大程度的避免错误的发生导致整个程序无法继续运行
 
 - `throw` 抛出异常信息，程序也会终止执行
 - `throw` 后面跟的是错误提示信息
@@ -660,44 +682,60 @@ function counter(x, y) {
 counter()
 ```
 
+![异常处理throw](/images/异常处理throw.png)
+
 ### 2、try ... catch
 
 - `try...catch` 用于捕获错误信息
 - 将预估可能发生错误的代码写在 `try` 代码段中
 - 如果 `try` 代码段中出现错误后，会执行 `catch` 代码段，并截获到错误信息
+- `finally`  不管是否有错误，<font color="red">都会执行</font>
 
 ```js
 function foo() {
   try {
-    // 查找 DOM 节点
-    const p = document.querySelector('.p')
+    // 可能出现错误的代码
+    const p = document.querySelector('.p')  // 查找 DOM 节点
     p.style.color = 'red'
   } catch (error) {
-    // try 代码段中执行有错误时，会执行 catch 代码段
-    // 查看错误信息
-    console.log(error.message)
-    // 终止代码继续执行
-    return
-
-  }
-  finally {
-      alert('执行')
+    // try 出现错误会进入 catch 并捕获异常，error：错误参数
+    console.log(error.message)  // 查看错误信息
+    return  // 终止代码继续执行
+  } finally {
+    // 不管有没有错误都会进入 finally
+    alert('不管有没有错误都会执行')
   }
   console.log('如果出现错误，我的语句不会执行')
 }
 foo()
 ```
 
+- **总结**：try 里面的代码有可能会出错，如果出错会进入到 catch，代码不会终止，继续往后执行
+- 如果有 finally，则不论成功还是失败都会执行 finally 中的代码
+- 错误处理一般广泛运用于网络请求中，因为网络请求是未知的，受多方因素影响，例如：网速、网络稳定、用户中断。。。
 
 ### 3、debugger
 
-相当于断点调试
+debugger 语句调用<font color="red">调试功能</font>，例如设置断点
+
+```js
+const arr = [1, 3, 5]
+const newArr = arr.map((item, index) => {
+  debugger
+  console.log(item)  // 当前元素
+  console.log(index)  // 当前元素索引号
+  return item + 10
+})
+console.log(newArr)  // [11, 13, 15]
+```
+
+![异常处理debugger](/images/异常处理debugger.png)
 
 ## 处理this
 
 ### 1、改变this
 
- JavaScript 中允许指定（改变）函数中 this 的指向，有 3 个方法可以动态指定普通函数中 this 的指向
+ JavaScript 中允许<font color="red">指定（改变）函数中 this 的指向</font>，有 3 个方法可以动态指定普通函数中 this 的指向
 
 - call()
 - apply()
@@ -705,35 +743,41 @@ foo()
 
 #### 1）、call
 
-使用 `call` 方法调用函数，同时指定函数中 `this` 的值
+使用 `call` 方法**调用函数**，同时**指定**被调用函数中 **this 的指向**
+
+```js
+fun.call(thisArg, arg1, arg2, ...)
+
+* thisArg：在 fun 函数运行时指定的 this 值
+* arg1，arg2：传递的其他参数
+* 返回值就是函数的返回值，因为它就是调用函数
+* 使用场景：Object.prototype.toString.call(数据) —— 检测数据类型
+```
 
 - `call` 方法能够在调用函数的同时指定 `this` 的值
-- 使用 `call` 方法调用函数时，第1个参数为 `this` 指定的值
+- 使用 `call` 方法调用函数时，第 1 个参数为 `this` 指定的值
 - `call` 方法的其余参数会依次自动传入函数做为函数的参数
 
 ```js
-// 1、改变this指向 - call 
-const obj = { name: '佩奇' }
-
-// call() 作用： 第一个调用函数  第二改变this指向
+const obj = { name: '呆呆' }
 function fun(x, y) {
   console.log(this)
-  // console.log(x + y)
-  return x + y
+  console.log(x + y)
 }
-fun()  // this 指向 window
+
+fun(1, 2)  // this => window，fun 是全局的，所以等于是 window.fun()
 fun.call(obj)  //  this 指向 obj 对象
-fun.call(obj, 1, 2)  //  this 指向 obj 对象
-console.log(fun.call(obj, 1, 2))  // 返回值就是函数 返回值
+fun.call(obj, 1, 2)  // 3
+// this 指向 obj 对象，返回值就是函数返回值
 
 
-// 2、call的应用场景 - 检测数据类型
-// 2.1 typeof 检测数据类型不够精确的
+// 使用场景 - 检测数据类型
+// 1、typeof 检测数据类型不够精确的
 console.log(typeof '123') // string
 console.log(typeof []) // object
 console.log(typeof null) // object
 
-// 2.2 Object.prototype.toString()  返回的结果是[object xxx类型]
+// 2、Object.prototype.toString()  返回的结果是[object xxx类型]
 // console.log(Object.prototype.toString('123')) //  [object Object]
 console.log(Object.prototype.toString.call('123'))  // [object String]
 console.log(Object.prototype.toString.call(123))  // [object Number]
@@ -743,69 +787,99 @@ console.log(Object.prototype.toString.call(null))  // [object Null]
 
 #### 2）、apply
 
-使用 `call` 方法**调用函数**，同时指定函数中 `this` 的值
+使用 `apply` 方法**调用函数**，同时**指定**被调用函数中 **this 的值**
+
+```js
+fun.apply(thisArg, [argsArray])
+
+* thisArg：在 fun 函数运行时指定的 this 值
+* argsArray：传递的值，必须包含在数组里面
+* 返回值就是函数的返回值，因为它就是调用函数
+* 使用场景：apply 主要跟数组有关系，比如使用 Math.max() 求数组的最大值
+```
 
 - `apply` 方法能够在调用函数的同时指定 `this` 的值
-- 使用 `apply` 方法调用函数时，第1个参数为 `this` 指定的值
-- `apply` 方法第2个参数为数组，数组的单元值依次自动传入函数做为函数的参数
+- 使用 `apply` 方法调用函数时，第 1 个参数为 `this` 指定的值
+- `apply` 方法第 2 个参数为数组，数组的单元值依次自动传入函数做为函数的参数
 
-```html
-<body>
-  <script>
-    // 改变this指向apply 
-    // 1. 基本使用
-    const obj = { name: '佩奇' }
-    function fun(x, y) {
-      console.log(this)
-      console.log(x + y)
-    }
-    fun()
-    // fun.apply()  // 1. 作用1调用函数
-    // fun.apply(obj)  // 2. 作用2 改变this指向 obj
-    fun.apply(obj, [1, 2])  // 参数必须是数组
+```js
+const obj = { name: '呆呆' }
+function fun(x, y) {
+  console.log(this)
+  console.log(x + y)
+}
 
-    // 2. 使用场景- 求数组的最大值/最小值
-    console.log(Math.max(...[1, 2, 3]))  // 3
+fun(1, 2)
+fun.apply()  // 调用函数
+fun.apply(obj)  // 改变 this 指向 obj
+fun.apply(obj, [1, 2])  // 参数必须是数组
 
-    // apply 或者 call 如果不需要改变this指向 写 null 
-    console.log(Math.max.apply(null, [8, 2, 3]))  // 8
-    console.log(Math.min.apply(null, [8, 2, 3]))  // 2
 
-  </script>
-</body>
+// 使用场景 - 求数组的最大值/最小值
+const arr = [8, 2, 3]
+console.log(Math.max(...arr))  // 8
+// apply 或者 call 如果不需要改变 this 指向写 null 
+console.log(Math.max.apply(null, arr))  // 8
+console.log(Math.min.apply(null, arr))  // 2
 ```
+
+**总结**：call 和 apply 的区别
+
+- 都是<font color="red">调用函数</font>，都能<font color="red">改变 this 指向</font>
+- 参数不一样，call 是<font color="red">传递参数列表</font>，apply 传递的必须是<font color="red">数组</font>
+- call 可以用来检测数据类型，apply 可以求数组最大值
 
 #### 3）、bind
 
 `bind` 方法并**不会调用函数**，而是创建一个指定了 `this` 值的新函数
 
+```js
+fun.bind(thisArg, arg1, arg2, ...)
+         
+* thisArg：在 fun 函数运行时指定的 this 值
+* arg1，arg2：传递的其他参数
+* 返回由指定的 this 值和初始化参数改造的原函数拷贝（新函数）
+* 使用场景：当我们只是想改变 this 指向，并且不想调用这个函数时，可以使用 bind，比如改变定时器内部的 this 指向
+```
+
+```js
+const obj = { name: '呆呆' }
+function fun(x, y, z) {
+  console.log(this)
+  console.log(x + y + z)
+}
+
+// fun()
+// fun.bind()  // bind 不会调用函数
+// const fn = fun.bind()  // 返回的是对原来函数的拷贝
+// console.log(fn)
+// console.log(fn === fun)  // false
+
+// const fn = fun.bind(obj)  // bind 可以改变 this 指向
+const fn = fun.bind(obj, 1, 2, 3) 
+fn()  // 调用函数
+
+
+// 使用场景
+document.querySelector('button').addEventListener('click', function () {
+  setTimeout(function() {
+    this.color.style = 'red'
+  }.bind(this), 3000)  // 没有.bind(this)，setTimeout 中的 this 指向 window
+  
+  // 箭头函数出来之后，bind 就不用了
+  setTimeout(() => {
+    this.color.style = 'red'
+  }, 3000)
+})
+```
+
 ```html
 <body>
   <button class="code">发送验证码</button>
   <script>
-    const obj = { name: '佩奇' }
-    //改变this指向-bind方法
-    // 1. 基本使用
-    function fun(x, y, z) {
-      console.log(this)
-      console.log(x + y + z)
-    }
-    // fun()
-    // fun.bind()  // bind不会调用函数
-    // const fn = fun.bind()  // 返回的是对原来函数的拷贝
-    // console.log(fn)
-    // console.log(fn === fun)  // false
-
-    // const fn = fun.bind(obj)  // bind 可以改变this指向
-    const fn = fun.bind(obj, 1, 2, 3)  // 
-
-
-    fn()  // 调用函数
-
-
-    // 2. 使用场景 - 不需要调用函数，但是又想改变函数内部的this指向
-
-    // 1. 发送短信5秒倒计时业务
+    // 使用场景 - 修改定时器内部的 this 指向
+    
+    // 1、发送短信5秒倒计时业务
     const codeBtn = document.querySelector('.code')
     let flag = true  // 开关变量，用来防止多次点击
     codeBtn.addEventListener('click', function () {
@@ -827,7 +901,7 @@ console.log(Object.prototype.toString.call(null))  // [object Null]
             flag = true
           }
         }.bind(this), 1000)
-        // 关闭开关 
+        // 关闭开关
         flag = false
       }
     })
@@ -835,26 +909,28 @@ console.log(Object.prototype.toString.call(null))  // [object Null]
 </body>
 ```
 
-注：`bind` 方法创建新的函数，与原函数的唯一的变化是改变了 `this` 的值。
+> :warning: 注：`bind` 方法创建新的函数，与原函数的唯一的变化是改变了 `this` 的值。
 
-| 方法  | 相同点       | 传递参数                    | 是否调用函数 | 使用场景                                       |
-| ----- | ------------ | --------------------------- | ------------ | ---------------------------------------------- |
-| call  | 改变this指向 | 传递参数列表  arg1, arg2... | 调用函数     | Object.prototype.toString.call()  检测数据类型 |
-| apply | 改变this指向 | 参数是数组                  | 调用函数     | 跟数组相关，比如求数组最大值和最小值等         |
-| bind  | 改变this指向 | 传递参数列表  arg1, arg2... | 不调用函数   | 改变定时器内部的this指向                       |
+#### 4）、总结
+
+| 方法  | 相同点         | 传递参数                    | 是否调用函数 | 使用场景                                       |
+| ----- | -------------- | --------------------------- | ------------ | ---------------------------------------------- |
+| call  | 改变 this 指向 | 传递参数列表  arg1, arg2... | 调用函数     | Object.prototype.toString.call()  检测数据类型 |
+| apply | 改变 this 指向 | 参数是数组                  | 调用函数     | 跟数组相关，比如求数组最大值和最小值等         |
+| bind  | 改变 this 指向 | 传递参数列表  arg1, arg2... | 不调用函数   | 改变定时器内部的 this 指向                     |
 
 ### 2、this 指向
 
-this的取值 不取决于函数的定义，而是取决于怎么调用的（this指向调用者）
+this的取值不取决于函数的定义，而是取决于怎么<font color="red">调用</font>的（this 指向调用者）
 
-- 全局内调用： fn()  指向 window
-- 对象内的方法调用：obj.fn()  指向调用对象
-- 构造函数调用：newPerson()   指向实例对象
-- 事件处理函数中调用：指向当前触发事件的DOM元素
-- 特殊调用 比如 call、apply、bind可以改变this指向，fun.call(obj)    指向 obj
+- <font color="red">全局</font>内调用： fn() 指向 window
+- <font color="red">对象内的方法</font>调用：obj.fn() 指向调用对象
+- <font color="red">构造函数</font>调用：new Person() 指向实例对象
+- <font color="red">事件处理函数</font>中调用：指向当前触发事件的 DOM 元素
+- <font color="red">特殊调用</font>，比如 call、apply、bind 可以改变 this 指向，fun.call(obj)    指向 obj
 
 ~~~js
-// this指向总结
+// this 指向总结
 // 1、普通函数
 // 1.1 全局内调用
 function fn() {
@@ -871,36 +947,38 @@ const obj = {
 }
 obj.sayHi()
 
-// 1.3 构造函数内this
+// 1.3 构造函数内 this
 function Person() {
   this.name = name
-  console.log(this)
+  console.log(this) // 新创建的对象
 }
 const zs = new Person()
 
-// 1.4 事件处理函数中的this
+// 1.4 事件处理函数中的 this
 document.querySelector('button').addEventListener('click', function () {
-  console.log(this)
+  console.log(this)  // 事件源
 })
 
 // 1.5 特殊调用 call、apply、bind 可以改变 this 指向
-const o = { name: '佩奇' }
+const o = { name: '呆呆' }
 function fun() {
-  console.log(this)
+  console.log(this)  // 人为干预，就看指向的是谁
 }
 fun.call(o)
 
 
-// 2、箭头函数 没有this，是沿用上一级作用域的 this
+// 2、箭头函数：没有this，是沿用上一级作用域的 this
 ~~~
 
 ## 性能优化
 
 ### 1、防抖（debounce）
 
-防抖: 单位时间内，频繁触发事件，只执行最后一次
+防抖: 单位时间内，频繁触发事件，<font color="red">只执行最后一次</font>
 
-举个栗子：王者荣耀回城，只要被打断就需要重新来
+![防抖](/images/防抖.png)
+
+例子：王者荣耀回城，只要被打断就需要重新来
 
 使用场景：
 
@@ -915,7 +993,7 @@ fun.call(o)
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>利用防抖实现性能优化</title>
+  <title>防抖</title>
   <style>
     .box {
       width: 500px;
@@ -932,18 +1010,17 @@ fun.call(o)
   <div class="box"></div>
   <script src="./js/lodash.min.js"></script>
   <script>
-    // 利用防抖实现性能优化
-    //需求： 鼠标在盒子上移动，里面的数字就会变化 + 1
+    //需求：鼠标在盒子上移动，鼠标停止500ms之后，里面的数字才会变化+1
     const box = document.querySelector('.box')
     let i = 1
     function mouseMove() {
       box.innerHTML = i++
-      // 如果里面存在大量消耗性能的代码，比如dom操作，比如数据处理，可能造成卡顿
+      // 如果里面存在大量消耗性能的代码，比如 dom 操作，比如数据处理，可能造成卡顿
     }
     // 添加事件
     // box.addEventListener('mousemove', mouseMove)
 
-    // 利用lodash库实现防抖 - 500毫秒之后采取+1
+    // 利用 lodash 库实现防抖 - 500毫秒之后才去+1
     // 语法: _.debounce(fun, 时间)
     box.addEventListener('mousemove', _.debounce(mouseMove, 500))
   </script>
@@ -954,7 +1031,7 @@ fun.call(o)
 
 #### 手写防抖函数
 
-核心思路：防抖的核心就是利用定时器（setTimeout）来实现
+核心思路：防抖的核心就是利用定时器（**setTimeout**）来实现
 
 - 声明一个定时器变量 
 
@@ -973,7 +1050,7 @@ fun.call(o)
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>防抖函数实现</title>
+  <title>手写防抖函数</title>
   <style>
     .box {
       width: 500px;
@@ -988,24 +1065,14 @@ fun.call(o)
 
 <body>
   <div class="box"></div>
-  <script src="./js/lodash.min.js"></script>
   <script>
-    // 利用防抖实现性能优化
-    //需求： 鼠标在盒子上移动，里面的数字就会变化 + 1
+    //需求：鼠标在盒子上移动，鼠标停止500ms之后，里面的数字才会变化+1
     const box = document.querySelector('.box')
     let i = 1
     function mouseMove() {
       box.innerHTML = i++
-      // 如果里面存在大量消耗性能的代码，比如dom操作，比如数据处理，可能造成卡顿
     }
-    // box.addEventListener('mousemove', _.debounce(mouseMove, 500))
 
-    // 手写防抖函数
-    // 核心是利用 setTimeout定时器来实现
-    // 1. 声明定时器变量
-    // 2. 每次鼠标移动（事件触发）的时候都要先判断是否有定时器，如果有先清除以前的定时器
-    // 3. 如果没有定时器，则开启定时器，存入到定时器变量里面
-    // 4. 定时器里面写函数调用
     function debounce(fn, t) {
       let timer
       // return 返回一个匿名函数
@@ -1020,7 +1087,7 @@ fun.call(o)
     box.addEventListener('mousemove', debounce(mouseMove, 500))
 
     //  debounce(mouseMove, 500)  // 调用函数
-    // debounce(mouseMove, 500)  = function () { 2.3.4}
+    // debounce(mouseMove, 500)  = function () { 2.3.4 }
   </script>
 </body>
 
@@ -1029,9 +1096,11 @@ fun.call(o)
 
 ### 2、节流（throttle）
 
-节流：单位时间内，频繁触发事件，只执行一次
+节流：单位时间内，频繁触发事件，<font color="red">只执行一次</font>
 
-举个栗子：
+![节流](/images/节流.png)
+
+例子：
 
 - 王者荣耀技能冷却，期间无法继续释放技能
 - 和平精英 98k 换子弹期间不能射击
@@ -1048,7 +1117,7 @@ fun.call(o)
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>利用防抖实现性能优化</title>
+  <title>节流</title>
   <style>
     .box {
       width: 500px;
@@ -1065,17 +1134,14 @@ fun.call(o)
   <div class="box"></div>
   <script src="./js/lodash.min.js"></script>
   <script>
-    // 利用节流实现性能优化
-    //需求： 鼠标在盒子上移动，里面的数字就会变化 + 1
+    // 需求：鼠标在盒子上移动，不管移动多少次，每隔500ms才+1
     const box = document.querySelector('.box')
     let i = 1
     function mouseMove() {
       box.innerHTML = i++
-      // 如果里面存在大量消耗性能的代码，比如dom操作，比如数据处理，可能造成卡顿
     }
-    // box.addEventListener('mousemove', mouseMove)
 
-    // 利用lodash库实现节流 - 500毫秒之后采取+1
+    // 利用 lodash 库实现节流 - 500毫秒之后采取+1
     // 语法: _.throttle(fun, 时间)
     box.addEventListener('mousemove', _.throttle(mouseMove, 3000))
 
@@ -1087,6 +1153,20 @@ fun.call(o)
 
 #### 手写节流函数
 
+核心思路：节流的核心就是利用定时器（**setTimeout**）来实现
+
+- 声明一个定时器变量
+
+- 当鼠标每次滑动都先判断是否有定时器了，如果有定时器则不开启新定时器
+
+- 如果没有定时器则开启定时器，记得存到变量里面
+
+  - 定时器里面调用执行的函数
+
+  - 定时器里面要把定时器清空
+
+> :warning: 注：在 setTimeout 中是无法删除定时器的，因为定时器还在运作，所以使用 timer = null 而不是 clearTimeout(timer)
+
 ~~~html
 <!DOCTYPE html>
 <html lang="en">
@@ -1095,7 +1175,7 @@ fun.call(o)
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>利用节流实现性能优化</title>
+  <title>手写节流函数</title>
   <style>
     .box {
       width: 500px;
@@ -1112,35 +1192,21 @@ fun.call(o)
   <div class="box"></div>
   <script src="./js/lodash.min.js"></script>
   <script>
-    // 利用节流实现性能优化
-    //需求： 鼠标在盒子上移动，里面的数字就会变化 + 1
+    // 需求：鼠标在盒子上移动，不管移动多少次，每隔500ms才+1
     const box = document.querySelector('.box')
     let i = 1
     function mouseMove() {
       box.innerHTML = i++
-      // 如果里面存在大量消耗性能的代码，比如dom操作，比如数据处理，可能造成卡顿
     }
-    // box.addEventListener('mousemove', mouseMove)
 
-    // 利用lodash库实现节流 -
-    // 语法: _.throttle(fun, 时间)
-    // box.addEventListener('mousemove', _.throttle(mouseMove, 3000))
-
-    // 手写一个节流函数- 每隔 500ms + 1
-
-    // 节流的核心就是利用定时器(setTimeout) 来实现
-    // 1.声明一个定时器变量
-    // 2.当鼠标每次滑动都先判断是否有定时器了，如果有定时器则不开启新定时器
-    // 3.如果没有定时器则开启定时器，记得存到变量里面
-    // 3.1定时器里面调用执行的函数
-    // 3.2定时器里面要把定时器清空
     function throttle(fn, t) {
       let timer = null
       return function () {
         if (!timer) {
+          // 开启定时器
           timer = setTimeout(function () {
             fn()
-            // 清空定时器
+            // 清空 timer 变量
             timer = null
           }, t)
         }
@@ -1148,22 +1214,18 @@ fun.call(o)
     }
 
     box.addEventListener('mousemove', throttle(mouseMove, 3000))
-
-
   </script>
 </body>
 
 </html>
 ~~~
 
+### 3、总结
+
 | 性能优化 | 说明                                     | 使用场景                                                     |
 | -------- | ---------------------------------------- | ------------------------------------------------------------ |
 | 防抖     | 单位时间内，频繁触发事件，只执行最后一次 | 搜索框搜索输入、手机号、邮箱验证输入检测                     |
 | 节流     | 单位时间内，频繁触发事件，只执行一次     | 高频事件:鼠标移动 mousemove、页面尺寸缩放 resize、滚动条滚动scroll 等等 |
 
-
-
-
-
-
-
+- 手写防抖函数：只要有定时器就要清除定时器后开启
+- 手写节流函数：判断内存中有没有正在开启的定时器，如果有就不能再开了，如果没有才开启定时器，定时器执行时记得清除定时器 id 标识
