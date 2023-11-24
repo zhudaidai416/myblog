@@ -393,6 +393,8 @@ p {
 
 ## [flex](https://www.runoob.com/w3cnote/flex-grammar.html)
 
+[动画演示](https://www.bilibili.com/video/BV1Rv4y177rj/?spm_id_from=333.999.top_right_bar_window_custom_collection.content.click&vd_source=4a55e10f649fa34686122c7c44b2c9ea)
+
 ### 1、容器属性
 
 flex-direction：决定主轴的方向
@@ -400,10 +402,10 @@ flex-direction：决定主轴的方向
 ```css
 flex-direction: row | row-reverse | column | column-reverse;
 
-* row（默认值）：主轴为水平方向，起点在左端。
-* row-reverse：主轴为水平方向，起点在右端。
-* column：主轴为垂直方向，起点在上沿。
-* column-reverse：主轴为垂直方向，起点在下沿。
+* row（默认值）：水平（起点在左）
+* row-reverse：水平反向（起点在右）
+* column：垂直
+* column-reverse：垂直反向
 ```
 
 flex-wrap：如果一条轴线排不下，如何换行
@@ -411,12 +413,12 @@ flex-wrap：如果一条轴线排不下，如何换行
 ```css
 flex-wrap: nowrap | wrap | wrap-reverse;
 
-* nowrap（默认）：不换行
-* wrap：换行，第一行在上方
-* wrap-reverse：换行，第一行在下方
+* nowrap（默认值）：不换行
+* wrap：换行
+* wrap-reverse：行序反向
 ```
 
-flex-flow：flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap
+flex-flow：flex-direction 属性和 flex-wrap 属性的简写形式，默认值为 row nowrap
 
 ```css
 flex-flow: <flex-direction> <flex-wrap>
@@ -425,25 +427,26 @@ flex-flow: <flex-direction> <flex-wrap>
 justify-content：在主轴上的对齐方式
 
 ```css
-justify-content: flex-start | flex-end | center | space-between | space-around;
+justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly;
 
-* flex-start（默认值）：左对齐
-* flex-end：右对齐
+* flex-start（默认值）：主轴前对齐
+* flex-end：后对齐
 * center： 居中
-* space-between：两端对齐，项目之间的间隔都相等。
-* space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+* space-between：等距 首尾（首尾贴合容器边缘）
+* space-around：等距 两边（前后两侧间隔相等）
+* space-evenly：等距 容器（等距包含容器边缘）
 ```
 
-align-items：在交叉轴上如何对齐
+align-items：在交叉轴上的对齐方式
 
 ```css
 align-items: flex-start | flex-end | center | baseline | stretch;
 
-* flex-start：交叉轴的起点对齐。
-* flex-end：交叉轴的终点对齐。
-* center：交叉轴的中点对齐。
-* baseline: 项目的第一行文字的基线对齐。
-* stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+* flex-start（默认值）：交叉轴前对齐
+* flex-end：交叉轴后对齐
+* center：居中
+* baseline: 文字基线（项目首行文字对齐）
+* stretch：拉伸（如果项目未设置高度或设为 auto，将占满整个容器的高度）
 ```
 
 align-content：多根轴线的对齐方式
@@ -451,55 +454,55 @@ align-content：多根轴线的对齐方式
 ```css
 align-content: flex-start | flex-end | center | space-between | space-around | stretch;
 
-* flex-start：与交叉轴的起点对齐。
-* flex-end：与交叉轴的终点对齐。
-* center：与交叉轴的中点对齐。
-* space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。
-* space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
-* stretch（默认值）：轴线占满整个交叉轴。
+* flex-start（默认值）：与交叉轴的起点对齐
+* flex-end：与交叉轴的终点对齐
+* center：与交叉轴的中点对齐
+* space-between：与交叉轴两端对齐，轴线之间的间隔平均分布
+* space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍
+* stretch：轴线占满整个交叉轴
 ```
 
 ### 2、项目属性
 
-order：数值，决定项目排列顺序的，数值越小排列越靠前。
+order：根据其数值定义元素的排序，数值越小排列越靠前（默认值为 0）
 
-flex-grow：放大比例，默认值为0，即不放大
+flex-grow：放大比例，默认值为 0，即不放大
 
-flex-shrink：缩小比例，默认值为1，即空间不足会压缩
+flex-shrink：缩小比例，默认值为 1，即空间不足会压缩
 
-flex-basis：设置项目的空间占比
+flex-basis：设置项目的空间占比，默认值为 auto
 
 flex：以上三个属性的简写，默认值为 0 1 auto
 
-align-self：用于覆盖容器属性的 align-items 的
+align-self：允许项目自身有单独的交叉轴对齐方式，用于覆盖容器属性的 align-items 的
 
 ### 3、案例
 
-1）、[骰子案例](http://t.zoukankan.com/hellocd-p-13584058.html)
+1）、[骰子案例](https://www.cnblogs.com/hellocd/p/13584058.html)
 
-2）、[布局案例](C:\Users\daidai\Desktop\Note\代码\布局案例.html)
+2）、布局案例
 
 左中右，三列布局，左右两列宽度固定，中间列宽度自适应
 
 ```html
 <style>
-  h1{
+  h1 {
     text-align: center;
   }
 
   /* 布局案例1 */
-  .left1,.right1{
+  .left1,.right1 {
     width: 200px;
     height: 400px;
     background-color: cadetblue;
   }
-  .left1{
+  .left1 {
     float: left;
   }
-  .right1{
+  .right1 {
     float: right;
   }
-  .center1{
+  .center1 {
     height: 400px;
     margin-left: 210px;
     margin-right: 210px;
@@ -507,15 +510,15 @@ align-self：用于覆盖容器属性的 align-items 的
   }
 
   /* 布局案例2 */
-  .box2{
+  .box2 {
     display: flex;
   }
-  .left2,.right2{
+  .left2,.right2 {
     width: 200px;
     height: 400px;
     background-color: darkseagreen;
   }
-  .center2{
+  .center2 {
     height: 400px;
     margin-left: 10px;
     margin-right: 10px;
@@ -539,6 +542,334 @@ align-self：用于覆盖容器属性的 align-items 的
     <div class="right2"></div>
   </div>
 </body>
+```
+
+## grid
+
+[动画演示](https://www.bilibili.com/video/BV18p411A7JB/?spm_id_from=333.337.search-card.all.click&vd_source=4a55e10f649fa34686122c7c44b2c9ea)
+
+### 1、容器属性
+
+display：grid 指定一个容器采用网格布局
+
+```css
+display: grid | inline-grid;
+
+* grid：块级容器（宽度撑满整行）
+* inline-grid：行内容器（宽度随内容自适应）
+```
+
+> :warning: 注：设为网格布局以后，容器子元素（项目）的 `float`、`display: inline-block`、`display: table-cell`、`vertical-align` 和 `column-*` 等设置都将失效。
+
+grid-template-columns：定义每一列的列宽
+
+grid-template-rows：定义每一行的行高
+
+```css
+grid-template-columns: 100px 100px 100px;
+grid-template-rows: 100px 100px 100px;
+
+grid-template-columns: 33.33% 33.33% 33.33%;
+grid-template-rows: 33.33% 33.33% 33.33%;
+
+* 使用绝对单位或者百分比
+```
+
+1）、repeat()：简化重复的值
+
+```css
+grid-template-columns: repeat(重复的次数, 所要重复的值);
+
+grid-template-columns: repeat(3, 33.33%);
+
+// 重复某种模式
+grid-template-columns: repeat(2, 100px 20px 80px);
+* 1、4列宽度为100px，2、5列宽度为20px，3、6列宽度为80px
+```
+
+2）、auto-fill 关键字：无法确定列数时，自动填充，直到容器不能放置更多的列
+
+auto-fit：同上
+
+```css
+grid-template-columns: repeat(auto-fill, 100px);
+```
+
+> :warning: 注：只有当容器足够宽，可以在一行容纳所有单元格，并且单元格宽度不固定的时候，才会有[行为差异](https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/)：`auto-fill` 会用空格子填满剩余宽度，`auto-fit` 则会尽量扩大单元格的宽度。
+
+3）、fr 关键字：方便表示比例关系
+
+```css
+grid-template-columns: 1fr 1fr;
+
+* fr 可以与绝对长度的单位结合使用
+
+
+// 第一列的宽度为150像素，第二列的宽度是第三列的一半
+grid-template-columns: 150px 1fr 2fr;
+```
+
+4）、minmax()：产生一个长度范围，表示长度就在这个范围之中
+
+```css
+grid-template-columns: 1fr 1fr minmax(最小值, 最大值);
+
+// 表示列宽不小于100px，不大于1fr
+grid-template-columns: 1fr 1fr minmax(100px, 1fr);
+```
+
+5）、auto 关键字：由浏览器自己决定长度
+
+```css
+grid-template-columns: 100px auto 100px;
+```
+
+6）、网格线的名称
+
+还可以使用方括号，指定每一根网格线的名字，方便以后的引用
+
+```css
+grid-template-columns: [c1] 100px [c2] 100px [c3] auto [c4];
+grid-template-rows: [r1] 100px [r2] 100px [r3] auto [r4];
+```
+
+网格布局允许同一根线有多个名字，比如 `[fifth-line row-5]`
+
+7）、布局实例
+
+```css
+// 左边栏设为70%，右边栏设为30%
+grid-template-columns: 70% 30%;
+
+// 传统的十二网格布局
+grid-template-columns: repeat(12, 1fr);
+```
+
+grid-row-gap：设置行间距
+
+grid-column-gap：设置列间距
+
+grid-gap：grid-column-gap 属性和 grid-row-gap 属性的合并简写形式
+
+```css
+grid-row-gap: 20px;
+grid-column-gap: 20px;
+= grid-gap: 20px 20px;
+
+
+grid-gap: <grid-row-gap> <grid-column-gap>;
+
+* 省略了第二个值，浏览器认为第二个值等于第一个值
+* 根据最新标准，前缀已经删除，写为 column-gap、row-gap、gap
+```
+
+grid-template-areas：网格布局允许指定"区域"（area），一个区域由单个或多个单元格组成
+
+```css
+grid-template-columns: 100px 100px 100px;
+grid-template-rows: 100px 100px 100px;
+grid-template-areas: 'a b c'
+                     'd e f'
+                     'g h i';
+
+// 多个单元格合并成一个区域的写法
+grid-template-areas: 'a a a'
+                     'b b b'
+                     'c c c';
+
+* 如果某些区域不需要利用，则使用"点"（.）表示
+```
+
+> :warning: 注：区域的命名会影响到网格线。每个区域的起始网格线，会自动命名为 `区域名-start`，终止网格线自动命名为 `区域名-end`
+>
+> 例子：区域名为 `header`，则起始位置的水平网格线和垂直网格线叫做 `header-start`，终止位置的水平网格线和垂直网格线叫做 `header-end`
+
+grid-auto-flow：划分网格以后，容器的子元素会按照顺序，自动放置在每一个网格
+
+```css
+grid-auto-flow: row | column | row dense | column dense;
+
+* row（默认值）：先行后列
+* column：先列后行
+* row dense：先行后列，并且尽可能紧密填满，尽量不出现空格
+* column dense：先列后行，并且尽量填满空格
+```
+
+![grid-auto-flow](/images/grid-auto-flow.png)
+
+justify-items：设置单元格内容的水平位置（左中右）
+
+align-items：单元格内容的垂直位置（上中下）
+
+place-items：align-items 属性和 justify-items 属性的合并简写形式
+
+```css
+justify-items: start | end | center | stretch;
+align-items: start | end | center | stretch;
+
+* start：对齐单元格的起始边缘
+* end：对齐单元格的结束边缘
+* center：单元格内部居中
+* stretch：拉伸，占满单元格的整个宽度（默认值）
+
+
+place-items: <align-items> <justify-items>;
+
+* 如果省略第二个值，则浏览器认为与第一个值相等
+```
+
+justify-content：整个内容区域在容器里面的水平位置（左中右）
+
+align-content：整个内容区域的垂直位置（上中下）
+
+place-content：align-content 属性和 justify-content 属性的合并简写形式
+
+```css
+justify-content: start | end | center | stretch | space-around | space-between | space-evenly;
+align-content: start | end | center | stretch | space-around | space-between | space-evenly;  
+}
+
+* start：对齐容器的起始边框
+* end：对齐容器的结束边框
+* center：容器内部居中
+* stretch：项目大小没有指定时，拉伸占据整个网格容器
+* space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与容器边框的间隔大一倍
+* space-between：项目与项目的间隔相等，项目与容器边框之间没有间隔
+* space-evenly：项目与项目的间隔相等，项目与容器边框之间也是同样长度的间隔
+
+
+place-content: <align-content> <justify-content>
+
+* 如果省略第二个值，则浏览器认为与第一个值相等
+```
+
+grid-auto-columns：设置浏览器自动创建的多余网格的列宽
+
+grid-auto-rows：设置浏览器自动创建的多余网格的行高
+
+```css
+// 指定新增的行高统一为50px（原始的行高为100px）
+grid-template-columns: 100px 100px 100px;
+grid-template-rows: 100px 100px 100px;
+grid-auto-rows: 50px;
+```
+
+grid-template：grid-template-columns、grid-template-rows 和 grid-template-areas 这三个属性的合并简写形式
+
+grid：grid-template-rows、grid-template-columns、grid-template-areas、grid-auto-rows、grid-auto-columns、grid-auto-flow 这六个属性的合并简写形式
+
+> :warning: 注：从易读易写的角度考虑，还是建议不要合并属性
+
+### 2、项目属性
+
+grid-column-start：左边框所在的垂直网格线
+
+grid-column-end：右边框所在的垂直网格线
+
+grid-row-start：上边框所在的水平网格线
+
+grid-row-end：下边框所在的水平网格线
+
+```css
+// 指定具体的网格线
+// 1号项目的左边框是第2根垂直网格线，右边框是第4根垂直网格线
+.item-1 {
+  grid-column-start: 2;
+  grid-column-end: 4;
+}
+
+* 没有指定上下边框，所以会采用默认位置，即上边框是第一根水平网格线，下边框是第二根水平网格线
+* 使用这四个属性，如果产生了项目的重叠，则使用 z-index 属性指定项目的重叠顺序
+
+
+// 指定为网格线的名字
+.item-1 {
+  grid-column-start: header-start;
+  grid-column-end: header-end;
+}
+
+
+// 使用 span 关键字：表示"跨越"，即左右边框（上下边框）之间跨越多少个网格
+.item-1 {
+  grid-column-start: span 2;  // 1号项目的左边框距离右边框跨越2个网格
+}
+```
+
+grid-column：grid-column-start 和 grid-column-end 的合并简写形式
+
+grid-row：grid-row-start 属性和 grid-row-end 的合并简写形式
+
+```css
+grid-column: <start-line> / <end-line>;
+grid-row: <start-line> / <end-line>;
+
+* 斜杠以及后面的部分可以省略，默认跨越一个网格
+
+
+// 例子
+.item-1 {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+/* 等同于 */
+.item-1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+
+// 可以使用 span 关键字
+.item-1 {
+  background: #b03532;
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+}
+/* 等同于 */
+.item-1 {
+  background: #b03532;
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+```
+
+grid-area：指定项目放在哪一个区域
+
+还可用作 grid-row-start、grid-column-start、grid-row-end、grid-column-end 的合并简写形式，直接指定项目的位置
+
+```css
+grid-area: <row-start> / <column-start> / <row-end> / <column-end>;
+
+
+// 例子
+.item-1 {
+  grid-area: e;
+}
+.item-1 {
+  grid-area: 1 / 1 / 3 / 3;
+}
+```
+
+justify-self：设置单元格内容的水平位置（左中右），跟 justify-items 属性的用法完全一致，但只作用于单个项目
+
+align-self：设置单元格内容的垂直位置（上中下），跟 align-items 属性的用法完全一致，也是只作用于单个项目
+
+place-self：align-self 属性和 justify-self 属性的合并简写形式
+
+```css
+justify-self: start | end | center | stretch;
+align-self: start | end | center | stretch;
+
+* start：对齐单元格的起始边缘
+* end：对齐单元格的结束边缘
+* center：单元格内部居中
+* stretch：拉伸，占满单元格的整个宽度（默认值）
+
+
+place-self: <align-self> <justify-self>;
+
+* 如果省略第二个值，place-self 属性会认为这两个值相等
 ```
 
 ## 固定布局
