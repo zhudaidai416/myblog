@@ -48,9 +48,9 @@ features:
 
   - icon: 🍂
     title: 可视化
-    details: ECharts、地图、canvas...
+    details: Element、ECharts、地图、canvas...
     linkText: 前往查看
-    link: /可视化/ECharts.md
+    link: /可视化/Element.md
 
   - icon: 🍁
     title: 其它
@@ -68,7 +68,7 @@ features:
     title: 杂七杂八
     details: 开源项目学习、实际踩坑...
     linkText: 前往查看
-    link: /杂七杂八/Vue3项目.md
+    link: /杂七杂八/开源项目.md
 
   - icon: 📺
     title: 呆呆日常

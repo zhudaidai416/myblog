@@ -38,6 +38,14 @@ export default {
         { text: 'Vue3', link: '/前端框架/Vue3.md' },
         { text: 'React', link: '/前端框架/React.md' },
       ]
+    },
+    {
+      text: '前端框架',
+      collapsed: false,
+      items: [
+        { text: 'Vuex', link: '/前端框架/Vuex.md' },
+        { text: 'Pinia', link: '/前端框架/Pinia.md' },
+      ]
     }
   ],
   '/小程序/': [
@@ -76,10 +84,11 @@ export default {
   ],
   '/可视化/': [
     {
-      text: 'ECharts',
+      text: '组件库',
       collapsed: false,
       items: [
-        { text: 'ECharts使用', link: '/可视化/ECharts.md' },
+        { text: 'Element', link: '/可视化/Element.md' },
+        { text: 'ECharts', link: '/可视化/ECharts.md' },
       ]
     },
     {
@@ -148,8 +157,8 @@ export default {
       text: '开源项目学习💫',
       collapsed: false,
       items: [
-        { text: '优秀开源项目', link: '/杂七杂八/优秀开源项目.md' },
-        { text: 'Vue3项目', link: '/杂七杂八/Vue3项目.md' },
+        { text: '开源项目', link: '/杂七杂八/开源项目.md' },
+        { text: '博客笔记', link: '/杂七杂八/博客笔记.md' },
 
       ]
     },

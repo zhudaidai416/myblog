@@ -49,5 +49,5 @@ export const nav = [
       },
     ]
   },
-  { text: '✨大神博客', link: '/杂七杂八/优秀开源项目.md' }
+  { text: '✨大神博客', link: '/杂七杂八/博客笔记.md' }
 ]
