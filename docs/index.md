@@ -47,16 +47,16 @@ features:
     link: /编译&构建&打包/NodeJs.md
 
   - icon: 🍂
-    title: 可视化
-    details: Element、ECharts、地图、canvas...
+    title: 组件库
+    details: Sass、Less、Element、ECharts、地图、canvas...
     linkText: 前往查看
-    link: /可视化/Element.md
+    link: /组件库/Sass.md
 
   - icon: 🍁
     title: 其它
-    details: sass、less、git、正则表达式...
+    details: git、正则表达式...
     linkText: 前往查看
-    link: /其它/Sass.md
+    link: /其它/git.md
 
   - icon: 💭
     title: 面试相关

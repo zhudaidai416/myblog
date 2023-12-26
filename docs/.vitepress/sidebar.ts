@@ -82,39 +82,40 @@ export default {
       ]
     },
   ],
-  '/可视化/': [
+  '/组件库/': [
+    {
+      text: 'CSS 预编译语言',
+      collapsed: false,
+      items: [
+        { text: 'Sass', link: '/组件库/Sass.md' },
+        { text: 'Less', link: '/组件库/Less.md' },
+      ]
+    },
     {
       text: '组件库',
       collapsed: false,
       items: [
-        { text: 'Element', link: '/可视化/Element.md' },
-        { text: 'ECharts', link: '/可视化/ECharts.md' },
+        { text: 'Element', link: '/组件库/Element.md' },
+        { text: 'Element Plus', link: '/组件库/ElementPlus.md' },
+        { text: 'ECharts', link: '/组件库/ECharts.md' },
       ]
     },
     {
       text: '地图',
       collapsed: false,
       items: [
-        { text: '百度地图', link: '/可视化/百度地图.md' },
+        { text: '百度地图', link: '/组件库/百度地图.md' },
       ]
     },
     {
       text: 'canvas',
       collapsed: false,
       items: [
-        { text: 'canvas', link: '/可视化/canvas.md' },
+        { text: 'canvas', link: '/组件库/canvas.md' },
       ]
     },
   ],
   '/其它/': [
-    {
-      text: 'CSS预编译语言',
-      collapsed: false,
-      items: [
-        { text: 'Sass', link: '/其它/Sass.md' },
-        { text: 'Less', link: '/其它/Less.md' },
-      ]
-    },
     {
       text: 'Git',
       collapsed: false,
@@ -130,6 +131,14 @@ export default {
         { text: 'mysql封装', link: '/其它/mysql封装.md' },
       ]
     },
+    {
+      text: '好用工具',
+      collapsed: false,
+      items: [
+        { text: '安装教程', link: '/其它/安装教程.md' },
+        { text: '好用工具', link: '/其它/好用工具.md' },
+      ]
+    }
   ],
   '/面试相关/': [
     {
@@ -159,23 +168,15 @@ export default {
       items: [
         { text: '开源项目', link: '/杂七杂八/开源项目.md' },
         { text: '博客笔记', link: '/杂七杂八/博客笔记.md' },
-
       ]
     },
     {
       text: '实际踩坑🕳',
       collapsed: false,
       items: [
+        { text: '前期准备', link: '/杂七杂八/前期准备.md' },
         { text: '未更新', link: '/杂七杂八/实际项目踩坑.md' },
       ]
     },
-    {
-      text: '好用工具',
-      collapsed: false,
-      items: [
-        { text: '安装教程', link: '/杂七杂八/安装教程.md' },
-        { text: '好用工具', link: '/杂七杂八/好用工具.md' },
-      ]
-    }
   ],
 }

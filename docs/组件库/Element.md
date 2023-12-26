@@ -1,15 +1,15 @@
-# [Element](https://element.eleme.cn/#/zh-CN)
+## [Element](https://element.eleme.cn/#/zh-CN)
 
 ## 引入
 
 ### 1、全局引入
 
 ```bash
-# 安装 element-ui
+# 安装
 npm i element-ui -S
 ```
 
-在 `main.js` 中写入：
+main.js
 
 ```js
 import Vue from 'vue';
@@ -39,9 +39,12 @@ npm install babel-plugin-component -D
 > `.babelrc` 是一个 json 格式的文件。在 `.babelrc` 配置文件中，主要是对预设（presets）和插件（plugins）进行配置。
 
 ```json
-{
-  "presets": [["@babel/preset-env", { "modules": false }],
-  "plugins": [
+module.exports = {
+  presets: [
+    '@vue/cli-plugin-babel/preset',
+    ["@babel/preset-env", { "modules": false }]
+  ],
+  plugins: [
     [
       "component",
       {
@@ -68,13 +71,13 @@ Vue.use(Select);
 Vue.use(Menu);
 ```
 
-在 `main.js` 中引入：
+main.js
 
 ```js
 import './plugins/element.js';
 ```
 
-## menu
+## NavMenu 导航菜单
 
 ```css
 .el-menu,
@@ -94,14 +97,14 @@ import './plugins/element.js';
   padding: 0;
 }
 
-// 设置选中el-menu-item时的状态
+// 设置选中el-menu-item的状态
 ::v-deep .el-menu-item.is-active {
   border: none !important;
   color: #FFFFFF !important;
   background-color: #117DE1;
 }
 
-// 设置hover时el-menu-item时的样式 
+// 设置hover时el-menu-item的样式
 .el-menu-item:hover,
 ::v-deep .el-submenu__title:hover {
   color: #FFFFFF !important;
@@ -128,9 +131,7 @@ import './plugins/element.js';
 .el-menu--popup-bottom-start .el-menu-item:hover {}
 ```
 
-
-
-## tooltip
+## Tooltip 文字提示
 
 ```css
 // tooltip 箭头样式

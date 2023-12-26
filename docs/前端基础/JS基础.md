@@ -1,4 +1,4 @@
-# [MDN - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+## [MDN - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 ## 核心语法基础
 
