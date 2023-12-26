@@ -1,0 +1,1 @@
+import{_ as s,o as a,c as n,Q as e}from"./chunks/framework.d6bf9272.js";const h=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"组件库/Less.md","lastUpdated":1703606567000}'),l={name:"组件库/Less.md"},p=e("",3),t=[p];function o(r,c,i,d,_,b){return a(),n("div",null,t)}const C=s(l,[["render",o]]);export{h as __pageData,C as default};

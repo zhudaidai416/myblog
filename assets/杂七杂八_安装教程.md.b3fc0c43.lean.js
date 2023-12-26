@@ -1,1 +1,0 @@
-import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.d6bf9272.js";const m=JSON.parse('{"title":"各种安装教程","description":"","frontmatter":{},"headers":[],"relativePath":"杂七杂八/安装教程.md","lastUpdated":1697827767000}'),p={name:"杂七杂八/安装教程.md"},o=l("",5),e=[o];function t(r,c,i,C,y,A){return n(),a("div",null,e)}const d=s(p,[["render",t]]);export{m as __pageData,d as default};

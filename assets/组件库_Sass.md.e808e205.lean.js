@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.d6bf9272.js";const b=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"组件库/Sass.md","lastUpdated":1703606567000}'),p={name:"组件库/Sass.md"},e=l("",34),o=[e];function r(c,t,i,D,y,C){return n(),a("div",null,o)}const A=s(p,[["render",r]]);export{b as __pageData,A as default};
