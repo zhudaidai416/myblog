@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as a}from"./chunks/framework.d6bf9272.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"实战项目/插件使用.md","lastUpdated":1704647821000}'),r={name:"实战项目/插件使用.md"};function o(s,c,n,_,p,d){return t(),a("div")}const f=e(r,[["render",o]]);export{m as __pageData,f as default};

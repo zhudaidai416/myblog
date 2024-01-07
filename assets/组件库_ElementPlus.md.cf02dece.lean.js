@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.d6bf9272.js";const A=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"组件库/ElementPlus.md","lastUpdated":1704647821000}'),p={name:"组件库/ElementPlus.md"},o=l("",18),e=[o];function t(r,c,D,y,F,i){return n(),a("div",null,e)}const u=s(p,[["render",t]]);export{A as __pageData,u as default};

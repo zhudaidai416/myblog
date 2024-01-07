@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.d6bf9272.js";const A=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"杂七杂八/前期准备.md","lastUpdated":1704647821000}'),p={name:"杂七杂八/前期准备.md"},e=l("",47),o=[e];function r(t,c,i,y,D,C){return n(),a("div",null,o)}const b=s(p,[["render",r]]);export{A as __pageData,b as default};

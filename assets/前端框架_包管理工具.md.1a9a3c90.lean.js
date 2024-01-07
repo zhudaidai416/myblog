@@ -1,0 +1,1 @@
+import{_ as a,o as s,c as n,Q as t}from"./chunks/framework.d6bf9272.js";const _=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"前端框架/包管理工具.md","lastUpdated":1704647821000}'),e={name:"前端框架/包管理工具.md"},o=t("",5),p=[o];function l(r,d,c,i,m,u){return s(),n("div",null,p)}const y=a(e,[["render",l]]);export{_ as __pageData,y as default};
