@@ -40,11 +40,12 @@ export default {
       ]
     },
     {
-      text: '前端框架',
+      text: '状态管理库',
       collapsed: false,
       items: [
         { text: 'Vuex', link: '/前端框架/Vuex.md' },
         { text: 'Pinia', link: '/前端框架/Pinia.md' },
+        { text: '包管理器', link: '/前端框架/包管理工具.md' },
       ]
     }
   ],
@@ -139,6 +140,23 @@ export default {
         { text: '好用工具', link: '/其它/好用工具.md' },
       ]
     }
+  ],
+  '/实战项目/': [
+    {
+      text: '数据',
+      collapsed: false,
+      items: [
+        { text: '数据处理', link: '/实战项目/数据处理.md' },
+      ]
+    },
+    {
+      text: '插件',
+      collapsed: false,
+      items: [
+        { text: '好用插件', link: '/实战项目/插件使用.md' },
+      ]
+    },
+    { text: '文件上传', link: '/实战项目/文件上传.md' },
   ],
   '/面试相关/': [
     {

@@ -108,3 +108,45 @@ module.exports = {
 }
 ```
 
+## Upload 上传
+
+图片本地预览
+
+```vue
+<template>
+  <el-upload
+    class="avatar-uploader"
+    ref="uploadRef"
+    :show-file-list="false"
+    :auto-upload="false"
+    :on-change="onSelectFile">
+    <img v-if="imgUrl" :src="imgUrl" class="avatar" />
+    <el-icon v-else class="avatar-uploader-icon"><Plus /></el-icon>
+  </el-upload>
+  <!-- 另外写一个按钮也绑定上传的事件 -->
+  <el-button
+    type="primary"
+    :icon="Plus"
+    size="large"
+    @click="uploadRef.$el.querySelector('input').click()"
+    >选择图片
+  </el-button>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+const uploadRef = ref()
+const onSelectFile = (uploadFile) => {
+  // 本地图片预览
+  // imgUrl.value = URL.createObjectURL(uploadFile.raw)
+
+  // 基于 FileReader 读取图片预览
+  const reader = new FileReader()
+  reader.readAsDataURL(uploadFile.raw)
+  reader.onload = () => {
+    imgUrl.value = reader.result
+  }
+}
+</script>
+```
+
