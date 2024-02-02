@@ -1,1 +1,0 @@
-import{_ as s,o as a,c as n,Q as l}from"./chunks/framework.d6bf9272.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"组件库/ECharts.md","lastUpdated":1703606567000}'),p={name:"组件库/ECharts.md"},e=l("",20),o=[e];function t(r,c,i,D,F,y){return a(),n("div",null,o)}const d=s(p,[["render",t]]);export{m as __pageData,d as default};
