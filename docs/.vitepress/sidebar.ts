@@ -99,13 +99,8 @@ export default {
         { text: 'Element', link: '/组件库/Element.md' },
         { text: 'Element Plus', link: '/组件库/ElementPlus.md' },
         { text: 'ECharts', link: '/组件库/ECharts.md' },
-      ]
-    },
-    {
-      text: '地图',
-      collapsed: false,
-      items: [
         { text: '百度地图', link: '/组件库/百度地图.md' },
+        { text: '好用插件', link: '/组件库/插件使用.md' },
       ]
     },
     {
@@ -147,13 +142,6 @@ export default {
       collapsed: false,
       items: [
         { text: '数据处理', link: '/实战项目/数据处理.md' },
-      ]
-    },
-    {
-      text: '插件',
-      collapsed: false,
-      items: [
-        { text: '好用插件', link: '/实战项目/插件使用.md' },
       ]
     },
     { text: '文件上传', link: '/实战项目/文件上传.md' },

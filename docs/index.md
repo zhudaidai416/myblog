@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: 点一点
-      link: /前端基础/HTML.md
+      link: /前端框架/Vue2.md
 
     - theme: alt
       text: 面试题
