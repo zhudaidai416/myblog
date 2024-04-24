@@ -3,8 +3,8 @@ layout: home
 
 hero:
   name: 朱呆呆
-  text: 个人技术文档
-  tagline: 呆呆日常记录
+  text: 技术文档
+  tagline: 呆呆代码日常记录(●—●)
   image:
     src: images/logo.png
     alt: image
@@ -80,6 +80,5 @@ features:
     title: 呆呆日常
     details: 剪辑🎞、画画🎨...
     linkText: 前往查看
-    link: https://note.youdao.com/s/983OK7ep
-
+    link: https://zhudaidai.gitee.io
 ---
