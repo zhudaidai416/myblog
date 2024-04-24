@@ -56,7 +56,7 @@ features:
     title: 其它
     details: git、正则表达式...
     linkText: 前往查看
-    link: /其它/git.md
+    link: /其它/Git.md
 
   - icon: 🗂️
     title: 实战项目
