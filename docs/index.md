@@ -52,17 +52,17 @@ features:
     linkText: 前往查看
     link: /组件库/Sass.md
 
+  - icon: 🗂️
+    title: 前端实战项目
+    details: 实际开发项目知识点...
+    linkText: 前往查看
+    link: /实战项目/数据处理.md
+
   - icon: 🍁
     title: 其它
     details: git、正则表达式...
     linkText: 前往查看
     link: /其它/Git.md
-
-  - icon: 🗂️
-    title: 实战项目
-    details: 实际开发项目知识点...
-    linkText: 前往查看
-    link: /实战项目/数据处理.md
 
   - icon: 💭
     title: 面试相关
@@ -81,4 +81,16 @@ features:
     details: 剪辑🎞、画画🎨...
     linkText: 前往查看
     link: https://zhudaidai.gitee.io
+
+  - icon: 🍁
+    title: Java
+    details: Java...
+    linkText: 前往查看
+    link: /Java/Java基础.md
+
+  - icon: 🍁
+    title: Java
+    details: Java...
+    linkText: 前往查看
+    link: /Java/Java基础.md
 ---
