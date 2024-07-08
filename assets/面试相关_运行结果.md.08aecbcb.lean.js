@@ -1,1 +1,0 @@
-import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.d6bf9272.js";const A=JSON.parse('{"title":"请写出以下代码运行结果","description":"","frontmatter":{},"headers":[],"relativePath":"面试相关/运行结果.md","lastUpdated":1686243491000}'),p={name:"面试相关/运行结果.md"},o=l("",5),e=[o];function c(r,t,y,F,D,i){return n(),a("div",null,e)}const u=s(p,[["render",c]]);export{A as __pageData,u as default};

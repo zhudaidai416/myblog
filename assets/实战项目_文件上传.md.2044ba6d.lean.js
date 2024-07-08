@@ -1,1 +1,0 @@
-import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.d6bf9272.js";const C=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"实战项目/文件上传.md","lastUpdated":1704647821000}'),p={name:"实战项目/文件上传.md"},o=l("",5),e=[o];function r(t,c,F,D,y,i){return n(),a("div",null,e)}const u=s(p,[["render",r]]);export{C as __pageData,u as default};
