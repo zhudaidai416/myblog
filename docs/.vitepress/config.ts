@@ -1,16 +1,16 @@
-import { defineConfig } from 'vitepress';
+// import { defineConfig } from 'vitepress';
 import { nav } from './nav';
 import sidebar from './sidebar';
 import algolia from './algolia';
 
-export default defineConfig({
+export default {
 
     // 部署站点的 base URL，即仓库
     base: '/myblog/',
 
     // 标签页图标
     head: [
-        ['link', { rel: 'icon', href: 'images/logo2.png' }]
+        ['link', { rel: 'icon', href: '/images/logo2.png' }]
     ],
 
     // 站点语言、标题、描述
@@ -30,6 +30,7 @@ export default defineConfig({
 
     // markdown 配置
     markdown: {
+        // theme: 'dark',
         lineNumbers: true,
     },
 
@@ -39,7 +40,7 @@ export default defineConfig({
 
         // 标题和logo
         siteTitle: '⌨ 朱呆呆 ʘᴗʘ',
-        logo: 'images/logo.png',
+        logo: '/images/logo.png',
 
         // 导航栏
         nav,
@@ -48,7 +49,10 @@ export default defineConfig({
         sidebar,
 
         // 搜索
-        algolia,
+        search: {
+            provider: 'algolia',
+            options: algolia,
+        },
 
         // 社交链接
         socialLinks: [
@@ -85,4 +89,4 @@ export default defineConfig({
             next: '下一页'
         }
     }
-})
+}

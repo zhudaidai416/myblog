@@ -1,13 +1,13 @@
 :root {
   // 主色调
-  --vp-c-brand: #66a9c9;
+  --vp-c-brand-1: #66a9c9;
 
   // hero-name 样式
   --vp-home-hero-name-color: transparent;
   // --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #97A672, #C7DB79);
   --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #a6c1ee, #fbc2eb);
 
-  // 按钮样式
+  // 第一个按钮样式
   --vp-button-brand-border: #93a5cf;
   --vp-button-brand-text: var(--vp-c-white);
   --vp-button-brand-bg: #a6c1ee;
@@ -19,6 +19,12 @@
   --vp-button-brand-active-border: #93a5cf;
   --vp-button-brand-active-text: var(--vp-c-white);
   --vp-button-brand-active-bg: #a6c1ee;
+
+ // 第二个按钮样式
+  --vp-button-alt-bg: #f6f6f7;
+  --vp-button-alt-border: var(--vp-c-border);
+  --vp-button-alt-hover-border: var(--vp-c-border);
+  --vp-button-alt-active-border: var(--vp-c-border);
 }
 
 // features 样式
@@ -26,6 +32,16 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
   // transform: scale(105%);
   // transition: all 0.7s;
+}
+
+// 链接 hover 时样式
+.vp-doc a:hover {
+  color: rgba(255,182,185,.9);
+}
+
+// ``代码块样式
+.vp-doc :not(pre, h1, h2, h3, h4, h5, h6) > code {
+  color: #476582;
 }
 
 // 更新时间样式

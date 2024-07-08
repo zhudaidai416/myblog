@@ -80,17 +80,11 @@ features:
     title: 呆呆日常
     details: 剪辑🎞、画画🎨...
     linkText: 前往查看
-    link: https://zhudaidai.gitee.io
+    link: https://zhudaidai416.github.io
 
   - icon: 🍁
     title: Java
     details: Java...
     linkText: 前往查看
-    link: /Java/Java基础.md
-
-  - icon: 🍁
-    title: Java
-    details: Java...
-    linkText: 前往查看
-    link: /Java/Java基础.md
+    link: https://zhudaidai416.github.io/dai-blog
 ---
