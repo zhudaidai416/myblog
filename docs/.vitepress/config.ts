@@ -6,6 +6,10 @@ import algolia from './algolia';
 export default {
 
     // 部署站点的 base URL，即仓库
+    // 部署在 github page
+    // base: '/myblog/',
+
+    // 部署在 vercel
     base: '/',
 
     // 标签页图标
