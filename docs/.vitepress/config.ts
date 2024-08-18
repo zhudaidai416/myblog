@@ -6,7 +6,7 @@ import algolia from './algolia';
 export default {
 
     // 部署站点的 base URL，即仓库
-    base: '/myblog/',
+    base: '/',
 
     // 标签页图标
     head: [
