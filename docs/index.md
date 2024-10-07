@@ -86,5 +86,5 @@ features:
     title: Java
     details: Java...
     linkText: 前往查看
-    link: https://zhudaidai416.github.io/dai-blog
+    link: https://www.zhudaidai.top
 ---
